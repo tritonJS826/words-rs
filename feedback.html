@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Обратная связь — Сербский для жизни</title>
+<style>
+:root{--paper:#FFF8EC;--ink:#1d2a2e;--teal:#0F4C5C;--sun:#F2A900;--ok:#2E7D32;--bad:#B3261E;--line:#e3d6bb}
+*{box-sizing:border-box;margin:0}
+html{font-size:18px;-webkit-text-size-adjust:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--paper);color:var(--ink);min-height:100dvh;line-height:1.35}
+main{max-width:640px;margin:0 auto;padding:calc(8px + env(safe-area-inset-top,0px)) 14px 32px}
+h1{font-size:1.5rem;color:var(--teal);margin:4px 0 12px}
+h2{font-size:1.1rem;color:var(--teal);margin:20px 0 10px}
+p{color:#5b6b6f;margin-bottom:12px}
+a{color:var(--teal)}
+form{background:#fff;border:2px solid var(--line);border-radius:24px;padding:18px 16px}
+.field{margin-bottom:16px}
+label{display:block;font-weight:700;color:var(--teal);margin-bottom:6px;font-size:.95rem}
+.help{color:#5b6b6f;font-size:.82rem;margin-bottom:4px}
+.checkgroup{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0}
+.checkgroup label{display:inline-flex;align-items:center;gap:6px;font-weight:400;color:var(--ink);font-size:.9rem;cursor:pointer}
+.checkgroup input[type=checkbox]{width:18px;height:18px;accent-color:var(--teal)}
+textarea,input[type=text],input[type=email]{width:100%;font:inherit;padding:10px 12px;border:2px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);resize:vertical}
+textarea{min-height:80px}
+input:focus,textarea:focus{outline:none;border-color:var(--teal)}
+button{font:inherit;cursor:pointer;border:0;border-radius:16px;padding:12px 24px;min-height:54px;background:var(--teal);color:#fff;font-weight:700;font-size:1rem;width:100%;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+button:focus-visible{outline:4px solid var(--sun);outline-offset:3px}
+.backlink{display:inline-block;margin-top:16px;color:var(--teal);font-weight:700;text-decoration:none}
+.backlink:hover{text-decoration:underline}
+.radio-group{display:flex;flex-direction:column;gap:8px}
+.radio-group label{display:flex;align-items:center;gap:8px;font-weight:400;color:var(--ink);font-size:.9rem;cursor:pointer}
+.radio-group input[type=checkbox]{width:18px;height:18px;accent-color:var(--teal)}
+.success{display:none;background:#e6f4e7;border:2px solid var(--ok);border-radius:24px;padding:30px 16px;text-align:center;margin-top:20px}
+.success h2{color:var(--ok)}</style>
+</head>
+<body>
+<main>
+  <h1>✉️ Обратная связь</h1>
+  <p>Помогите сделать «Сербский для жизни» лучше. Все поля — по желанию.</p>
+
+  <form netlify method="POST" action="/feedback.html#success">
+    <div class="field">
+      <label>Что можно улучшить?</label>
+      <span class="help">Выберите, что вас не устраивает</span>
+      <div class="checkgroup">
+        <label><input type="checkbox" name="improve" value="interface"> Интерфейс</label>
+        <label><input type="checkbox" name="improve" value="content"> Содержание</label>
+        <label><input type="checkbox" name="improve" value="words"> Слова</label>
+        <label><input type="checkbox" name="improve" value="exercises"> Упражнения</label>
+        <label><input type="checkbox" name="improve" value="speed"> Скорость</label>
+        <label><input type="checkbox" name="improve" value="audio"> Озвучка</label>
+        <label><input type="checkbox" name="improve" value="other"> Другое</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="comment">Свободный комментарий</label>
+      <span class="help">Напишите всё, что думаете</span>
+      <textarea id="comment" name="comment" placeholder="Мне не хватает... / Было бы здорово, если..."></textarea>
+    </div>
+
+    <div class="field">
+      <label>Хотите помочь развитию проекта?</label>
+      <span class="help">Отметьте, чем можете быть полезны</span>
+      <div class="radio-group">
+        <label><input type="checkbox" name="help" value="translate"> Могу помочь с переводом</label>
+        <label><input type="checkbox" name="help" value="content"> Могу помочь с контентом (слова, диалоги)</label>
+        <label><input type="checkbox" name="help" value="code"> Могу помочь с кодом / вёрсткой</label>
+        <label><input type="checkbox" name="help" value="promo"> Могу рассказать о проекте</label>
+        <label><input type="checkbox" name="help" value="donate"> Могу поддержать материально</label>
+        <label><input type="checkbox" name="help" value="idea"> Есть идеи, но не умею кодить</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="email">Email (для связи)</label>
+      <span class="help">Если хотите получить ответ или участвовать в развитии</span>
+      <input type="email" id="email" name="email" placeholder="vas@primer.ru">
+    </div>
+
+    <div class="field">
+      <label for="name">Имя (как к вам обращаться)</label>
+      <input type="text" id="name" name="name" placeholder="Ана">
+    </div>
+
+    <button type="submit">✉️ Отправить</button>
+  </form>
+
+  <div class="success" id="success">
+    <h2>✅ Спасибо!</h2>
+    <p>Ваше сообщение отправлено. Мы прочитаем его в ближайшее время.</p>
+    <a class="backlink" href="/">← Вернуться к словам</a>
+  </div>
+
+  <a class="backlink" href="/">← На главную</a>
+</main>
+
+<script>
+if (window.location.hash === '#success') {
+  document.querySelector('form').style.display = 'none';
+  document.getElementById('success').style.display = 'block';
+}
+</script>
+</body>
+</html>

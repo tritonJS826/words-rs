@@ -132,26 +132,39 @@ function toCyr(s){
   return o;
 }
 const RATE = {slow:.6, normal:.85, fast:1.1};
-const GSPEED = {slow:.4, normal:.8, fast:1};
-const srVoices = () => ('speechSynthesis' in window ? speechSynthesis.getVoices() : []).filter(v=>/^(sr|hr|bs)/i.test(v.lang));
-let player = null;
+const srVoices = () => {
+  try { return ('speechSynthesis' in window ? speechSynthesis.getVoices() : []).filter(v=>/^(sr|hr|bs|sh)/i.test(v.lang)); }
+  catch(e){ return []; }
+};
 function say(text){
-  if (player){ player.pause(); player = null; }
   if ('speechSynthesis' in window) speechSynthesis.cancel();
-  const a = new Audio('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=sr&ttsspeed='+GSPEED[settings.speed]+'&q='+encodeURIComponent(toCyr(text)));
-  player = a;
-  let fell = false;
-  const fallback = () => { if (!fell){ fell = true; browserVoice(text); } };
-  a.onerror = fallback;
-  a.play().catch(fallback);
-}
-function browserVoice(text){
-  if (!('speechSynthesis' in window)) return;
-  const u = new SpeechSynthesisUtterance(text);
-  const v = srVoices()[0];
-  if (v){ u.voice=v; u.lang=v.lang; } else { u.lang='sr-RS'; }
-  u.rate = RATE[settings.speed];
-  speechSynthesis.speak(u);
+  try {
+    const v = srVoices();
+    if (v.length){
+      const u = new SpeechSynthesisUtterance(text);
+      u.voice = v[0]; u.lang = v[0].lang;
+      u.rate = RATE[settings.speed];
+      speechSynthesis.speak(u);
+      return;
+    }
+  } catch(e){}
+  const url = 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=sr&q='+encodeURIComponent(toCyr(text));
+  try {
+    const a = new Audio(url);
+    a.play().catch(()=>{
+      if ('speechSynthesis' in window) try {
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'sr-RS'; u.rate = RATE[settings.speed];
+        speechSynthesis.speak(u);
+      } catch(e){}
+    });
+  } catch(e){
+    if ('speechSynthesis' in window) try {
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'sr-RS'; u.rate = RATE[settings.speed];
+      speechSynthesis.speak(u);
+    } catch(e){}
+  }
 }
 
 const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -178,11 +191,14 @@ function applyDlg(d){
 function home(){
   setTab('home');
   if (!DATA){
-    $app.innerHTML = '<h1>Сербский для жизни</h1><p class="sub">Данные не загружены. Запустите merge.py, чтобы вставить слова и диалоги.</p>';
+    $app.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;margin:4px 0 2px"><h1 style="margin:0">Сербский для жизни</h1><a href="feedback.html" style="text-decoration:none;font-size:.85rem;color:var(--teal);white-space:nowrap">✉️ Связь</a></div><p class="sub">Данные не загружены. Запустите merge.py, чтобы вставить слова и диалоги.</p>';
     return;
   }
   $app.innerHTML = `
-    <h1>Сербский для жизни</h1>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin:4px 0 2px">
+      <h1 style="margin:0">Сербский для жизни</h1>
+      <a href="feedback.html" style="text-decoration:none;font-size:.85rem;color:var(--teal);white-space:nowrap">✉️ Связь</a>
+    </div>
     <p class="sub">Выберите тему и нажмите на неё</p>
     <div class="themes">
       ${DATA.themes.map(t=>`
