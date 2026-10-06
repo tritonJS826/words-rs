@@ -39,7 +39,7 @@ button:focus-visible{outline:4px solid var(--sun);outline-offset:3px}
   <h1>✉️ Обратная связь</h1>
   <p>Помогите сделать «Сербский для жизни» лучше. Все поля — по желанию.</p>
 
-  <form netlify method="POST" action="/feedback.html#success">
+  <form name="feedback" method="POST" data-netlify="true" action="/feedback.html?success">
     <div class="field">
       <label>Что можно улучшить?</label>
       <span class="help">Выберите, что вас не устраивает</span>
@@ -97,7 +97,7 @@ button:focus-visible{outline:4px solid var(--sun);outline-offset:3px}
 </main>
 
 <script>
-if (window.location.hash === '#success') {
+if (window.location.search === '?success') {
   document.querySelector('form').style.display = 'none';
   document.getElementById('success').style.display = 'block';
 }
