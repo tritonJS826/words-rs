@@ -416,24 +416,31 @@ async function speak(text, rate) {
   if (!text) return;
   if (currentAudio) { currentAudio.pause(); currentAudio = null; }
   if ('speechSynthesis' in window) speechSynthesis.cancel();
+  // 1 — Netlify Function (свой домен, без CORS)
   if (navigator.onLine) {
     try {
-      const url = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=sr&q=${encodeURIComponent(text)}`;
-      const audio = new Audio(url);
+      const audio = new Audio('/.netlify/functions/tts?text=' + encodeURIComponent(text));
       audio.playbackRate = rate || RATE[settings.speed];
+      currentAudio = audio;
       await audio.play();
-      currentAudio = audio; return;
-    } catch (e) {}
+      return;
+    } catch(e) {}
   }
-  if ('speechSynthesis' in window) {
+  // 2 — браузерный SpeechSynthesis
+  if (!('speechSynthesis' in window)) return;
+  try {
     const u = new SpeechSynthesisUtterance(text);
     u.lang = 'sr-RS'; u.rate = rate || RATE[settings.speed];
     const voices = speechSynthesis.getVoices();
     const v = voices.find(v => v.lang.startsWith('sr')) || voices.find(v => v.lang.startsWith('hr')) || voices.find(v => v.lang.startsWith('bs'));
     if (v) u.voice = v;
     speechSynthesis.speak(u);
-  }
+  } catch(e) {}
 }
+
+/* отладка звука — раскомментировать для диагностики */
+// window.debugSpeak = speak;
+// window.testSpeak = () => speak('zdravo');
 
 /* ==== НАВИГАЦИЯ ==== */
 const $app = document.getElementById('app');
