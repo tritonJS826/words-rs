@@ -2,226 +2,493 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Сербский для жизни</title>
 <style>
-:root{--paper:#FFF8EC;--ink:#1d2a2e;--teal:#0F4C5C;--sun:#F2A900;--ok:#2E7D32;--bad:#B3261E;--line:#e3d6bb}
+:root{
+  --paper:#FFF8EC;--paper-2:#FFFDF8;--ink:#1d2a2e;--ink-soft:#4a5c62;--ink-mute:#7a8a90;
+  --teal:#0F4C5C;--teal-2:#1a6a7e;--teal-3:#2a8598;--sun:#F2A900;--sun-2:#FFC53D;
+  --ok:#2E7D32;--ok-bg:#e8f5e9;--bad:#B3261E;--bad-bg:#fdecea;
+  --line:#e8dcc0;--line-soft:#f0e6d2;
+  --shadow-xs:0 1px 2px rgba(15,76,92,0.05);
+  --shadow-sm:0 1px 2px rgba(15,76,92,0.04), 0 2px 6px rgba(15,76,92,0.06);
+  --shadow-md:0 2px 4px rgba(15,76,92,0.06), 0 6px 16px rgba(15,76,92,0.08);
+  --shadow-sun:0 4px 14px rgba(242,169,0,0.30);
+  --r-sm:10px;--r-md:14px;--r-lg:20px;--r-xl:26px;
+}
 *{box-sizing:border-box;margin:0}
 html{font-size:18px;-webkit-text-size-adjust:100%}
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--paper);color:var(--ink);min-height:100dvh;line-height:1.35;padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  background:radial-gradient(1200px 600px at 50% -100px, #FFFCF3 0%, var(--paper) 60%);
+  color:var(--ink);min-height:100dvh;line-height:1.35;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom,0px));
+}
 main{max-width:640px;margin:0 auto;padding:calc(8px + env(safe-area-inset-top,0px)) 14px 16px}
-h1{font-size:1.5rem;color:var(--teal);margin:4px 0 2px}
-.sub{color:#5b6b6f;margin-bottom:12px}
-button{font:inherit;cursor:pointer;border:0;border-radius:16px;padding:12px 16px;min-height:54px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-button:focus-visible{outline:4px solid var(--sun);outline-offset:3px}
+h1{font-size:1.55rem;color:var(--teal);margin:4px 0 2px;font-weight:800;letter-spacing:-.015em}
+h2{font-size:1.2rem;color:var(--teal);margin:20px 0 10px;font-weight:800}
+.sub{color:var(--ink-mute);margin-bottom:14px;font-size:.95rem}
+button{
+  font:inherit;cursor:pointer;border:0;border-radius:var(--r-md);padding:12px 16px;
+  min-height:54px;-webkit-tap-highlight-color:transparent;touch-action:manipulation;
+  -webkit-user-select:none;user-select:none;
+}
 .themes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.theme{background:#fff;border:2px solid var(--line);text-align:center;padding:14px 6px;position:relative}
-.theme .e{font-size:2.3rem;display:block}
-.theme .n{font-weight:700;color:var(--teal);display:block;margin-top:4px}
-.theme .star{position:absolute;top:8px;right:10px}
-.top{display:flex;align-items:center;gap:12px;margin-bottom:8px;position:sticky;top:0;background:var(--paper);padding:6px 0;z-index:5}
-.back{background:#fff;border:2px solid var(--line);color:var(--teal);font-weight:700;min-height:46px;padding:8px 14px}
-.count{margin-left:auto;color:#5b6b6f}
-.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden;margin-bottom:10px}
-.bar i{display:block;height:100%;background:var(--sun);transition:width .25s}
-.card{background:#fff;border:2px solid var(--line);border-radius:24px;padding:16px 12px;text-align:center}
-.card .big{font-size:clamp(3.5rem,20vw,5rem);line-height:1.1}
-.card .ru{font-size:1.25rem;color:#5b6b6f;margin-top:4px}
-.card .sr{font-size:clamp(1.8rem,9vw,2.4rem);font-weight:800;color:var(--teal);margin-top:4px;word-break:break-word}
-.card.compact{padding:12px}
+.theme{
+  background:linear-gradient(180deg, #ffffff, var(--paper-2));
+  border:1px solid var(--line);border-radius:var(--r-lg);text-align:center;
+  padding:16px 8px;position:relative;box-shadow:var(--shadow-sm);
+  transition:transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.theme:hover{border-color:var(--sun);box-shadow:var(--shadow-md)}
+.theme:active{transform:scale(.98)}
+.theme .e{font-size:2.4rem;display:block;line-height:1.1;filter:drop-shadow(0 1px 1px rgba(0,0,0,0.06))}
+.theme .n{font-weight:700;color:var(--teal);display:block;margin-top:6px;font-size:.95rem}
+.theme .star{position:absolute;top:8px;right:10px;font-size:.9rem}
+.theme .imported-tag{
+  position:absolute;top:6px;left:6px;background:linear-gradient(180deg, #eaf3f5, #dde9ec);
+  color:var(--teal);border:1px solid #c8dde2;font-size:.62rem;padding:2px 6px;
+  border-radius:6px;font-weight:700;letter-spacing:.02em;
+}
+.top{
+  display:flex;align-items:center;gap:12px;position:sticky;top:0;margin:0 -14px 12px;
+  padding:calc(8px + env(safe-area-inset-top,0px)) 14px 8px;
+  background:rgba(255,248,236,0.88);
+  backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+  border-bottom:1px solid var(--line-soft);z-index:5;
+}
+.back{
+  background:linear-gradient(180deg, #fff, var(--paper-2));border:1px solid var(--line);
+  color:var(--teal);font-weight:700;min-height:44px;padding:8px 14px;
+  box-shadow:var(--shadow-xs);transition:transform .08s, box-shadow .15s;
+}
+.back:active{transform:scale(.97)}
+.count{
+  margin-left:auto;color:var(--ink-mute);font-size:.85rem;text-align:right;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%;
+}
+.bar{height:8px;background:var(--line-soft);border-radius:6px;overflow:hidden;margin-bottom:10px;box-shadow:inset 0 1px 2px rgba(15,76,92,0.06)}
+.bar i{display:block;height:100%;background:linear-gradient(90deg, var(--sun), var(--sun-2));box-shadow:0 1px 4px rgba(242,169,0,0.4);border-radius:6px;transition:width .3s}
+.card{background:linear-gradient(180deg, #fff, var(--paper-2));border:1px solid var(--line);border-radius:var(--r-xl);padding:20px 14px;text-align:center;box-shadow:var(--shadow-md)}
+.card .big{font-size:clamp(3.6rem,20vw,5rem);line-height:1.1;filter:drop-shadow(0 2px 2px rgba(0,0,0,0.05))}
+.card .ru{font-size:1.25rem;color:var(--ink-mute);margin-top:6px}
+.card .sr{font-size:clamp(1.8rem,9vw,2.4rem);font-weight:800;color:var(--teal);margin-top:6px;word-break:break-word;letter-spacing:-.005em}
+.card.compact{padding:14px}
 .card.compact .big{font-size:clamp(3rem,16vw,4rem)}
 .card.compact .sr{margin-top:0}
-.say{background:var(--sun);color:#1d2a2e;font-weight:800;font-size:1.1rem;width:100%;margin-top:12px}
+.say{background:linear-gradient(180deg, var(--sun-2), var(--sun));color:#1d2a2e;font-weight:800;font-size:1.05rem;width:100%;margin-top:14px;box-shadow:var(--shadow-sun);transition:transform .08s, filter .15s;border-radius:var(--r-md)}
+.say:active{transform:scale(.98);filter:brightness(.97)}
 .nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.nav button{background:var(--teal);color:#fff;font-weight:700;font-size:1rem;min-height:52px}
-.nav button.light{background:#fff;color:var(--teal);border:2px solid var(--line)}
-.nav button:disabled{opacity:.35;cursor:default}
+.nav button{background:linear-gradient(180deg, var(--teal-2), var(--teal));color:#fff;font-weight:700;font-size:1rem;min-height:52px;box-shadow:var(--shadow-sm);transition:transform .08s, box-shadow .15s, filter .15s}
+.nav button:hover{filter:brightness(1.05)}
+.nav button:active{transform:scale(.98);box-shadow:var(--shadow-xs)}
+.nav button.light{background:linear-gradient(180deg, #fff, var(--paper-2));color:var(--teal);border:1px solid var(--line);box-shadow:var(--shadow-xs)}
+.nav button:disabled{opacity:.35;cursor:default;box-shadow:none}
 .wide{grid-column:1/-1}
-.q{font-size:1.05rem;text-align:center;margin:8px 0 6px;color:#5b6b6f}
+.q{font-size:1.02rem;text-align:center;margin:10px 0 6px;color:var(--ink-soft)}
 .opts{display:grid;gap:8px;margin-top:8px}
-.opt{background:#fff;border:2px solid var(--line);font-size:1.3rem;font-weight:700;color:var(--teal);min-height:54px;padding:10px 12px}
-.opt.right{background:#e6f4e7;border-color:var(--ok);color:var(--ok)}
-.opt.wrong{background:#fbe9e7;border-color:var(--bad);color:var(--bad)}
-.msg{text-align:center;font-size:1.1rem;font-weight:700;min-height:1.6em;margin-top:8px}
-.res{text-align:center;padding:10px 0}
+.opt{background:linear-gradient(180deg, #fff, var(--paper-2));border:1.5px solid var(--line);font-size:1.28rem;font-weight:700;color:var(--teal);min-height:54px;padding:10px 12px;box-shadow:var(--shadow-sm);transition:transform .08s, border-color .15s, box-shadow .15s}
+.opt:hover{border-color:var(--sun)}
+.opt:active{transform:scale(.99)}
+.opt.right{background:linear-gradient(180deg, var(--ok-bg), #dcedc8);border-color:var(--ok);color:var(--ok)}
+.opt.wrong{background:linear-gradient(180deg, var(--bad-bg), #f9d9d5);border-color:var(--bad);color:var(--bad)}
+.msg{text-align:center;font-size:1.05rem;font-weight:700;min-height:1.6em;margin-top:8px}
+.res{text-align:center;padding:14px 0}
 .res .score{font-size:3.4rem;font-weight:800;color:var(--teal)}
 .hide{display:none}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-#tabs{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:2px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px))}
-#tabs button{background:transparent;color:#5b6b6f;font-weight:700;font-size:.72rem;padding:4px;min-height:48px;border-radius:14px}
-#tabs button span{display:block;font-size:1.3rem;line-height:1.2}
-#tabs button.on{background:#e8f1f3;color:var(--teal)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+#tabs{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(180deg, #ffffff, var(--paper-2));border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(15,76,92,0.06);display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:4px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:100}
+#tabs button{background:transparent;color:var(--ink-mute);font-weight:700;font-size:.66rem;padding:4px 2px;min-height:46px;border-radius:var(--r-sm);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background .15s, color .15s, transform .08s}
+#tabs button:active{transform:scale(.94)}
+#tabs button span{display:block;font-size:1.18rem;line-height:1.15}
+#tabs button .lbl-full{display:block}
+#tabs button .lbl-short{display:none}
+#tabs button.on{background:linear-gradient(180deg, #eaf3f5, #dde9ec);color:var(--teal);box-shadow:inset 0 1px 2px rgba(15,76,92,0.04)}
+@media (max-width:400px){
+  #tabs button{font-size:.6rem}
+  #tabs button span{font-size:1rem}
+  #tabs button .lbl-full{display:none}
+  #tabs button .lbl-short{display:block}
+  html{font-size:17px}
+  .themes{gap:8px}
+  .card{padding:14px 10px}
+}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.stat{background:#fff;border:2px solid var(--line);border-radius:20px;padding:10px;text-align:center}
-.stat b{display:block;font-size:1.6rem;color:var(--teal)}
-.stat small{color:#5b6b6f;font-size:.8rem}
-h2{font-size:1.2rem;color:var(--teal);margin:18px 0 10px}
-.row{background:#fff;border:2px solid var(--line);border-radius:18px;padding:10px 12px;margin-bottom:8px}
-.row .t{display:flex;justify-content:space-between;gap:8px;font-weight:700}
-.row .bar{margin:8px 0 4px;height:12px}
-.row small{color:#5b6b6f}
-.set{background:#fff;border:2px solid var(--line);border-radius:20px;padding:14px;margin-bottom:12px}
-.set label{display:block;font-weight:700;color:var(--teal);margin-bottom:8px}
+.stat{background:linear-gradient(180deg, #fff, var(--paper-2));border:1px solid var(--line);border-radius:var(--r-lg);padding:12px 10px;text-align:center;box-shadow:var(--shadow-sm)}
+.stat b{display:block;font-size:1.6rem;color:var(--teal);font-weight:800}
+.stat small{color:var(--ink-mute);font-size:.8rem}
+.row{background:linear-gradient(180deg, #fff, var(--paper-2));border:1px solid var(--line);border-radius:var(--r-md);padding:12px 14px;margin-bottom:8px;box-shadow:var(--shadow-xs)}
+.row .t{display:flex;justify-content:space-between;gap:8px;font-weight:700;align-items:baseline}
+.row .bar{margin:8px 0 4px;height:10px}
+.row small{color:var(--ink-mute);font-size:.82rem}
+.set{background:linear-gradient(180deg, #fff, var(--paper-2));border:1px solid var(--line);border-radius:var(--r-lg);padding:14px;margin-bottom:12px;box-shadow:var(--shadow-sm)}
+.set label{display:block;font-weight:700;color:var(--teal);margin-bottom:10px}
 .seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.seg button{background:#fff;border:2px solid var(--line);color:var(--teal);font-weight:700;padding:10px 4px;font-size:.9rem;min-height:48px}
-.seg button.on{background:var(--teal);color:#fff;border-color:var(--teal)}
-.note{color:#5b6b6f;font-size:.85rem;margin-top:8px}
-.flash{font-weight:700;min-height:1.4em;margin-top:10px;color:var(--ok)}
-.chat{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
-.bub{max-width:90%;padding:10px 14px;border-radius:18px;position:relative;background:#fff;border:2px solid var(--line)}
+.seg button{background:linear-gradient(180deg, #fff, var(--paper-2));border:1px solid var(--line);color:var(--teal);font-weight:700;padding:10px 4px;font-size:.9rem;min-height:48px;box-shadow:var(--shadow-xs);transition:transform .08s, background .15s}
+.seg button.on{background:linear-gradient(180deg, var(--teal-2), var(--teal));color:#fff;border-color:var(--teal);box-shadow:var(--shadow-sm)}
+.note{color:var(--ink-mute);font-size:.85rem;margin-top:10px;line-height:1.45}
+.chat{display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
+.bub{max-width:90%;padding:10px 14px;border-radius:18px;position:relative;background:linear-gradient(180deg, #fff, var(--paper-2));border:1px solid var(--line);box-shadow:var(--shadow-sm)}
 .bub.them{align-self:flex-start;border-bottom-left-radius:6px}
-.bub.me{align-self:flex-end;background:#e8f1f3;border-color:#b9d3d9;border-bottom-right-radius:6px}
-.bub .bs{font-weight:800;color:var(--teal);font-size:1.1rem;padding-right:34px}
-.bub .br{color:#5b6b6f;font-size:.82rem;margin-top:2px;padding-right:34px}
-.spk{position:absolute;right:4px;top:4px;min-height:36px;width:36px;padding:0;background:transparent;border-radius:50%;font-size:1rem}
-.hintru{text-align:center;color:#5b6b6f;margin:4px 0}
-.slot{min-height:64px;border:2px dashed var(--line);border-radius:16px;padding:8px;display:flex;flex-wrap:wrap;gap:8px;background:#fff;margin:8px 0;align-items:center}
-.tiles{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.tile{min-height:48px;padding:8px 14px;background:#fff;border:2px solid var(--line);color:var(--teal);font-weight:800;font-size:1.1rem;border-radius:14px}
-.slot .tile{background:var(--teal);color:#fff;border-color:var(--teal)}
+.bub.me{align-self:flex-end;background:linear-gradient(180deg, #eaf3f5, #dde9ec);border-color:#c8dde2;border-bottom-right-radius:6px}
+.bub .bs{font-weight:800;color:var(--teal);font-size:1.08rem;padding-right:36px;line-height:1.3}
+.bub .br{color:var(--ink-mute);font-size:.82rem;margin-top:3px;padding-right:36px}
+.spk{position:absolute;right:6px;top:6px;min-height:36px;width:36px;padding:0;background:transparent;border-radius:50%;font-size:1rem;transition:background .15s, transform .08s}
+.spk:hover{background:rgba(15,76,92,0.06)}
+.spk:active{transform:scale(.9)}
+.hintru{text-align:center;color:var(--ink-soft);margin:6px 0;font-size:.92rem}
+.slot{min-height:68px;border:2px dashed var(--line);border-radius:var(--r-md);padding:10px;display:flex;flex-wrap:wrap;gap:8px;background:linear-gradient(180deg, #fff, var(--paper-2));margin:10px 0;align-items:center}
+.tiles{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px}
+.tile{min-height:48px;padding:8px 14px;background:linear-gradient(180deg, #fff, var(--paper-2));border:1.5px solid var(--line);color:var(--teal);font-weight:800;font-size:1.05rem;border-radius:var(--r-md);box-shadow:var(--shadow-xs);transition:transform .08s, border-color .15s, box-shadow .15s}
+.tile:hover{border-color:var(--sun)}
+.tile:active{transform:scale(.96)}
+.slot .tile{background:linear-gradient(180deg, var(--teal-2), var(--teal));color:#fff;border-color:var(--teal);box-shadow:var(--shadow-sm)}
 .opts.emo{grid-template-columns:repeat(3,1fr)}
-.opts.emo .opt{font-size:2.6rem;min-height:92px;padding:6px}
-@media (min-width:600px){ html{font-size:20px} }
+.opts.emo .opt{font-size:2.6rem;min-height:96px;padding:6px}
+.abc{display:grid;grid-template-columns:repeat(auto-fill,minmax(56px,1fr));gap:8px}
+.lt{background:linear-gradient(180deg, #fff, var(--paper-2));border:1.5px solid var(--line);color:var(--teal);font-weight:800;font-size:1.3rem;min-height:56px;padding:6px 2px;box-shadow:var(--shadow-xs);transition:transform .08s, border-color .15s;border-radius:var(--r-sm)}
+.lt:hover{border-color:var(--sun)}
+.lt.on{background:linear-gradient(180deg, var(--teal-2), var(--teal));color:#fff;border-color:var(--teal);box-shadow:var(--shadow-sm)}
+.lesson-block{background:linear-gradient(180deg, #fff, var(--paper-2));border:1px solid var(--line);border-radius:var(--r-lg);padding:16px;margin-bottom:12px;position:relative;cursor:pointer;-webkit-user-select:none;user-select:none;box-shadow:var(--shadow-sm);transition:transform .12s, box-shadow .2s, border-color .2s}
+.lesson-block:hover{box-shadow:var(--shadow-md);border-color:var(--sun)}
+.lesson-block:active{transform:scale(.985)}
+.lesson-block h3{color:var(--teal);font-size:1.05rem;margin-bottom:6px;line-height:1.3}
+.lesson-block p{color:var(--ink-soft);font-size:.9rem;margin-bottom:8px;line-height:1.4}
+.lesson-block small{color:var(--teal);font-size:.85rem;font-weight:700}
+.lesson-block .num{display:inline-block;background:linear-gradient(180deg, var(--sun-2), var(--sun));color:#1d2a2e;font-weight:800;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;margin-right:8px;font-size:.85rem;box-shadow:0 1px 3px rgba(242,169,0,0.35)}
+.lesson-block .imported-tag{display:inline-block;background:linear-gradient(180deg, #eaf3f5, #dde9ec);color:var(--teal);border:1px solid #c8dde2;font-size:.7rem;padding:2px 8px;border-radius:8px;margin-left:6px;font-weight:700}
+@media (max-width:400px){.lesson-block{padding:14px}}
+.lesson-content{background:linear-gradient(180deg, #fff, var(--paper-2));border:1px solid var(--line);border-radius:var(--r-lg);padding:18px;margin-bottom:14px;overflow-wrap:break-word;word-wrap:break-word;box-shadow:var(--shadow-sm);line-height:1.5}
+.lesson-content h2{color:var(--teal);font-size:1.15rem;margin-bottom:12px;margin-top:0}
+.lesson-content p{margin-bottom:12px;color:var(--ink)}
+.lesson-content .example{background:linear-gradient(180deg, #f4f9fa, #ecf4f6);border-left:4px solid var(--teal);padding:12px 14px;border-radius:10px;margin:12px 0;font-size:.95rem;line-height:1.55}
+.lesson-content table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92rem}
+.lesson-content td,.lesson-content th{border:1px solid var(--line);padding:8px 10px;text-align:left;word-break:break-word}
+.lesson-content th{background:linear-gradient(180deg, #f4f9fa, #ecf4f6);font-weight:700}
+.lesson-content pre{background:linear-gradient(180deg, var(--paper-2), #fff);border:1px solid var(--line-soft);padding:12px;border-radius:10px;overflow-x:auto;font-size:.78rem;line-height:1.4;font-family:ui-monospace,"SF Mono",Consolas,monospace}
+.quiz-box{background:linear-gradient(180deg, #fdf8ef, #fbf2e0);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px;margin-top:12px;box-shadow:var(--shadow-xs)}
+.quiz-box .q{font-size:1rem;margin-bottom:10px;text-align:left;color:var(--ink)}
+.quiz-box .opts{gap:6px}
+.quiz-box .opt{min-height:46px;font-size:1rem}
+.example-box{background:linear-gradient(180deg, var(--paper-2), #fff);border:1px solid var(--line-soft);border-radius:var(--r-md);padding:12px;margin:12px 0}
+.example-box pre{background:transparent;padding:0;margin:0 0 10px;max-height:160px;overflow:auto;font-size:.72rem;line-height:1.45;font-family:ui-monospace,"SF Mono",Consolas,monospace;white-space:pre-wrap;word-break:break-all}
+.copy-example{width:100%;background:linear-gradient(180deg, #fff, var(--paper-2));border:1px solid var(--line);color:var(--teal);font-weight:700;min-height:42px;font-size:.88rem;box-shadow:var(--shadow-xs);transition:transform .08s, border-color .15s}
+.copy-example:hover{border-color:var(--sun)}
+.copy-example:active{transform:scale(.98)}
+.file-label{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(180deg, #fff, var(--paper-2));border:1.5px dashed var(--line);color:var(--teal);font-weight:700;padding:14px 16px;border-radius:var(--r-md);cursor:pointer;margin:10px 0;min-height:54px;transition:border-color .15s, background .15s}
+.file-label:hover{border-color:var(--sun);background:#fffef9}
+.file-label input{display:none}
+
+/* Кнопка «Добавить» наверху */
+.add-btn{
+  display:flex;align-items:center;gap:8px;
+  width:100%;margin:0 0 14px;
+  background:linear-gradient(180deg, #fff, var(--paper-2));
+  border:1px solid var(--line);
+  color:var(--teal);font-weight:700;font-size:.95rem;
+  min-height:48px;padding:10px 16px;
+  box-shadow:var(--shadow-xs);
+  border-radius:var(--r-md);
+  justify-content:center;
+  transition:transform .08s, border-color .15s, box-shadow .15s;
+}
+.add-btn:hover{border-color:var(--sun);box-shadow:var(--shadow-sm)}
+.add-btn:active{transform:scale(.98)}
+
+.manual-paste-box{
+  margin:12px 0;padding:14px;
+  background:linear-gradient(180deg, #eaf3f5, #dde9ec);
+  border:2px dashed var(--teal);
+  border-radius:var(--r-md);
+  animation:slideDown .2s ease;
+}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.manual-paste-box .hint{
+  color:var(--teal);font-weight:700;font-size:.9rem;
+  text-align:center;margin-bottom:10px;line-height:1.4;
+}
+.manual-paste-box .hint b{background:var(--teal);color:#fff;padding:2px 8px;border-radius:6px;font-weight:800}
+.manual-paste-box textarea{
+  width:100%;min-height:140px;
+  font-family:ui-monospace,"SF Mono",Consolas,monospace;
+  font-size:16px;line-height:1.4;padding:12px;
+  border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);
+  resize:vertical;-webkit-user-select:text;user-select:text;-webkit-appearance:none;outline:none;
+}
+.manual-paste-box textarea:focus{border-color:var(--sun);box-shadow:0 0 0 3px rgba(242,169,0,0.15)}
+.manual-paste-box .parser-status{
+  font-size:.85rem;color:var(--ink-soft);margin-top:8px;text-align:center;font-weight:600;
+}
+.manual-paste-box .parser-status.ok{color:var(--ok)}
+.manual-paste-box .parser-status.bad{color:var(--bad)}
+
+@media (min-width:600px){html{font-size:20px}}
 </style>
 </head>
 <body>
 <main id="app"></main>
 <nav id="tabs">
-  <button data-p="home"><span>🏠</span>Темы</button>
-  <button data-p="dialogs"><span>💬</span>Диалоги</button>
-  <button data-p="stats"><span>📊</span>Успехи</button>
-  <button data-p="settings"><span>⚙️</span>Настройки</button>
+  <button data-p="home"><span>🏠</span><span class="lbl-full">Темы</span><span class="lbl-short">Темы</span></button>
+  <button data-p="lesson"><span>📖</span><span class="lbl-full">Урок</span><span class="lbl-short">Урок</span></button>
+  <button data-p="dialogs"><span>💬</span><span class="lbl-full">Диалоги</span><span class="lbl-short">Диал.</span></button>
+  <button data-p="tests"><span>📝</span><span class="lbl-full">Тесты</span><span class="lbl-short">Тесты</span></button>
+  <button data-p="alphabet"><span>🔤</span><span class="lbl-full">Азбука</span><span class="lbl-short">Азбука</span></button>
+  <button data-p="stats"><span>📊</span><span class="lbl-full">Успехи</span><span class="lbl-short">Успехи</span></button>
+  <button data-p="settings"><span>⚙️</span><span class="lbl-full">Настройки</span><span class="lbl-short">Опции</span></button>
 </nav>
 <script>
-<!-- START_DATA_INJECTION -->
-    const wordsData = [{"id": "greetings", "name": "Приветствия и фразы", "emoji": "👋", "words": [{"e": "👋", "ru": "привет", "sr": "zdravo"}, {"e": "🙋", "ru": "здравствуйте", "sr": "dobar dan"}, {"e": "🚪", "ru": "пока", "sr": "doviđenja"}, {"e": "✅", "ru": "да", "sr": "da"}, {"e": "❌", "ru": "нет", "sr": "ne"}, {"e": "🙏", "ru": "спасибо", "sr": "hvala"}, {"e": "🤲", "ru": "пожалуйста", "sr": "molim"}, {"e": "😔", "ru": "извините", "sr": "izvinite"}, {"e": "🌅", "ru": "доброе утро", "sr": "dobro jutro"}, {"e": "☀️", "ru": "добрый день", "sr": "dobar dan"}, {"e": "🌆", "ru": "добрый вечер", "sr": "dobro veče"}, {"e": "🌙", "ru": "спокойной ночи", "sr": "laku noć"}, {"e": "🤔", "ru": "как дела?", "sr": "kako si?"}, {"e": "👍", "ru": "хорошо", "sr": "dobro"}, {"e": "👎", "ru": "плохо", "sr": "loše"}, {"e": "📛", "ru": "меня зовут", "sr": "zovem se"}, {"e": "🤝", "ru": "очень приятно", "sr": "drago mi je"}, {"e": "🍀", "ru": "удачи", "sr": "srećno"}, {"e": "🎉", "ru": "поздравляю", "sr": "čestitam"}, {"e": "🎂", "ru": "с днём рождения", "sr": "srećan rođendan"}, {"e": "🎄", "ru": "с новым годом", "sr": "srećna Nova godina"}, {"e": "🏠", "ru": "добро пожаловать", "sr": "dobro došli"}, {"e": "🙇", "ru": "простите", "sr": "oprostite"}, {"e": "💯", "ru": "конечно", "sr": "naravno"}, {"e": "🤷", "ru": "может быть", "sr": "možda"}, {"e": "❓", "ru": "я не знаю", "sr": "ne znam"}, {"e": "💡", "ru": "я понимаю", "sr": "razumem"}, {"e": "❔", "ru": "я не понимаю", "sr": "ne razumem"}, {"e": "🐢", "ru": "говорите медленнее", "sr": "govorite sporije"}, {"e": "🔁", "ru": "повторите", "sr": "ponovite"}, {"e": "🗣️", "ru": "как это сказать?", "sr": "kako se to kaže?"}, {"e": "❕", "ru": "что это?", "sr": "šta je to?"}, {"e": "💰", "ru": "сколько стоит?", "sr": "koliko košta?"}, {"e": "📍", "ru": "где находится?", "sr": "gde se nalazi?"}, {"e": "🆘", "ru": "помогите!", "sr": "upomoć!"}, {"e": "⚠️", "ru": "осторожно!", "sr": "pažnja!"}, {"e": "🛑", "ru": "стоп!", "sr": "stop!"}, {"e": "🏃", "ru": "иди!", "sr": "idi!"}, {"e": "🕐", "ru": "сейчас", "sr": "sada"}, {"e": "⏳", "ru": "потом", "sr": "kasnije"}]}, {"id": "family", "name": "Семья и люди", "emoji": "👨‍👩‍👧", "words": [{"e": "👨‍👩‍👧", "ru": "семья", "sr": "porodica"}, {"e": "👩", "ru": "мама", "sr": "majka"}, {"e": "👨", "ru": "папа", "sr": "otac"}, {"e": "👫", "ru": "родители", "sr": "roditelji"}, {"e": "👦", "ru": "сын", "sr": "sin"}, {"e": "👧", "ru": "дочь", "sr": "ćerka"}, {"e": "🧑", "ru": "брат", "sr": "brat"}, {"e": "👩‍🦰", "ru": "сестра", "sr": "sestra"}, {"e": "👵", "ru": "бабушка", "sr": "baba"}, {"e": "👴", "ru": "дедушка", "sr": "deda"}, {"e": "🧒", "ru": "внук", "sr": "unuk"}, {"e": "👶", "ru": "младенец", "sr": "beba"}, {"e": "🤵", "ru": "муж", "sr": "muž"}, {"e": "👰", "ru": "жена", "sr": "žena"}, {"e": "🧑‍🎓", "ru": "мальчик", "sr": "dečak"}, {"e": "👧", "ru": "девочка", "sr": "devojčica"}, {"e": "🧔", "ru": "мужчина", "sr": "muškarac"}, {"e": "👩‍🦱", "ru": "женщина", "sr": "žena"}, {"e": "🤝", "ru": "друг", "sr": "prijatelj"}, {"e": "👭", "ru": "подруга", "sr": "prijateljica"}, {"e": "🏘️", "ru": "сосед", "sr": "komšija"}, {"e": "👩‍⚕️", "ru": "тётя", "sr": "tetka"}, {"e": "👨‍🦱", "ru": "дядя", "sr": "teča"}, {"e": "🧑‍🍼", "ru": "племянник", "sr": "sinovac"}, {"e": "👩‍🍼", "ru": "племянница", "sr": "sinovica"}, {"e": "🧑‍🤝‍🧑", "ru": "двоюродный брат", "sr": "rođak"}, {"e": "👩‍🤝‍👩", "ru": "двоюродная сестра", "sr": "rođaka"}, {"e": "🤵‍♂️", "ru": "жених", "sr": "mladoženja"}, {"e": "👰‍♀️", "ru": "невеста", "sr": "nevesta"}, {"e": "👵", "ru": "свекровь", "sr": "svekrva"}, {"e": "👴", "ru": "тесть", "sr": "tast"}, {"e": "🧑‍💼", "ru": "зять", "sr": "zet"}, {"e": "👩‍💼", "ru": "невестка", "sr": "snaha"}, {"e": "⛪", "ru": "крёстный", "sr": "kum"}, {"e": "👯", "ru": "близнецы", "sr": "blizanci"}, {"e": "🧑", "ru": "взрослый", "sr": "odrastao"}, {"e": "🧓", "ru": "пожилой", "sr": "starac"}, {"e": "🧑", "ru": "человек", "sr": "čovek"}, {"e": "👪", "ru": "родственник", "sr": "rođak"}, {"e": "💑", "ru": "пара", "sr": "par"}]}, {"id": "professions", "name": "Профессии", "emoji": "👮", "words": [{"e": "👮", "ru": "полицейский", "sr": "policajac"}, {"e": "👨‍⚕️", "ru": "врач", "sr": "lekar"}, {"e": "👩‍⚕️", "ru": "медсестра", "sr": "medicinska sestra"}, {"e": "👨‍🏫", "ru": "учитель", "sr": "učitelj"}, {"e": "👨‍🍳", "ru": "повар", "sr": "kuvar"}, {"e": "🤵", "ru": "официант", "sr": "konobar"}, {"e": "👨‍🌾", "ru": "фермер", "sr": "poljoprivrednik"}, {"e": "👷", "ru": "строитель", "sr": "građevinar"}, {"e": "👨‍🔧", "ru": "механик", "sr": "mehaničar"}, {"e": "👨‍💼", "ru": "менеджер", "sr": "menadžer"}, {"e": "👩‍💻", "ru": "программист", "sr": "programer"}, {"e": "👨‍🎨", "ru": "художник", "sr": "umetnik"}, {"e": "👨‍🎤", "ru": "певец", "sr": "pevač"}, {"e": "👨‍🎬", "ru": "актёр", "sr": "glumac"}, {"e": "📝", "ru": "журналист", "sr": "novinar"}, {"e": "⚖️", "ru": "юрист", "sr": "pravnik"}, {"e": "👨‍✈️", "ru": "пилот", "sr": "pilot"}, {"e": "💂", "ru": "солдат", "sr": "vojnik"}, {"e": "🚒", "ru": "пожарный", "sr": "vatrogasac"}, {"e": "🚑", "ru": "водитель скорой", "sr": "vozač hitne"}, {"e": "💼", "ru": "бизнесмен", "sr": "biznismen"}, {"e": "🏦", "ru": "банкир", "sr": "bankar"}, {"e": "📚", "ru": "библиотекарь", "sr": "bibliotekar"}, {"e": "🔬", "ru": "учёный", "sr": "naučnik"}, {"e": "👨‍🔬", "ru": "химик", "sr": "hemičar"}, {"e": "🧑‍🌾", "ru": "садовник", "sr": "baštovan"}, {"e": "🧑‍🏭", "ru": "рабочий", "sr": "radnik"}, {"e": "🧑‍💻", "ru": "инженер", "sr": "inženjer"}, {"e": "✂️", "ru": "парикмахер", "sr": "frizer"}, {"e": "💅", "ru": "маникюрша", "sr": "manikirka"}, {"e": "👗", "ru": "портной", "sr": "krojač"}, {"e": "🔑", "ru": "слесарь", "sr": "bravar"}, {"e": "🔌", "ru": "электрик", "sr": "električar"}, {"e": "🚚", "ru": "водитель", "sr": "vozač"}, {"e": "🚕", "ru": "таксист", "sr": "taksista"}, {"e": "📮", "ru": "почтальон", "sr": "poštar"}, {"e": "🧹", "ru": "уборщик", "sr": "čistač"}, {"e": "🛡️", "ru": "охранник", "sr": "čuvar"}, {"e": "🧑‍⚖️", "ru": "судья", "sr": "sudija"}, {"e": "🎓", "ru": "студент", "sr": "student"}]}, {"id": "body", "name": "Тело и внешность", "emoji": "🖐️", "words": [{"e": "🧑", "ru": "тело", "sr": "telo"}, {"e": "👁️", "ru": "глаз", "sr": "oko"}, {"e": "👂", "ru": "ухо", "sr": "uvo"}, {"e": "👃", "ru": "нос", "sr": "nos"}, {"e": "👄", "ru": "рот", "sr": "usta"}, {"e": "🦷", "ru": "зуб", "sr": "zub"}, {"e": "👅", "ru": "язык", "sr": "jezik"}, {"e": "💋", "ru": "губы", "sr": "usne"}, {"e": "✋", "ru": "рука", "sr": "ruka"}, {"e": "🦵", "ru": "нога", "sr": "noga"}, {"e": "🦶", "ru": "стопа", "sr": "stopalo"}, {"e": "🖐️", "ru": "ладонь", "sr": "dlan"}, {"e": "👆", "ru": "палец", "sr": "prst"}, {"e": "💪", "ru": "плечо", "sr": "rame"}, {"e": "🦴", "ru": "кость", "sr": "kost"}, {"e": "❤️", "ru": "сердце", "sr": "srce"}, {"e": "🧠", "ru": "мозг", "sr": "mozak"}, {"e": "🫁", "ru": "лёгкие", "sr": "pluća"}, {"e": "🫀", "ru": "печень", "sr": "jetra"}, {"e": "🩸", "ru": "кровь", "sr": "krv"}, {"e": "💇", "ru": "волосы", "sr": "kosa"}, {"e": "🧑‍🦲", "ru": "голова", "sr": "glava"}, {"e": "🦱", "ru": "локон", "sr": "kovrdža"}, {"e": "🧔", "ru": "борода", "sr": "brada"}, {"e": "👨‍🦰", "ru": "усы", "sr": "brkovi"}, {"e": "👁️‍🗨️", "ru": "бровь", "sr": "obrva"}, {"e": "💅", "ru": "ноготь", "sr": "nokat"}, {"e": "🦻", "ru": "слух", "sr": "sluh"}, {"e": "👀", "ru": "зрение", "sr": "vid"}, {"e": "🫂", "ru": "объятие", "sr": "zagrljaj"}, {"e": "🤲", "ru": "кулак", "sr": "pesnica"}, {"e": "🦿", "ru": "колено", "sr": "koleno"}, {"e": "🦾", "ru": "локоть", "sr": "lakat"}, {"e": "🫶", "ru": "сердце в руках", "sr": "srce u rukama"}, {"e": "👤", "ru": "силуэт", "sr": "silueta"}, {"e": "🧍", "ru": "стоять", "sr": "stajati"}, {"e": "🧎", "ru": "сидеть на коленях", "sr": "klečati"}, {"e": "🤸", "ru": "гибкость", "sr": "gipkost"}, {"e": "💆", "ru": "массаж", "sr": "masaža"}, {"e": "🩹", "ru": "пластырь", "sr": "flaster"}]}, {"id": "food", "name": "Еда", "emoji": "🍎", "words": [{"e": "🍞", "ru": "хлеб", "sr": "hleb"}, {"e": "🧀", "ru": "сыр", "sr": "sir"}, {"e": "🥛", "ru": "молоко", "sr": "mleko"}, {"e": "🥚", "ru": "яйцо", "sr": "jaje"}, {"e": "🥩", "ru": "мясо", "sr": "meso"}, {"e": "🍗", "ru": "курица", "sr": "piletina"}, {"e": "🐟", "ru": "рыба", "sr": "riba"}, {"e": "🍚", "ru": "рис", "sr": "pirinač"}, {"e": "🍝", "ru": "паста", "sr": "testenina"}, {"e": "🍲", "ru": "суп", "sr": "supa"}, {"e": "🥔", "ru": "картофель", "sr": "krompir"}, {"e": "🍅", "ru": "помидор", "sr": "paradajz"}, {"e": "🥒", "ru": "огурец", "sr": "krastavac"}, {"e": "🥕", "ru": "морковь", "sr": "šargarepa"}, {"e": "🧅", "ru": "лук", "sr": "luk"}, {"e": "🧄", "ru": "чеснок", "sr": "beli luk"}, {"e": "🥬", "ru": "капуста", "sr": "kupus"}, {"e": "🥦", "ru": "брокколи", "sr": "brokoli"}, {"e": "🍄", "ru": "гриб", "sr": "pečurka"}, {"e": "🌽", "ru": "кукуруза", "sr": "kukuruz"}, {"e": "🫘", "ru": "фасоль", "sr": "pasulj"}, {"e": "🥜", "ru": "орех", "sr": "orah"}, {"e": "🍯", "ru": "мёд", "sr": "med"}, {"e": "🧈", "ru": "масло", "sr": "puter"}, {"e": "🫒", "ru": "оливковое масло", "sr": "maslinovo ulje"}, {"e": "🧂", "ru": "соль", "sr": "so"}, {"e": "🌶️", "ru": "перец", "sr": "biber"}, {"e": "🍕", "ru": "пицца", "sr": "pica"}, {"e": "🍔", "ru": "бургер", "sr": "burger"}, {"e": "🌭", "ru": "хот-дог", "sr": "hot-dog"}, {"e": "🥪", "ru": "бутерброд", "sr": "sendvič"}, {"e": "🥗", "ru": "салат", "sr": "salata"}, {"e": "🍟", "ru": "картошка фри", "sr": "pomfrit"}, {"e": "🍳", "ru": "омлет", "sr": "omlet"}, {"e": "🥞", "ru": "блины", "sr": "palačinke"}, {"e": "🍩", "ru": "пончик", "sr": "krofna"}, {"e": "🍫", "ru": "шоколад", "sr": "čokolada"}, {"e": "🍦", "ru": "мороженое", "sr": "sladoled"}, {"e": "🍰", "ru": "торт", "sr": "torta"}, {"e": "🍪", "ru": "печенье", "sr": "kolač"}]}, {"id": "drinks", "name": "Напитки", "emoji": "☕", "words": [{"e": "☕", "ru": "кофе", "sr": "kafa"}, {"e": "🍵", "ru": "чай", "sr": "čaj"}, {"e": "💧", "ru": "вода", "sr": "voda"}, {"e": "🧃", "ru": "сок", "sr": "sok"}, {"e": "🥤", "ru": "газировка", "sr": "gazirano piće"}, {"e": "🍺", "ru": "пиво", "sr": "pivo"}, {"e": "🍷", "ru": "вино", "sr": "vino"}, {"e": "🥂", "ru": "шампанское", "sr": "šampanjac"}, {"e": "🥃", "ru": "виски", "sr": "viski"}, {"e": "🍸", "ru": "коктейль", "sr": "koktel"}, {"e": "🍹", "ru": "тропический коктейль", "sr": "tropski koktel"}, {"e": "🍾", "ru": "бутылка", "sr": "flaša"}, {"e": "🧉", "ru": "мате", "sr": "mate"}, {"e": "🥛", "ru": "стакан молока", "sr": "čaša mleka"}, {"e": "🫖", "ru": "чайник", "sr": "čajnik"}, {"e": "🍶", "ru": "саке", "sr": "sake"}, {"e": "🍶", "ru": "граппа", "sr": "rakija"}, {"e": "🫗", "ru": "разлив", "sr": "točenje"}, {"e": "🧊", "ru": "лёд", "sr": "led"}, {"e": "🥤", "ru": "лимонад", "sr": "limunada"}, {"e": "🍋", "ru": "лимонад", "sr": "limunada"}, {"e": "🫖", "ru": "горячий чай", "sr": "vruć čaj"}, {"e": "🧊", "ru": "холодный напиток", "sr": "hladno piće"}, {"e": "☕", "ru": "капучино", "sr": "kapučino"}, {"e": "☕", "ru": "эспрессо", "sr": "espreso"}, {"e": "🥛", "ru": "какао", "sr": "kakao"}, {"e": "🍶", "ru": "водка", "sr": "vodka"}, {"e": "🍷", "ru": "красное вино", "sr": "crno vino"}, {"e": "🥂", "ru": "тост", "sr": "zdravica"}, {"e": "🍻", "ru": "кружки пива", "sr": "krigle piva"}, {"e": "🧋", "ru": "бабл-ти", "sr": "bubble tea"}, {"e": "🥛", "ru": "кефир", "sr": "kefir"}, {"e": "🧃", "ru": "яблочный сок", "sr": "sok od jabuke"}, {"e": "🧃", "ru": "апельсиновый сок", "sr": "sok od pomorandže"}, {"e": "💧", "ru": "минеральная вода", "sr": "mineralna voda"}, {"e": "💧", "ru": "газированная вода", "sr": "gazirana voda"}, {"e": "🥤", "ru": "кола", "sr": "kola"}, {"e": "🧊", "ru": "кубик льда", "sr": "kocka leda"}, {"e": "☕", "ru": "латте", "sr": "late"}, {"e": "🍵", "ru": "зелёный чай", "sr": "zeleni čaj"}]}, {"id": "fruits", "name": "Фрукты и ягоды", "emoji": "🍎", "words": [{"e": "🍎", "ru": "яблоко", "sr": "jabuka"}, {"e": "🍏", "ru": "зелёное яблоко", "sr": "zelena jabuka"}, {"e": "🍐", "ru": "груша", "sr": "kruška"}, {"e": "🍊", "ru": "мандарин", "sr": "mandarina"}, {"e": "🍋", "ru": "лимон", "sr": "limun"}, {"e": "🍌", "ru": "банан", "sr": "banana"}, {"e": "🍉", "ru": "арбуз", "sr": "lubenica"}, {"e": "🍇", "ru": "виноград", "sr": "grožđe"}, {"e": "🍓", "ru": "земляника", "sr": "jagoda"}, {"e": "🫐", "ru": "черника", "sr": "borovnica"}, {"e": "🍈", "ru": "дыня", "sr": "dinja"}, {"e": "🍒", "ru": "вишня", "sr": "višnja"}, {"e": "🍑", "ru": "персик", "sr": "breskva"}, {"e": "🥭", "ru": "манго", "sr": "mango"}, {"e": "🍍", "ru": "ананас", "sr": "ananas"}, {"e": "🥥", "ru": "кокос", "sr": "kokos"}, {"e": "🥝", "ru": "киви", "sr": "kivi"}, {"e": "🍅", "ru": "томат", "sr": "paradajz"}, {"e": "🫒", "ru": "оливка", "sr": "maslina"}, {"e": "🌰", "ru": "каштан", "sr": "kesten"}, {"e": "🥜", "ru": "арахис", "sr": "kikiriki"}, {"e": "🍇", "ru": "изюм", "sr": "grožđice"}, {"e": "🍊", "ru": "апельсин", "sr": "pomorandža"}, {"e": "🍋‍🟩", "ru": "лайм", "sr": "limeta"}, {"e": "🍎", "ru": "гранат", "sr": "nar"}, {"e": "🍐", "ru": "айва", "sr": "dunja"}, {"e": "🍒", "ru": "черешня", "sr": "trešnja"}, {"e": "🫐", "ru": "ежевика", "sr": "kupina"}, {"e": "🍓", "ru": "малина", "sr": "malina"}, {"e": "🍇", "ru": "смородина", "sr": "ribizla"}, {"e": "🥝", "ru": "крыжовник", "sr": "ogrozd"}, {"e": "🍑", "ru": "абрикос", "sr": "kajsija"}, {"e": "🍈", "ru": "папайя", "sr": "papaja"}, {"e": "🍍", "ru": "гуава", "sr": "guava"}, {"e": "🥭", "ru": "мангостин", "sr": "mangostin"}, {"e": "🍌", "ru": "плантан", "sr": "plantan"}, {"e": "🥥", "ru": "кокосовое молоко", "sr": "kokosovo mleko"}, {"e": "🌰", "ru": "жёлудь", "sr": "žir"}, {"e": "🍒", "ru": "черешня", "sr": "trešnja"}, {"e": "🍇", "ru": "виноград без косточек", "sr": "grožđe bez semenki"}]}, {"id": "vegetables", "name": "Овощи и зелень", "emoji": "🥕", "words": [{"e": "🥕", "ru": "морковь", "sr": "šargarepa"}, {"e": "🥔", "ru": "картофель", "sr": "krompir"}, {"e": "🍅", "ru": "помидор", "sr": "paradajz"}, {"e": "🥒", "ru": "огурец", "sr": "krastavac"}, {"e": "🧅", "ru": "лук", "sr": "luk"}, {"e": "🧄", "ru": "чеснок", "sr": "beli luk"}, {"e": "🥬", "ru": "капуста", "sr": "kupus"}, {"e": "🥦", "ru": "брокколи", "sr": "brokoli"}, {"e": "🥬", "ru": "шпинат", "sr": "spanać"}, {"e": "🥗", "ru": "салат", "sr": "salata"}, {"e": "🌽", "ru": "кукуруза", "sr": "kukuruz"}, {"e": "🫘", "ru": "фасоль", "sr": "pasulj"}, {"e": "🫛", "ru": "горох", "sr": "grašak"}, {"e": "🍆", "ru": "баклажан", "sr": "patlidžan"}, {"e": "🫑", "ru": "болгарский перец", "sr": "paprika"}, {"e": "🌶️", "ru": "острый перец", "sr": "ljuta paprika"}, {"e": "🍄", "ru": "гриб", "sr": "pečurka"}, {"e": "🎃", "ru": "тыква", "sr": "bundeva"}, {"e": "🥒", "ru": "кабачок", "sr": "tikvica"}, {"e": "🥬", "ru": "сельдерей", "sr": "celer"}, {"e": "🥬", "ru": "петрушка", "sr": "peršun"}, {"e": "🌿", "ru": "укроп", "sr": "kopar"}, {"e": "🌿", "ru": "базилик", "sr": "bosiljak"}, {"e": "🌿", "ru": "мята", "sr": "nana"}, {"e": "🌿", "ru": "розмарин", "sr": "ruzmarin"}, {"e": "🌿", "ru": "тимьян", "sr": "timijan"}, {"e": "🥬", "ru": "редис", "sr": "rotkvica"}, {"e": "🥬", "ru": "свёкла", "sr": "cvekla"}, {"e": "🥬", "ru": "репа", "sr": "repa"}, {"e": "🥬", "ru": "брюква", "sr": "keleraba"}, {"e": "🥬", "ru": "артишок", "sr": "artičoka"}, {"e": "🥬", "ru": "спаржа", "sr": "špargla"}, {"e": "🥬", "ru": "лук-порей", "sr": "praziluk"}, {"e": "🧅", "ru": "лук-шалот", "sr": "šalot"}, {"e": "🥬", "ru": "мангольд", "sr": "blitva"}, {"e": "🥬", "ru": "руккола", "sr": "rukola"}, {"e": "🥬", "ru": "цикорий", "sr": "cikorija"}, {"e": "🥬", "ru": "эндивий", "sr": "endivija"}, {"e": "🌱", "ru": "росток", "sr": "klica"}, {"e": "🌱", "ru": "проростки", "sr": "prokelj"}]}, {"id": "animals", "name": "Животные", "emoji": "🐶", "words": [{"e": "🐶", "ru": "собака", "sr": "pas"}, {"e": "🐱", "ru": "кошка", "sr": "mačka"}, {"e": "🐴", "ru": "лошадь", "sr": "konj"}, {"e": "🐄", "ru": "корова", "sr": "krava"}, {"e": "🐷", "ru": "свинья", "sr": "svinja"}, {"e": "🐑", "ru": "овца", "sr": "ovca"}, {"e": "🐐", "ru": "коза", "sr": "koza"}, {"e": "🐔", "ru": "курица", "sr": "kokoška"}, {"e": "🐓", "ru": "петух", "sr": "petao"}, {"e": "🦆", "ru": "утка", "sr": "patka"}, {"e": "🦢", "ru": "гусь", "sr": "guska"}, {"e": "🦃", "ru": "индюк", "sr": "ćurka"}, {"e": "🐰", "ru": "заяц", "sr": "zec"}, {"e": "🐻", "ru": "медведь", "sr": "medved"}, {"e": "🦁", "ru": "лев", "sr": "lav"}, {"e": "🐯", "ru": "тигр", "sr": "tigar"}, {"e": "🐘", "ru": "слон", "sr": "slon"}, {"e": "🦒", "ru": "жираф", "sr": "žirafa"}, {"e": "🦓", "ru": "зебра", "sr": "zebra"}, {"e": "🐒", "ru": "обезьяна", "sr": "majmun"}, {"e": "🐺", "ru": "волк", "sr": "vuk"}, {"e": "🦊", "ru": "лиса", "sr": "lisica"}, {"e": "🦌", "ru": "олень", "sr": "jelen"}, {"e": "🐗", "ru": "кабан", "sr": "divlja svinja"}, {"e": "🐭", "ru": "мышь", "sr": "miš"}, {"e": "🐀", "ru": "крыса", "sr": "pacov"}, {"e": "🐹", "ru": "хомяк", "sr": "hrčak"}, {"e": "🐿️", "ru": "белка", "sr": "veverica"}, {"e": "🦔", "ru": "ёж", "sr": "jež"}, {"e": "🦇", "ru": "летучая мышь", "sr": "slepi miš"}, {"e": "🐦", "ru": "птица", "sr": "ptica"}, {"e": "🦅", "ru": "орёл", "sr": "orao"}, {"e": "🦉", "ru": "сова", "sr": "sova"}, {"e": "🦜", "ru": "попугай", "sr": "papagaj"}, {"e": "🐧", "ru": "пингвин", "sr": "pingvin"}, {"e": "🐢", "ru": "черепаха", "sr": "kornjača"}, {"e": "🐍", "ru": "змея", "sr": "zmija"}, {"e": "🦎", "ru": "ящерица", "sr": "gušter"}, {"e": "🐸", "ru": "лягушка", "sr": "žaba"}, {"e": "🐝", "ru": "пчела", "sr": "pčela"}]}, {"id": "nature", "name": "Природа и погода", "emoji": "☀️", "words": [{"e": "☀️", "ru": "солнце", "sr": "sunce"}, {"e": "🌙", "ru": "луна", "sr": "mesec"}, {"e": "⭐", "ru": "звезда", "sr": "zvezda"}, {"e": "☁️", "ru": "облако", "sr": "oblak"}, {"e": "🌧️", "ru": "дождь", "sr": "kiša"}, {"e": "⛈️", "ru": "гроза", "sr": "grmljavina"}, {"e": "❄️", "ru": "снег", "sr": "sneg"}, {"e": "🌨️", "ru": "снегопад", "sr": "snežne padavine"}, {"e": "💨", "ru": "ветер", "sr": "vetar"}, {"e": "⚡", "ru": "молния", "sr": "grom"}, {"e": "🌈", "ru": "радуга", "sr": "duga"}, {"e": "🌊", "ru": "море", "sr": "more"}, {"e": "🏖️", "ru": "пляж", "sr": "plaža"}, {"e": "⛰️", "ru": "гора", "sr": "planina"}, {"e": "🌋", "ru": "вулкан", "sr": "vulkan"}, {"e": "🌳", "ru": "дерево", "sr": "drvo"}, {"e": "🌲", "ru": "сосна", "sr": "bor"}, {"e": "🌴", "ru": "пальма", "sr": "palma"}, {"e": "🌵", "ru": "кактус", "sr": "kaktus"}, {"e": "🌷", "ru": "тюльпан", "sr": "tulipan"}, {"e": "🌹", "ru": "роза", "sr": "ruža"}, {"e": "🌻", "ru": "подсолнух", "sr": "suncokret"}, {"e": "🌼", "ru": "ромашка", "sr": "kamilica"}, {"e": "🌸", "ru": "сакура", "sr": "trešnjin cvet"}, {"e": "💐", "ru": "букет", "sr": "buket"}, {"e": "🍀", "ru": "клевер", "sr": "detelina"}, {"e": "🍁", "ru": "кленовый лист", "sr": "javorov list"}, {"e": "🍂", "ru": "осенние листья", "sr": "jesenje lišće"}, {"e": "🌾", "ru": "пшеница", "sr": "pšenica"}, {"e": "🌱", "ru": "росток", "sr": "klica"}, {"e": "🌿", "ru": "трава", "sr": "trava"}, {"e": "🪵", "ru": "бревно", "sr": "trupac"}, {"e": "🪨", "ru": "камень", "sr": "kamen"}, {"e": "🏜️", "ru": "пустыня", "sr": "pustinja"}, {"e": "🏝️", "ru": "остров", "sr": "ostrvo"}, {"e": "🌅", "ru": "рассвет", "sr": "zora"}, {"e": "🌇", "ru": "закат", "sr": "zalazak sunca"}, {"e": "🌌", "ru": "млечный путь", "sr": "mlečni put"}, {"e": "🌍", "ru": "земля", "sr": "zemlja"}, {"e": "🌡️", "ru": "температура", "sr": "temperatura"}]}, {"id": "home", "name": "Дом и мебель", "emoji": "🏠", "words": [{"e": "🏠", "ru": "дом", "sr": "kuća"}, {"e": "🏡", "ru": "дом с садом", "sr": "kuća sa baštom"}, {"e": "🏢", "ru": "здание", "sr": "zgrada"}, {"e": "🚪", "ru": "дверь", "sr": "vrata"}, {"e": "🪟", "ru": "окно", "sr": "prozor"}, {"e": "🧱", "ru": "стена", "sr": "zid"}, {"e": "🪜", "ru": "лестница", "sr": "lestve"}, {"e": "🛏️", "ru": "кровать", "sr": "krevet"}, {"e": "🛋️", "ru": "диван", "sr": "kauč"}, {"e": "🪑", "ru": "стул", "sr": "stolica"}, {"e": "🪞", "ru": "зеркало", "sr": "ogledalo"}, {"e": "🚽", "ru": "туалет", "sr": "toalet"}, {"e": "🚿", "ru": "душ", "sr": "tuš"}, {"e": "🛁", "ru": "ванна", "sr": "kada"}, {"e": "🧴", "ru": "шампунь", "sr": "šampon"}, {"e": "🧼", "ru": "мыло", "sr": "sapun"}, {"e": "🧻", "ru": "бумага", "sr": "papir"}, {"e": "🪣", "ru": "ведро", "sr": "kanta"}, {"e": "🧹", "ru": "метла", "sr": "metla"}, {"e": "🧺", "ru": "корзина для белья", "sr": "korpa za veš"}, {"e": "🧽", "ru": "губка", "sr": "sunđer"}, {"e": "🕯️", "ru": "свеча", "sr": "sveća"}, {"e": "💡", "ru": "лампа", "sr": "lampa"}, {"e": "🔌", "ru": "розетка", "sr": "utičnica"}, {"e": "🔋", "ru": "батарея", "sr": "baterija"}, {"e": "📺", "ru": "телевизор", "sr": "televizor"}, {"e": "📻", "ru": "радио", "sr": "radio"}, {"e": "❄️", "ru": "кондиционер", "sr": "klima"}, {"e": "🔥", "ru": "отопление", "sr": "grejanje"}, {"e": "🕰️", "ru": "часы", "sr": "sat"}, {"e": "🖼️", "ru": "картина", "sr": "slika"}, {"e": "🪴", "ru": "растение", "sr": "biljka"}, {"e": "🧸", "ru": "игрушка", "sr": "igračka"}, {"e": "🔑", "ru": "ключ", "sr": "ključ"}, {"e": "🚪", "ru": "замок", "sr": "brava"}, {"e": "🛗", "ru": "лифт", "sr": "lift"}, {"e": "🪟", "ru": "балкон", "sr": "balkon"}, {"e": "🏘️", "ru": "соседи", "sr": "komšije"}, {"e": "🏚️", "ru": "старый дом", "sr": "stara kuća"}, {"e": "⛺", "ru": "палатка", "sr": "šator"}]}, {"id": "kitchen", "name": "Кухня и посуда", "emoji": "🍳", "words": [{"e": "🍳", "ru": "кухня", "sr": "kuhinja"}, {"e": "🍽️", "ru": "тарелка", "sr": "tanjir"}, {"e": "🥣", "ru": "миска", "sr": "činija"}, {"e": "🥄", "ru": "ложка", "sr": "kašika"}, {"e": "🍴", "ru": "вилка", "sr": "viljuška"}, {"e": "🔪", "ru": "нож", "sr": "nož"}, {"e": "🥢", "ru": "палочки", "sr": "štapići"}, {"e": "🥤", "ru": "стакан", "sr": "čaša"}, {"e": "☕", "ru": "чашка", "sr": "šolja"}, {"e": "🫖", "ru": "чайник", "sr": "čajnik"}, {"e": "🍶", "ru": "бутылка", "sr": "flaša"}, {"e": "🫙", "ru": "банка", "sr": "tegla"}, {"e": "🥫", "ru": "консервная банка", "sr": "konzerva"}, {"e": "🧂", "ru": "солонка", "sr": "slanik"}, {"e": "🧊", "ru": "холодильник", "sr": "frižider"}, {"e": "🍳", "ru": "сковорода", "sr": "tiganj"}, {"e": "🥘", "ru": "кастрюля", "sr": "šerpa"}, {"e": "🍲", "ru": "котелок", "sr": "kotlić"}, {"e": "🔥", "ru": "плита", "sr": "šporet"}, {"e": "📡", "ru": "микроволновка", "sr": "mikrotalasna"}, {"e": "🫕", "ru": "пароварка", "sr": "parionica"}, {"e": "🥣", "ru": "дуршлаг", "sr": "cediljka"}, {"e": "🧹", "ru": "веник", "sr": "metla"}, {"e": "🧽", "ru": "тряпка", "sr": "krpa"}, {"e": "🧴", "ru": "средство для мытья", "sr": "sredstvo za pranje"}, {"e": "🧼", "ru": "мыло для посуды", "sr": "sapun za sudove"}, {"e": "🪣", "ru": "мусорное ведро", "sr": "kanta za smeće"}, {"e": "🗑️", "ru": "мусор", "sr": "smeće"}, {"e": "♻️", "ru": "переработка", "sr": "reciklaža"}, {"e": "🥡", "ru": "коробка для еды", "sr": "kutija za hranu"}, {"e": "🍱", "ru": "бенто", "sr": "bento"}, {"e": "🧊", "ru": "морозилка", "sr": "zamrzivač"}, {"e": "💧", "ru": "кран", "sr": "slavina"}, {"e": "🔥", "ru": "духовка", "sr": "pećnica"}, {"e": "🥄", "ru": "половник", "sr": "kutlača"}, {"e": "🥢", "ru": "шпажка", "sr": "čačkalica"}, {"e": "🍽️", "ru": "столовые приборы", "sr": "pribor za jelo"}, {"e": "🧊", "ru": "форма для льда", "sr": "kalup za led"}, {"e": "🧂", "ru": "специи", "sr": "začini"}, {"e": "🥗", "ru": "салатница", "sr": "činija za salatu"}]}, {"id": "clothes", "name": "Одежда и обувь", "emoji": "👕", "words": [{"e": "👕", "ru": "футболка", "sr": "majica"}, {"e": "👔", "ru": "рубашка", "sr": "košulja"}, {"e": "👖", "ru": "джинсы", "sr": "farmerke"}, {"e": "🩳", "ru": "шорты", "sr": "šorts"}, {"e": "👗", "ru": "платье", "sr": "haljina"}, {"e": "👘", "ru": "юбка", "sr": "suknja"}, {"e": "🧥", "ru": "пальто", "sr": "kaput"}, {"e": "🧥", "ru": "куртка", "sr": "jakna"}, {"e": "🦺", "ru": "жилет", "sr": "prsluk"}, {"e": "🥼", "ru": "халат", "sr": "mantil"}, {"e": "👚", "ru": "блузка", "sr": "bluza"}, {"e": "🩱", "ru": "купальник", "sr": "kupaći kostim"}, {"e": "🩲", "ru": "трусы", "sr": "gaće"}, {"e": "🩳", "ru": "пижама", "sr": "pidžama"}, {"e": "🧦", "ru": "носки", "sr": "čarape"}, {"e": "🧤", "ru": "перчатки", "sr": "rukavice"}, {"e": "🧣", "ru": "шарф", "sr": "šal"}, {"e": "🎩", "ru": "шляпа", "sr": "šešir"}, {"e": "🧢", "ru": "кепка", "sr": "kapa"}, {"e": "👒", "ru": "панама", "sr": "šešir za sunce"}, {"e": "👑", "ru": "корона", "sr": "kruna"}, {"e": "👟", "ru": "кроссовки", "sr": "patike"}, {"e": "👞", "ru": "ботинки", "sr": "cipele"}, {"e": "👠", "ru": "туфли", "sr": "štikle"}, {"e": "👢", "ru": "сапоги", "sr": "čizme"}, {"e": "🩴", "ru": "сандалии", "sr": "sandale"}, {"e": "🥾", "ru": "ботинки для hiking", "sr": "planinarske cipele"}, {"e": "👡", "ru": "босоножки", "sr": "sandale"}, {"e": "👜", "ru": "сумка", "sr": "tašna"}, {"e": "👛", "ru": "кошелёк", "sr": "novčanik"}, {"e": "🎒", "ru": "рюкзак", "sr": "ranac"}, {"e": "🧳", "ru": "чемодан", "sr": "kofer"}, {"e": "⌚", "ru": "часы", "sr": "sat"}, {"e": "💍", "ru": "кольцо", "sr": "prsten"}, {"e": "💎", "ru": "бриллиант", "sr": "dijamant"}, {"e": "📿", "ru": "ожерелье", "sr": "ogrlica"}, {"e": "👓", "ru": "очки", "sr": "naočare"}, {"e": "🕶️", "ru": "солнечные очки", "sr": "sunčane naočare"}, {"e": "🧷", "ru": "булавка", "sr": "čioda"}, {"e": "🎀", "ru": "бант", "sr": "mašna"}]}, {"id": "colors", "name": "Цвета и формы", "emoji": "🎨", "words": [{"e": "🔴", "ru": "красный", "sr": "crvena"}, {"e": "🔵", "ru": "синий", "sr": "plava"}, {"e": "🟡", "ru": "жёлтый", "sr": "žuta"}, {"e": "🟢", "ru": "зелёный", "sr": "zelena"}, {"e": "🟠", "ru": "оранжевый", "sr": "narandžasta"}, {"e": "🟣", "ru": "фиолетовый", "sr": "ljubičasta"}, {"e": "🟤", "ru": "коричневый", "sr": "braon"}, {"e": "⚫", "ru": "чёрный", "sr": "crna"}, {"e": "⚪", "ru": "белый", "sr": "bela"}, {"e": "🩷", "ru": "розовый", "sr": "roze"}, {"e": "🩵", "ru": "голубой", "sr": "svetloplava"}, {"e": "🩶", "ru": "серый", "sr": "siva"}, {"e": "🟥", "ru": "красный квадрат", "sr": "crveni kvadrat"}, {"e": "🟦", "ru": "синий квадрат", "sr": "plavi kvadrat"}, {"e": "🟨", "ru": "жёлтый квадрат", "sr": "žuti kvadrat"}, {"e": "🟩", "ru": "зелёный квадрат", "sr": "zeleni kvadrat"}, {"e": "🟧", "ru": "оранжевый квадрат", "sr": "narandžasti kvadrat"}, {"e": "🟪", "ru": "фиолетовый квадрат", "sr": "ljubičasti kvadrat"}, {"e": "🟫", "ru": "коричневый квадрат", "sr": "braon kvadrat"}, {"e": "⬛", "ru": "чёрный квадрат", "sr": "crni kvadrat"}, {"e": "⬜", "ru": "белый квадрат", "sr": "beli kvadrat"}, {"e": "🔶", "ru": "большой ромб", "sr": "veliki romb"}, {"e": "🔷", "ru": "синий ромб", "sr": "plavi romb"}, {"e": "🔸", "ru": "маленький ромб", "sr": "mali romb"}, {"e": "🔹", "ru": "синий малый ромб", "sr": "mali plavi romb"}, {"e": "🔺", "ru": "треугольник вверх", "sr": "trougao gore"}, {"e": "🔻", "ru": "треугольник вниз", "sr": "trougao dole"}, {"e": "⭕", "ru": "круг", "sr": "krug"}, {"e": "❌", "ru": "крестик", "sr": "iks"}, {"e": "➕", "ru": "плюс", "sr": "plus"}, {"e": "➖", "ru": "минус", "sr": "minus"}, {"e": "➗", "ru": "деление", "sr": "deljenje"}, {"e": "✖️", "ru": "умножение", "sr": "množenje"}, {"e": "💠", "ru": "ромб с точкой", "sr": "romb sa tačkom"}, {"e": "🔘", "ru": "кнопка", "sr": "dugme"}, {"e": "🔳", "ru": "белая кнопка", "sr": "belo dugme"}, {"e": "🔲", "ru": "чёрная кнопка", "sr": "crno dugme"}, {"e": "▪️", "ru": "маленький чёрный квадрат", "sr": "mali crni kvadrat"}, {"e": "▫️", "ru": "маленький белый квадрат", "sr": "mali beli kvadrat"}, {"e": "◼️", "ru": "средний чёрный квадрат", "sr": "srednji crni kvadrat"}]}, {"id": "numbers", "name": "Числа и время", "emoji": "🔢", "words": [{"e": "0️⃣", "ru": "ноль", "sr": "nula"}, {"e": "1️⃣", "ru": "один", "sr": "jedan"}, {"e": "2️⃣", "ru": "два", "sr": "dva"}, {"e": "3️⃣", "ru": "три", "sr": "tri"}, {"e": "4️⃣", "ru": "четыре", "sr": "četiri"}, {"e": "5️⃣", "ru": "пять", "sr": "pet"}, {"e": "6️⃣", "ru": "шесть", "sr": "šest"}, {"e": "7️⃣", "ru": "семь", "sr": "sedam"}, {"e": "8️⃣", "ru": "восемь", "sr": "osam"}, {"e": "9️⃣", "ru": "девять", "sr": "devet"}, {"e": "🔟", "ru": "десять", "sr": "deset"}, {"e": "💯", "ru": "сто", "sr": "sto"}, {"e": "🔢", "ru": "число", "sr": "broj"}, {"e": "➕", "ru": "сложение", "sr": "sabiranje"}, {"e": "➖", "ru": "вычитание", "sr": "oduzimanje"}, {"e": "🕐", "ru": "час", "sr": "sat"}, {"e": "🕑", "ru": "два часа", "sr": "dva sata"}, {"e": "⏰", "ru": "будильник", "sr": "budilnik"}, {"e": "⌚", "ru": "наручные часы", "sr": "ručni sat"}, {"e": "📅", "ru": "календарь", "sr": "kalendar"}, {"e": "📆", "ru": "отрывной календарь", "sr": "kalendar"}, {"e": "🗓️", "ru": "планировщик", "sr": "planer"}, {"e": "⏳", "ru": "песочные часы", "sr": "peščani sat"}, {"e": "⏱️", "ru": "секундомер", "sr": "štoperica"}, {"e": "⏲️", "ru": "таймер", "sr": "tajmer"}, {"e": "🌅", "ru": "утро", "sr": "jutro"}, {"e": "☀️", "ru": "день", "sr": "dan"}, {"e": "🌆", "ru": "вечер", "sr": "veče"}, {"e": "🌙", "ru": "ночь", "sr": "noć"}, {"e": "📅", "ru": "неделя", "sr": "nedelja"}, {"e": "🗓️", "ru": "месяц", "sr": "mesec"}, {"e": "📆", "ru": "год", "sr": "godina"}, {"e": "🎄", "ru": "праздник", "sr": "praznik"}, {"e": "🎂", "ru": "день рождения", "sr": "rođendan"}, {"e": "⏰", "ru": "минута", "sr": "minut"}, {"e": "⏱️", "ru": "секунда", "sr": "sekunda"}, {"e": "🕛", "ru": "полдень", "sr": "podne"}, {"e": "🕛", "ru": "полночь", "sr": "ponoć"}, {"e": "📅", "ru": "сегодня", "sr": "danas"}, {"e": "📅", "ru": "завтра", "sr": "sutra"}]}, {"id": "transport", "name": "Транспорт", "emoji": "🚌", "words": [{"e": "🚌", "ru": "автобус", "sr": "autobus"}, {"e": "🚆", "ru": "поезд", "sr": "voz"}, {"e": "✈️", "ru": "самолёт", "sr": "avion"}, {"e": "🚢", "ru": "корабль", "sr": "brod"}, {"e": "🚲", "ru": "велосипед", "sr": "bicikl"}, {"e": "🚕", "ru": "такси", "sr": "taksi"}, {"e": "🏍️", "ru": "мотоцикл", "sr": "motor"}, {"e": "🚚", "ru": "грузовик", "sr": "kamion"}, {"e": "🚗", "ru": "машина", "sr": "automobil"}, {"e": "🚙", "ru": "внедорожник", "sr": "džip"}, {"e": "🚐", "ru": "фургон", "sr": "kombi"}, {"e": "🚓", "ru": "полицейская машина", "sr": "policijski auto"}, {"e": "🚑", "ru": "скорая", "sr": "hitna pomoć"}, {"e": "🚒", "ru": "пожарная машина", "sr": "vatrogasno vozilo"}, {"e": "🚜", "ru": "трактор", "sr": "traktor"}, {"e": "🛴", "ru": "самокат", "sr": "trotinet"}, {"e": "🛵", "ru": "скутер", "sr": "skuter"}, {"e": "🚁", "ru": "вертолёт", "sr": "helikopter"}, {"e": "🛰️", "ru": "спутник", "sr": "satelit"}, {"e": "🚀", "ru": "ракета", "sr": "raketa"}, {"e": "⛵", "ru": "парусник", "sr": "jedrilica"}, {"e": "🛶", "ru": "каноэ", "sr": "kanu"}, {"e": "🚤", "ru": "катер", "sr": "gliser"}, {"e": "⛴️", "ru": "паром", "sr": "trajekt"}, {"e": "🚉", "ru": "вокзал", "sr": "stanica"}, {"e": "🚏", "ru": "остановка", "sr": "autobuska stanica"}, {"e": "🛬", "ru": "аэропорт", "sr": "aerodrom"}, {"e": "🎫", "ru": "билет", "sr": "karta"}, {"e": "🧳", "ru": "багаж", "sr": "prtljag"}, {"e": "🛣️", "ru": "дорога", "sr": "put"}, {"e": "🚦", "ru": "светофор", "sr": "semafor"}, {"e": "🅿️", "ru": "парковка", "sr": "parking"}, {"e": "⛽", "ru": "заправка", "sr": "benzinska pumpa"}, {"e": "🛞", "ru": "колесо", "sr": "točak"}, {"e": "🚧", "ru": "стройка", "sr": "radovi"}, {"e": "🚨", "ru": "сирена", "sr": "sirena"}, {"e": "🗺️", "ru": "карта", "sr": "mapa"}, {"e": "🧭", "ru": "компас", "sr": "kompas"}, {"e": "🚸", "ru": "пешеходный переход", "sr": "pešački prelaz"}, {"e": "🛑", "ru": "знак стоп", "sr": "znak stop"}]}, {"id": "city", "name": "Город и места", "emoji": "🏙️", "words": [{"e": "🏙️", "ru": "город", "sr": "grad"}, {"e": "🏘️", "ru": "район", "sr": "kvart"}, {"e": "🏛️", "ru": "музей", "sr": "muzej"}, {"e": "🏰", "ru": "замок", "sr": "dvorac"}, {"e": "⛪", "ru": "церковь", "sr": "crkva"}, {"e": "🕌", "ru": "мечеть", "sr": "džamija"}, {"e": "🏥", "ru": "больница", "sr": "bolnica"}, {"e": "🏫", "ru": "школа", "sr": "škola"}, {"e": "🏦", "ru": "банк", "sr": "banka"}, {"e": "🏨", "ru": "отель", "sr": "hotel"}, {"e": "🏪", "ru": "магазин", "sr": "prodavnica"}, {"e": "🏬", "ru": "торговый центр", "sr": "tržni centar"}, {"e": "🏭", "ru": "завод", "sr": "fabrika"}, {"e": "🏟️", "ru": "стадион", "sr": "stadion"}, {"e": "🎭", "ru": "театр", "sr": "pozorište"}, {"e": "🎬", "ru": "кинотеатр", "sr": "bioskop"}, {"e": "📚", "ru": "библиотека", "sr": "biblioteka"}, {"e": "🌳", "ru": "парк", "sr": "park"}, {"e": "⛲", "ru": "фонтан", "sr": "fontana"}, {"e": "🌉", "ru": "мост", "sr": "most"}, {"e": "🛣️", "ru": "улица", "sr": "ulica"}, {"e": "🏢", "ru": "офис", "sr": "kancelarija"}, {"e": "🏣", "ru": "почта", "sr": "pošta"}, {"e": "🚏", "ru": "остановка", "sr": "stanica"}, {"e": "🅿️", "ru": "паркинг", "sr": "parking"}, {"e": "🚻", "ru": "туалет", "sr": "toalet"}, {"e": "🗼", "ru": "башня", "sr": "toranj"}, {"e": "🗽", "ru": "статуя", "sr": "statua"}, {"e": "🏛️", "ru": "правительство", "sr": "vlada"}, {"e": "⚖️", "ru": "суд", "sr": "sud"}, {"e": "🚓", "ru": "полиция", "sr": "policija"}, {"e": "🚒", "ru": "пожарная часть", "sr": "vatrogasna stanica"}, {"e": "🏪", "ru": "аптека", "sr": "apoteka"}, {"e": "🥖", "ru": "пекарня", "sr": "pekara"}, {"e": "🍽️", "ru": "ресторан", "sr": "restoran"}, {"e": "☕", "ru": "кафе", "sr": "kafić"}, {"e": "🍺", "ru": "бар", "sr": "bar"}, {"e": "🛒", "ru": "супермаркет", "sr": "supermarket"}, {"e": "💈", "ru": "парикмахерская", "sr": "frizeraj"}, {"e": "🏧", "ru": "банкомат", "sr": "bankomat"}]}, {"id": "shop", "name": "Магазин и покупки", "emoji": "🛒", "words": [{"e": "🛒", "ru": "корзина", "sr": "korpa"}, {"e": "💶", "ru": "деньги", "sr": "novac"}, {"e": "🏷️", "ru": "цена", "sr": "cena"}, {"e": "💳", "ru": "карта", "sr": "kartica"}, {"e": "🛍️", "ru": "пакет", "sr": "kesa"}, {"e": "🧾", "ru": "чек", "sr": "račun"}, {"e": "💰", "ru": "кошелёк с деньгами", "sr": "novčanik sa novcem"}, {"e": "💵", "ru": "банкнота", "sr": "novčanica"}, {"e": "🪙", "ru": "монета", "sr": "kovanica"}, {"e": "💸", "ru": "трата", "sr": "trošenje"}, {"e": "🏦", "ru": "банк", "sr": "banka"}, {"e": "🏧", "ru": "банкомат", "sr": "bankomat"}, {"e": "🛍️", "ru": "шопинг", "sr": "kupovina"}, {"e": "🎁", "ru": "подарок", "sr": "poklon"}, {"e": "📦", "ru": "посылка", "sr": "paket"}, {"e": "📮", "ru": "почта", "sr": "pošta"}, {"e": "🏪", "ru": "магазин", "sr": "prodavnica"}, {"e": "🏬", "ru": "универмаг", "sr": "robna kuća"}, {"e": "🥖", "ru": "пекарня", "sr": "pekara"}, {"e": "🥬", "ru": "рынок", "sr": "pijaca"}, {"e": "💊", "ru": "аптека", "sr": "apoteka"}, {"e": "👕", "ru": "одежда", "sr": "odeća"}, {"e": "👟", "ru": "обувь", "sr": "obuća"}, {"e": "💄", "ru": "косметика", "sr": "kozmetika"}, {"e": "🧴", "ru": "шампунь", "sr": "šampon"}, {"e": "🧼", "ru": "мыло", "sr": "sapun"}, {"e": "🧻", "ru": "бумага", "sr": "papir"}, {"e": "🍞", "ru": "хлеб", "sr": "hleb"}, {"e": "🥛", "ru": "молоко", "sr": "mleko"}, {"e": "🧀", "ru": "сыр", "sr": "sir"}, {"e": "🥚", "ru": "яйца", "sr": "jaja"}, {"e": "🥩", "ru": "мясо", "sr": "meso"}, {"e": "🐟", "ru": "рыба", "sr": "riba"}, {"e": "🍎", "ru": "фрукты", "sr": "voće"}, {"e": "🥕", "ru": "овощи", "sr": "povrće"}, {"e": "🍫", "ru": "сладости", "sr": "slatkiši"}, {"e": "🥤", "ru": "напитки", "sr": "piće"}, {"e": "🧊", "ru": "замороженное", "sr": "zamrznuto"}, {"e": "🛍️", "ru": "скидка", "sr": "popust"}, {"e": "💳", "ru": "оплата", "sr": "plaćanje"}]}, {"id": "cafe", "name": "Кафе и ресторан", "emoji": "🍽️", "words": [{"e": "🍽️", "ru": "ресторан", "sr": "restoran"}, {"e": "☕", "ru": "кафе", "sr": "kafić"}, {"e": "📋", "ru": "меню", "sr": "meni"}, {"e": "🤵", "ru": "официант", "sr": "konobar"}, {"e": "🧾", "ru": "счёт", "sr": "račun"}, {"e": "🍰", "ru": "десерт", "sr": "dezert"}, {"e": "🍬", "ru": "сахар", "sr": "šećer"}, {"e": "🍪", "ru": "печенье", "sr": "kolač"}, {"e": "☕", "ru": "кофе", "sr": "kafa"}, {"e": "🍵", "ru": "чай", "sr": "čaj"}, {"e": "💧", "ru": "вода", "sr": "voda"}, {"e": "🧃", "ru": "сок", "sr": "sok"}, {"e": "🍺", "ru": "пиво", "sr": "pivo"}, {"e": "🍷", "ru": "вино", "sr": "vino"}, {"e": "🥂", "ru": "шампанское", "sr": "šampanjac"}, {"e": "🍸", "ru": "коктейль", "sr": "koktel"}, {"e": "🍕", "ru": "пицца", "sr": "pica"}, {"e": "🍔", "ru": "бургер", "sr": "burger"}, {"e": "🥗", "ru": "салат", "sr": "salata"}, {"e": "🍝", "ru": "паста", "sr": "testenina"}, {"e": "🍲", "ru": "суп", "sr": "supa"}, {"e": "🥩", "ru": "стейк", "sr": "biftek"}, {"e": "🍗", "ru": "курица", "sr": "piletina"}, {"e": "🐟", "ru": "рыба", "sr": "riba"}, {"e": "🍚", "ru": "рис", "sr": "pirinač"}, {"e": "🍟", "ru": "картошка фри", "sr": "pomfrit"}, {"e": "🥪", "ru": "бутерброд", "sr": "sendvič"}, {"e": "🥞", "ru": "блины", "sr": "palačinke"}, {"e": "🍳", "ru": "омлет", "sr": "omlet"}, {"e": "🍩", "ru": "пончик", "sr": "krofna"}, {"e": "🍦", "ru": "мороженое", "sr": "sladoled"}, {"e": "🍫", "ru": "шоколад", "sr": "čokolada"}, {"e": "🍮", "ru": "пудинг", "sr": "puding"}, {"e": "🍯", "ru": "мёд", "sr": "med"}, {"e": "🥄", "ru": "ложка", "sr": "kašika"}, {"e": "🍴", "ru": "вилка", "sr": "viljuška"}, {"e": "🔪", "ru": "нож", "sr": "nož"}, {"e": "🍽️", "ru": "тарелка", "sr": "tanjir"}, {"e": "🥤", "ru": "стакан", "sr": "čaša"}, {"e": "💳", "ru": "чаевые", "sr": "bakšiš"}]}, {"id": "police", "name": "Полиция и безопасность", "emoji": "🚓", "words": [{"e": "🚓", "ru": "полиция", "sr": "policija"}, {"e": "👮", "ru": "полицейский", "sr": "policajac"}, {"e": "🛂", "ru": "паспорт", "sr": "pasoš"}, {"e": "🪪", "ru": "удостоверение личности", "sr": "lična karta"}, {"e": "🆘", "ru": "помощь", "sr": "pomoć"}, {"e": "📱", "ru": "телефон", "sr": "telefon"}, {"e": "🦹", "ru": "вор", "sr": "lopov"}, {"e": "👛", "ru": "кошелёк", "sr": "novčanik"}, {"e": "👜", "ru": "сумка", "sr": "torba"}, {"e": "🔑", "ru": "ключ", "sr": "ključ"}, {"e": "🚗", "ru": "машина", "sr": "automobil"}, {"e": "💥", "ru": "авария", "sr": "nesreća"}, {"e": "🚨", "ru": "сирена", "sr": "sirena"}, {"e": "🔫", "ru": "оружие", "sr": "oružje"}, {"e": "🔒", "ru": "замок", "sr": "brava"}, {"e": "🔓", "ru": "открытый замок", "sr": "otvorena brava"}, {"e": "🛡️", "ru": "щит", "sr": "štit"}, {"e": "⚠️", "ru": "предупреждение", "sr": "upozorenje"}, {"e": "🚫", "ru": "запрещено", "sr": "zabranjeno"}, {"e": "🛑", "ru": "стоп", "sr": "stop"}, {"e": "❌", "ru": "нельзя", "sr": "ne sme"}, {"e": "✅", "ru": "можно", "sr": "sme"}, {"e": "📝", "ru": "протокол", "sr": "zapisnik"}, {"e": "⚖️", "ru": "суд", "sr": "sud"}, {"e": "🧑‍⚖️", "ru": "судья", "sr": "sudija"}, {"e": "👨‍✈️", "ru": "офицер", "sr": "oficir"}, {"e": "🚔", "ru": "патруль", "sr": "patrola"}, {"e": "📞", "ru": "звонок", "sr": "poziv"}, {"e": "🚑", "ru": "скорая", "sr": "hitna pomoć"}, {"e": "🚒", "ru": "пожарные", "sr": "vatrogasci"}, {"e": "🕵️", "ru": "детектив", "sr": "detektiv"}, {"e": "🔍", "ru": "расследование", "sr": "istraga"}, {"e": "🖐️", "ru": "отпечаток", "sr": "otisak"}, {"e": "📸", "ru": "камера", "sr": "kamera"}, {"e": "🎥", "ru": "видеонаблюдение", "sr": "video nadzor"}, {"e": "🚧", "ru": "ограждение", "sr": "barijera"}, {"e": "🛃", "ru": "таможня", "sr": "carina"}, {"e": "🚷", "ru": "проход запрещён", "sr": "prolaz zabranjen"}, {"e": "🧯", "ru": "огнетушитель", "sr": "aparat za gašenje"}, {"e": "🏃‍♂️", "ru": "побег", "sr": "beg"}]}, {"id": "medicine", "name": "Медицина и здоровье", "emoji": "💊", "words": [{"e": "💊", "ru": "таблетка", "sr": "tableta"}, {"e": "🏥", "ru": "больница", "sr": "bolnica"}, {"e": "👨‍⚕️", "ru": "врач", "sr": "lekar"}, {"e": "👩‍⚕️", "ru": "медсестра", "sr": "medicinska sestra"}, {"e": "💉", "ru": "укол", "sr": "injekcija"}, {"e": "🩺", "ru": "стетоскоп", "sr": "stetoskop"}, {"e": "🩹", "ru": "пластырь", "sr": "flaster"}, {"e": "🩸", "ru": "кровь", "sr": "krv"}, {"e": "🧬", "ru": "ДНК", "sr": "DNK"}, {"e": "🔬", "ru": "микроскоп", "sr": "mikroskop"}, {"e": "🧪", "ru": "пробирка", "sr": "epruveta"}, {"e": "🌡️", "ru": "термометр", "sr": "termometar"}, {"e": "🦷", "ru": "зуб", "sr": "zub"}, {"e": "🦴", "ru": "кость", "sr": "kost"}, {"e": "❤️", "ru": "сердце", "sr": "srce"}, {"e": "🧠", "ru": "мозг", "sr": "mozak"}, {"e": "🫁", "ru": "лёгкие", "sr": "pluća"}, {"e": "🫀", "ru": "печень", "sr": "jetra"}, {"e": "🤒", "ru": "болезнь", "sr": "bolest"}, {"e": "🤕", "ru": "рана", "sr": "rana"}, {"e": "🤧", "ru": "простуда", "sr": "prehlada"}, {"e": "🤮", "ru": "рвота", "sr": "povraćanje"}, {"e": "😷", "ru": "маска", "sr": "maska"}, {"e": "🤧", "ru": "насморк", "sr": "kijavica"}, {"e": "🤒", "ru": "температура", "sr": "temperatura"}, {"e": "😵", "ru": "обморок", "sr": "nesvestica"}, {"e": "🩼", "ru": "костыль", "sr": "štaka"}, {"e": "♿", "ru": "инвалидная коляска", "sr": "invalidska kolica"}, {"e": "🧑‍🦽", "ru": "коляска", "sr": "kolica"}, {"e": "🚑", "ru": "скорая помощь", "sr": "hitna pomoć"}, {"e": "🧑‍⚕️", "ru": "пациент", "sr": "pacijent"}, {"e": "💊", "ru": "лекарство", "sr": "lek"}, {"e": "🧴", "ru": "мазь", "sr": "mast"}, {"e": "🩸", "ru": "анализ крови", "sr": "analiza krvi"}, {"e": "📋", "ru": "рецепт", "sr": "recept"}, {"e": "🧑‍🦯", "ru": "слепой", "sr": "slep"}, {"e": "🦻", "ru": "глухой", "sr": "gluv"}, {"e": "💪", "ru": "здоровье", "sr": "zdravlje"}, {"e": "🧘", "ru": "спокойствие", "sr": "smirenost"}, {"e": "😴", "ru": "сон", "sr": "san"}]}, {"id": "school", "name": "Школа и образование", "emoji": "📚", "words": [{"e": "🏫", "ru": "школа", "sr": "škola"}, {"e": "📚", "ru": "книги", "sr": "knjige"}, {"e": "📖", "ru": "открытая книга", "sr": "otvorena knjiga"}, {"e": "📕", "ru": "учебник", "sr": "udžbenik"}, {"e": "📗", "ru": "тетрадь", "sr": "sveska"}, {"e": "📘", "ru": "дневник", "sr": "dnevnik"}, {"e": "📙", "ru": "словарь", "sr": "rečnik"}, {"e": "📓", "ru": "блокнот", "sr": "beležnica"}, {"e": "✏️", "ru": "карандаш", "sr": "olovka"}, {"e": "🖊️", "ru": "ручка", "sr": "hemijska"}, {"e": "🖍️", "ru": "мелок", "sr": "kreda"}, {"e": "🖌️", "ru": "кисть", "sr": "četkica"}, {"e": "📏", "ru": "линейка", "sr": "lenjir"}, {"e": "📐", "ru": "треугольник", "sr": "trougao"}, {"e": "✂️", "ru": "ножницы", "sr": "makaze"}, {"e": "📎", "ru": "скрепка", "sr": "spajalica"}, {"e": "📌", "ru": "кнопка", "sr": "pribadača"}, {"e": "🗂️", "ru": "папка", "sr": "fascikla"}, {"e": "📁", "ru": "файл", "sr": "fajl"}, {"e": "🗒️", "ru": "лист", "sr": "list"}, {"e": "📄", "ru": "документ", "sr": "dokument"}, {"e": "📃", "ru": "страница", "sr": "strana"}, {"e": "🎓", "ru": "диплом", "sr": "diploma"}, {"e": "🧑‍🎓", "ru": "студент", "sr": "student"}, {"e": "🧑‍🏫", "ru": "учитель", "sr": "učitelj"}, {"e": "🧑‍🎨", "ru": "художник", "sr": "umetnik"}, {"e": "🔬", "ru": "наука", "sr": "nauka"}, {"e": "🧪", "ru": "химия", "sr": "hemija"}, {"e": "🧮", "ru": "математика", "sr": "matematika"}, {"e": "🌍", "ru": "география", "sr": "geografija"}, {"e": "📜", "ru": "история", "sr": "istorija"}, {"e": "🔤", "ru": "алфавит", "sr": "alfabet"}, {"e": "🔠", "ru": "буквы", "sr": "slova"}, {"e": "🔡", "ru": "строчные буквы", "sr": "mala slova"}, {"e": "🔢", "ru": "цифры", "sr": "cifre"}, {"e": "❓", "ru": "вопрос", "sr": "pitanje"}, {"e": "❗", "ru": "ответ", "sr": "odgovor"}, {"e": "💯", "ru": "отлично", "sr": "odlično"}, {"e": "🏆", "ru": "награда", "sr": "nagrada"}, {"e": "📝", "ru": "экзамен", "sr": "ispit"}]}, {"id": "work", "name": "Работа и деньги", "emoji": "💼", "words": [{"e": "💼", "ru": "работа", "sr": "posao"}, {"e": "🏢", "ru": "офис", "sr": "kancelarija"}, {"e": "💻", "ru": "компьютер", "sr": "kompjuter"}, {"e": "🖥️", "ru": "монитор", "sr": "monitor"}, {"e": "⌨️", "ru": "клавиатура", "sr": "tastatura"}, {"e": "🖱️", "ru": "мышь", "sr": "miš"}, {"e": "📱", "ru": "мобильный", "sr": "mobilni"}, {"e": "📞", "ru": "телефон", "sr": "telefon"}, {"e": "📧", "ru": "почта", "sr": "mejl"}, {"e": "📨", "ru": "письмо", "sr": "pismo"}, {"e": "📊", "ru": "график", "sr": "grafikon"}, {"e": "📈", "ru": "рост", "sr": "rast"}, {"e": "📉", "ru": "падение", "sr": "pad"}, {"e": "📋", "ru": "план", "sr": "plan"}, {"e": "🗓️", "ru": "расписание", "sr": "raspored"}, {"e": "⏰", "ru": "время работы", "sr": "radno vreme"}, {"e": "💰", "ru": "зарплата", "sr": "plata"}, {"e": "💵", "ru": "наличные", "sr": "gotovina"}, {"e": "💳", "ru": "карта", "sr": "kartica"}, {"e": "🏦", "ru": "банк", "sr": "banka"}, {"e": "📝", "ru": "контракт", "sr": "ugovor"}, {"e": "✍️", "ru": "подпись", "sr": "potpis"}, {"e": "🤝", "ru": "сделка", "sr": "dogovor"}, {"e": "📦", "ru": "товар", "sr": "roba"}, {"e": "🚚", "ru": "доставка", "sr": "dostava"}, {"e": "🏭", "ru": "фабрика", "sr": "fabrika"}, {"e": "🧑‍💼", "ru": "начальник", "sr": "šef"}, {"e": "👥", "ru": "коллеги", "sr": "kolege"}, {"e": "🎯", "ru": "цель", "sr": "cilj"}, {"e": "📌", "ru": "задача", "sr": "zadatak"}, {"e": "✅", "ru": "выполнено", "sr": "završeno"}, {"e": "⏳", "ru": "в процессе", "sr": "u toku"}, {"e": "❌", "ru": "отменено", "sr": "otkazano"}, {"e": "📤", "ru": "отправить", "sr": "poslati"}, {"e": "📥", "ru": "получить", "sr": "primiti"}, {"e": "🔒", "ru": "конфиденциально", "sr": "poverljivo"}, {"e": "📁", "ru": "проект", "sr": "projekat"}, {"e": "💡", "ru": "идея", "sr": "ideja"}, {"e": "🏆", "ru": "успех", "sr": "uspeh"}, {"e": "🎓", "ru": "карьера", "sr": "karijera"}]}, {"id": "sport", "name": "Спорт и хобби", "emoji": "⚽", "words": [{"e": "⚽", "ru": "футбол", "sr": "fudbal"}, {"e": "🏀", "ru": "баскетбол", "sr": "košarka"}, {"e": "🏐", "ru": "волейбол", "sr": "odbojka"}, {"e": "🎾", "ru": "теннис", "sr": "tenis"}, {"e": "🏓", "ru": "настольный теннис", "sr": "stoni tenis"}, {"e": "🏸", "ru": "бадминтон", "sr": "badminton"}, {"e": "🏈", "ru": "американский футбол", "sr": "američki fudbal"}, {"e": "⚾", "ru": "бейсбол", "sr": "bejzbol"}, {"e": "🏉", "ru": "регби", "sr": "ragbi"}, {"e": "🎱", "ru": "бильярд", "sr": "bilijar"}, {"e": "🏒", "ru": "хоккей", "sr": "hokej"}, {"e": "🥊", "ru": "бокс", "sr": "boks"}, {"e": "🥋", "ru": "боевые искусства", "sr": "borilačke veštine"}, {"e": "🤼", "ru": "борьба", "sr": "rvanje"}, {"e": "🏋️", "ru": "тяжёлая атлетика", "sr": "dizanje tegova"}, {"e": "🤸", "ru": "гимнастика", "sr": "gimnastika"}, {"e": "🏊", "ru": "плавание", "sr": "plivanje"}, {"e": "🚴", "ru": "велоспорт", "sr": "biciklizam"}, {"e": "🏃", "ru": "бег", "sr": "trčanje"}, {"e": "🚶", "ru": "ходьба", "sr": "hodanje"}, {"e": "⛷️", "ru": "лыжи", "sr": "skijanje"}, {"e": "🏂", "ru": "сноуборд", "sr": "snoubord"}, {"e": "⛸️", "ru": "коньки", "sr": "klizanje"}, {"e": "🏄", "ru": "сёрфинг", "sr": "surfovanje"}, {"e": "🏌️", "ru": "гольф", "sr": "golf"}, {"e": "🏹", "ru": "стрельба из лука", "sr": "streličarstvo"}, {"e": "🎣", "ru": "рыбалка", "sr": "pecanje"}, {"e": "🧗", "ru": "скалолазание", "sr": "penjanje"}, {"e": "🚵", "ru": "горный велосипед", "sr": "brdski biciklizam"}, {"e": "🛹", "ru": "скейтборд", "sr": "skejtbord"}, {"e": "🏆", "ru": "кубок", "sr": "pehar"}, {"e": "🥇", "ru": "золотая медаль", "sr": "zlatna medalja"}, {"e": "🥈", "ru": "серебро", "sr": "srebro"}, {"e": "🥉", "ru": "бронза", "sr": "bronza"}, {"e": "🎯", "ru": "дартс", "sr": "pikado"}, {"e": "♟️", "ru": "шахматы", "sr": "šah"}, {"e": "🎮", "ru": "видеоигры", "sr": "video igre"}, {"e": "🎨", "ru": "рисование", "sr": "crtanje"}, {"e": "🎵", "ru": "музыка", "sr": "muzika"}, {"e": "📷", "ru": "фотография", "sr": "fotografija"}]}, {"id": "emotions", "name": "Эмоции и чувства", "emoji": "😊", "words": [{"e": "😊", "ru": "счастье", "sr": "sreća"}, {"e": "😢", "ru": "грусть", "sr": "tuga"}, {"e": "😡", "ru": "злость", "sr": "ljutnja"}, {"e": "😨", "ru": "страх", "sr": "strah"}, {"e": "😲", "ru": "удивление", "sr": "iznenađenje"}, {"e": "🤢", "ru": "отвращение", "sr": "gađenje"}, {"e": "😍", "ru": "любовь", "sr": "ljubav"}, {"e": "🥰", "ru": "влюблённость", "sr": "zaljubljenost"}, {"e": "😂", "ru": "смех", "sr": "smeh"}, {"e": "😭", "ru": "плач", "sr": "plakanje"}, {"e": "😴", "ru": "сонливость", "sr": "pospanost"}, {"e": "🤔", "ru": "размышление", "sr": "razmišljanje"}, {"e": "😐", "ru": "равнодушие", "sr": "ravnodušnost"}, {"e": "😬", "ru": "неловкость", "sr": "nelagodnost"}, {"e": "🙄", "ru": "раздражение", "sr": "iritacija"}, {"e": "😎", "ru": "уверенность", "sr": "samopouzdanje"}, {"e": "🤗", "ru": "объятие", "sr": "zagrljaj"}, {"e": "🤩", "ru": "восторг", "sr": "ushićenje"}, {"e": "😱", "ru": "ужас", "sr": "užas"}, {"e": "😰", "ru": "тревога", "sr": "anksioznost"}, {"e": "😥", "ru": "разочарование", "sr": "razočaranje"}, {"e": "😤", "ru": "гордость", "sr": "ponos"}, {"e": "🥺", "ru": "мольба", "sr": "preklinjanje"}, {"e": "😏", "ru": "хитрость", "sr": "lukavstvo"}, {"e": "😇", "ru": "невинность", "sr": "nevinost"}, {"e": "🤯", "ru": "шок", "sr": "šok"}, {"e": "😳", "ru": "стыд", "sr": "stid"}, {"e": "🥱", "ru": "скука", "sr": "dosada"}, {"e": "😋", "ru": "удовольствие", "sr": "zadovoljstvo"}, {"e": "🤤", "ru": "жажда", "sr": "žudnja"}, {"e": "😌", "ru": "спокойствие", "sr": "smirenje"}, {"e": "😔", "ru": "печаль", "sr": "seta"}, {"e": "🤨", "ru": "сомнение", "sr": "sumnja"}, {"e": "🧐", "ru": "интерес", "sr": "interesovanje"}, {"e": "🤓", "ru": "умность", "sr": "umnost"}, {"e": "😜", "ru": "шалость", "sr": "šala"}, {"e": "🤪", "ru": "безумие", "sr": "ludilo"}, {"e": "🥳", "ru": "праздник", "sr": "slavlje"}, {"e": "😶‍🌫️", "ru": "растерянность", "sr": "zbunjenost"}, {"e": "🫠", "ru": "таять", "sr": "topljenje"}]}, {"id": "verbs", "name": "Глаголы и действия", "emoji": "🏃", "words": [{"e": "🏃", "ru": "бежать", "sr": "trčati"}, {"e": "🚶", "ru": "идти", "sr": "ići"}, {"e": "🧍", "ru": "стоять", "sr": "stajati"}, {"e": "🪑", "ru": "сидеть", "sr": "sedeti"}, {"e": "🛏️", "ru": "лежать", "sr": "ležati"}, {"e": "😴", "ru": "спать", "sr": "spavati"}, {"e": "🍽️", "ru": "есть", "sr": "jesti"}, {"e": "🥤", "ru": "пить", "sr": "piti"}, {"e": "🗣️", "ru": "говорить", "sr": "govoriti"}, {"e": "👂", "ru": "слушать", "sr": "slušati"}, {"e": "👀", "ru": "смотреть", "sr": "gledati"}, {"e": "✍️", "ru": "писать", "sr": "pisati"}, {"e": "📖", "ru": "читать", "sr": "čitati"}, {"e": "🤔", "ru": "думать", "sr": "misliti"}, {"e": "💡", "ru": "понимать", "sr": "razumeti"}, {"e": "🎓", "ru": "учить", "sr": "učiti"}, {"e": "🧑‍🏫", "ru": "учить кого-то", "sr": "poučavati"}, {"e": "🏃‍♂️", "ru": "заниматься спортом", "sr": "vežbati"}, {"e": "🚿", "ru": "мыться", "sr": "kupati se"}, {"e": "🧼", "ru": "мыть", "sr": "prati"}, {"e": "🧹", "ru": "убирать", "sr": "čistiti"}, {"e": "🍳", "ru": "готовить", "sr": "kuvati"}, {"e": "🛒", "ru": "покупать", "sr": "kupovati"}, {"e": "💰", "ru": "продавать", "sr": "prodavati"}, {"e": "💳", "ru": "платить", "sr": "plaćati"}, {"e": "🎁", "ru": "давать", "sr": "davati"}, {"e": "🤲", "ru": "брать", "sr": "uzimati"}, {"e": "📤", "ru": "отправлять", "sr": "slati"}, {"e": "📥", "ru": "получать", "sr": "primati"}, {"e": "🔓", "ru": "открывать", "sr": "otvarati"}, {"e": "🔒", "ru": "закрывать", "sr": "zatvarati"}, {"e": "🏠", "ru": "входить", "sr": "ulaziti"}, {"e": "🚪", "ru": "выходить", "sr": "izlaziti"}, {"e": "⬆️", "ru": "поднимать", "sr": "podizati"}, {"e": "⬇️", "ru": "опускать", "sr": "spuštati"}, {"e": "🤝", "ru": "помогать", "sr": "pomagati"}, {"e": "❤️", "ru": "любить", "sr": "voleti"}, {"e": "😊", "ru": "нравиться", "sr": "svideti se"}, {"e": "😂", "ru": "смеяться", "sr": "smejati se"}, {"e": "😢", "ru": "плакать", "sr": "plakati"}]}];
-    const dialogsData = [{"id": "cafe", "name": "В кафе", "emoji": "☕", "lines": [{"sr": "Dobar dan! Šta želite?", "ru": "Добрый день! Что желаете?"}, {"you": "Želim kafu, molim.", "alt": ["Molim kafu.", "Kafu, molim."], "extra": ["čaj", "vodu", "hvala", "imam", "sok"], "ru": "Хочу кофе, пожалуйста."}, {"sr": "Sa mlekom ili bez mleka?", "ru": "С молоком или без молока?"}, {"you": "Bez mleka, hvala.", "alt": ["Hvala, bez mleka."], "extra": ["sa", "mlekom", "molim", "dobro"], "ru": "Без молока, спасибо."}, {"sr": "Izvolite. To je dvesta dinara.", "ru": "Пожалуйста. Это двести динаров."}, {"you": "Evo, izvolite.", "alt": ["Izvolite, evo."], "extra": ["hvala", "novac", "koliko", "kafa"], "ru": "Вот, пожалуйста."}, {"sr": "Prijatno!", "ru": "Приятного!"}, {"you": "Hvala, doviđenja.", "alt": ["Doviđenja, hvala."], "extra": ["dobar", "dan", "molim", "zdravo"], "ru": "Спасибо, до свидания."}]}, {"id": "meet", "name": "Знакомство", "emoji": "👋", "lines": [{"sr": "Zdravo! Kako se zoveš?", "ru": "Привет! Как тебя зовут?"}, {"you": "Zovem se Ana.", "alt": ["Ja se zovem Ana."], "extra": ["ti", "si", "moje", "ime", "je", "drago", "mi"], "ru": "Меня зовут Ана."}, {"sr": "Drago mi je. Gde živiš?", "ru": "Приятно познакомиться. Где ты живёшь?"}, {"you": "Živim u Nišu.", "alt": ["U Nišu živim."], "extra": ["Beogradu", "ja", "sam", "iz", "radim"], "ru": "Я живу в Нише."}, {"sr": "Lepo! Pričaš li srpski?", "ru": "Здорово! Ты говоришь по-сербски?"}, {"you": "Malo, ali učim.", "alt": ["Učim, ali malo.", "Pričam malo, ali učim."], "extra": ["dobro", "ne", "pričam", "srpski", "svaki", "dan"], "ru": "Немного, но учу."}, {"sr": "Odlično! Super ti ide.", "ru": "Отлично! У тебя хорошо получается."}, {"you": "Hvala puno!", "alt": ["Puno hvala!"], "extra": ["molim", "izvini", "dobro", "lepo"], "ru": "Большое спасибо!"}]}, {"id": "shop", "name": "В магазине", "emoji": "🛒", "lines": [{"sr": "Izvolite, kako mogu da vam pomognem?", "ru": "Пожалуйста, чем могу помочь?"}, {"you": "Treba mi hleb i mleko.", "alt": ["Hleb i mleko, molim.", "Molim hleb i mleko."], "extra": ["sir", "kafa", "imam", "želim", "voda"], "ru": "Мне нужны хлеб и молоко."}, {"sr": "Da li želite još nešto?", "ru": "Желаете ещё что-нибудь?"}, {"you": "Ne, hvala. To je sve.", "alt": ["To je sve, hvala."], "extra": ["da", "još", "nešto", "molim", "koliko"], "ru": "Нет, спасибо. Это всё."}, {"sr": "U redu. To je sto osamdeset dinara.", "ru": "Хорошо. Это сто восемьдесят динаров."}, {"you": "Izvolite. Hvala vam.", "alt": ["Hvala vam. Izvolite."], "extra": ["evo", "novac", "kesu", "molim", "dobar", "dan"], "ru": "Пожалуйста. Спасибо вам."}, {"sr": "Hvala vama. Prijatan dan!", "ru": "Спасибо вам. Хорошего дня!"}, {"you": "I vama prijatan dan!", "alt": ["Prijatan dan i vama!"], "extra": ["hvala", "doviđenja", "dobar", "vam", "sve"], "ru": "И вам хорошего дня!"}]}, {"id": "restaurant", "name": "В ресторане", "emoji": "🍽️", "lines": [{"sr": "Dobar dan! Imate li rezervaciju?", "ru": "Добрый день! У вас есть бронь?"}, {"you": "Nemam. Imate li slobodan sto?", "alt": ["Nemam rezervaciju.", "Imate li slobodno mesto?"], "extra": ["da", "imam", "molim", "dva", "osobe"], "ru": "Нет. У вас есть свободный столик?"}, {"sr": "Da, naravno. Izvolite, ovuda.", "ru": "Да, конечно. Пожалуйста, сюда."}, {"you": "Hvala. Mogu li da dobijem meni?", "alt": ["Hvala. Meni, molim."], "extra": ["jelovnik", "kartu", "piće", "vodu"], "ru": "Спасибо. Могу я получить меню?"}, {"sr": "Izvolite. Šta želite da naručite?", "ru": "Пожалуйста. Что желаете заказать?"}, {"you": "Za predjelo supu, a za glavno jelo ćevape.", "alt": ["Supu i ćevape, molim."], "extra": ["salatu", "roštilj", "piletinu", "ribu"], "ru": "На первое суп, а на главное — чевапи."}, {"sr": "Odličan izbor. A za piće?", "ru": "Отличный выбор. А напитки?"}, {"you": "Vodu, molim. I hleb.", "alt": ["Donesite vodu i hleb, molim."], "extra": ["pivo", "sok", "vino", "kafu"], "ru": "Воду, пожалуйста. И хлеб."}, {"sr": "U redu. Odmah donosim.", "ru": "Хорошо. Сейчас принесу."}, {"you": "Hvala. Još jedno pitanje — imate li nešto bez mesa?", "alt": ["Imate li vegetarijanska jela?"], "extra": ["posno", "ribu", "salatu", "sir"], "ru": "Спасибо. Ещё один вопрос — у вас есть что-то без мяса?"}]}, {"id": "taxi", "name": "В такси", "emoji": "🚕", "lines": [{"sr": "Dobar dan! Kuda idete?", "ru": "Добрый день! Куда едете?"}, {"you": "Do železničke stanice, molim.", "alt": ["Na stanicu, molim.", "Vozite me do stanice."], "extra": ["aerodrom", "hotel", "centar", "adresa"], "ru": "До железнодорожного вокзала, пожалуйста."}, {"sr": "U redu. Koliko imate prtljaga?", "ru": "Хорошо. Сколько у вас багажа?"}, {"you": "Imam jedan kofer i torbu.", "alt": ["Samo jedan kofer."], "extra": ["dva", "tri", "ranac", "kesu"], "ru": "У меня один чемодан и сумка."}, {"sr": "Nema problema. Koliko je sati vaš voz?", "ru": "Без проблем. Во сколько ваш поезд?"}, {"you": "U pet popodne. Da li ćemo stići na vreme?", "alt": ["Voz je u pet.", "Hoćemo li stići?"], "extra": ["brzo", "polako", "kasno", "ranije"], "ru": "В пять вечера. Мы успеем вовремя?"}, {"sr": "Naravno, stižemo za dvadeset minuta.", "ru": "Конечно, доберёмся за двадцать минут."}, {"you": "Koliko će to koštati?", "alt": ["Kolika je cena?", "Koliko je?"], "extra": ["dinara", "evra", "ukupno", "račun"], "ru": "Сколько это будет стоить?"}, {"sr": "Oko osamsto dinara.", "ru": "Около восьмисот динаров."}, {"you": "U redu. Evo, izvolite.", "alt": ["Izvolite, hvala."], "extra": ["kartica", "novac", "kusur", "bakšiš"], "ru": "Хорошо. Вот, пожалуйста."}]}, {"id": "hotel", "name": "В отеле", "emoji": "🏨", "lines": [{"sr": "Dobar dan! Kako mogu da pomognem?", "ru": "Добрый день! Чем могу помочь?"}, {"you": "Imam rezervaciju. Ime je Ivanov.", "alt": ["Rezervisao sam sobu.", "Imam rezervaciju na ime Ivanov."], "extra": ["soba", "noć", "dolazak", "odlazak"], "ru": "У меня бронь. Фамилия Иванов."}, {"sr": "Trenutak... Da, vidim. Jednokrevetna soba, tri noći.", "ru": "Минутку... Да, вижу. Одноместный номер, три ночи."}, {"you": "Tako je. Da li je uključen doručak?", "alt": ["Je li doručak uključen?"], "extra": ["večera", "ručak", "wifi", "parking"], "ru": "Верно. Завтрак включён?"}, {"sr": "Da, doručak je od sedam do deset.", "ru": "Да, завтрак с семи до десяти."}, {"you": "Odlično. A gde je lift?", "alt": ["Gde se nalazi lift?"], "extra": ["restoran", "bar", "teretana", "bazen"], "ru": "Отлично. А где лифт?"}, {"sr": "Odmah levo, iza recepcije.", "ru": "Сразу налево, за ресепшеном."}, {"you": "Hvala. Kada je vreme za odjavu?", "alt": ["Do kada moram da se odjavim?"], "extra": ["podne", "ujutru", "kasno", "ranije"], "ru": "Спасибо. Когда время выезда?"}, {"sr": "Do podneva.", "ru": "До полудня."}, {"you": "U redu, hvala vam puno.", "alt": ["Hvala na informaciji."], "extra": ["doviđenja", "prijatan", "boravak", "sve"], "ru": "Хорошо, большое спасибо."}]}, {"id": "airport", "name": "В аэропорту", "emoji": "✈️", "lines": [{"sr": "Dobar dan! Vaš pasoš i karta, molim.", "ru": "Добрый день! Ваш паспорт и билет, пожалуйста."}, {"you": "Izvolite.", "alt": ["Evo, molim."], "extra": ["karta", "pasoš", "lična", "viza"], "ru": "Пожалуйста."}, {"sr": "Kuda putujete?", "ru": "Куда летите?"}, {"you": "Letim za Moskvu.", "alt": ["U Moskvu."], "extra": ["Beograd", "Pariz", "Nemačku", "Tursku"], "ru": "Лечу в Москву."}, {"sr": "Imate li prtljag za predaju?", "ru": "У вас есть багаж для сдачи?"}, {"you": "Da, jedan kofer.", "alt": ["Imam jedan kofer."], "extra": ["ručni", "dva", "ništa", "torbu"], "ru": "Да, один чемодан."}, {"sr": "Stavite ga na vagu. Imaćete kartu za ukrcavanje kod izlaza B4.", "ru": "Поставьте его на весы. Посадочный талон получите у выхода B4."}, {"you": "Hvala. U koliko sati je ukrcavanje?", "alt": ["Kada je boarding?"], "extra": ["poletanje", "sletanje", "kapija", "kasni"], "ru": "Спасибо. Во сколько посадка?"}, {"sr": "U četrnaest i trideset.", "ru": "В четырнадцать тридцать."}, {"you": "Hvala, doviđenja.", "alt": ["Hvala vam."], "extra": ["srećan", "put", "prijatan", "let"], "ru": "Спасибо, до свидания."}]}, {"id": "train", "name": "На вокзале", "emoji": "🚆", "lines": [{"sr": "Dobar dan! Kuda putujete?", "ru": "Добрый день! Куда едете?"}, {"you": "Treba mi karta za Novi Sad.", "alt": ["Jednu kartu za Novi Sad, molim."], "extra": ["Beograd", "Niš", "Suboticu", "povratnu"], "ru": "Мне нужен билет до Нови-Сада."}, {"sr": "U jednom smeru ili povratnu?", "ru": "В одну сторону или туда-обратно?"}, {"you": "U jednom smeru, molim.", "alt": ["Samo u jednom smeru."], "extra": ["povratnu", "dve", "jednu", "studentsku"], "ru": "В одну сторону, пожалуйста."}, {"sr": "Kada želite da putujete?", "ru": "Когда хотите поехать?"}, {"you": "Sledeći voz, molim.", "alt": ["Prvi sledeći.", "Danas popodne."], "extra": ["ujutru", "uveče", "sutra", "sada"], "ru": "Следующий поезд, пожалуйста."}, {"sr": "Polazak je u petnaest i deset sa perona tri.", "ru": "Отправление в пятнадцать десять с третьей платформы."}, {"you": "Koliko traje putovanje?", "alt": ["Koliko se putuje?"], "extra": ["sati", "minuta", "dugo", "kratko"], "ru": "Сколько длится поездка?"}, {"sr": "Oko sat i po.", "ru": "Около полутора часов."}, {"you": "Hvala. Koliko košta karta?", "alt": ["Kolika je cena karte?"], "extra": ["dinara", "evra", "popust", "ukupno"], "ru": "Спасибо. Сколько стоит билет?"}]}, {"id": "bus", "name": "В автобусе", "emoji": "🚌", "lines": [{"sr": "Izvinite, je li ovo mesto slobodno?", "ru": "Извините, это место свободно?"}, {"you": "Da, slobodno je. Izvolite, sedite.", "alt": ["Jeste, sedite."], "extra": ["zauzeto", "moje", "ne", "molim"], "ru": "Да, свободно. Садитесь, пожалуйста."}, {"sr": "Hvala. Idete li daleko?", "ru": "Спасибо. Вы далеко едете?"}, {"you": "Idem do centra. A vi?", "alt": ["Do centra. A vi?"], "extra": ["stanice", "kraja", "grada", "kuće"], "ru": "Я до центра. А вы?"}, {"sr": "Ja idem do bolnice.", "ru": "Я до больницы."}, {"you": "Da li znate gde treba da izađem za muzej?", "alt": ["Gde da izađem za muzej?"], "extra": ["stanicu", "park", "trg", "pijacu"], "ru": "Вы знаете, где мне выйти к музею?"}, {"sr": "Izađite na trećoj stanici.", "ru": "Выйдите на третьей остановке."}, {"you": "Hvala puno na pomoći.", "alt": ["Hvala na pomoći."], "extra": ["izvinite", "molim", "doviđenja", "prijatan"], "ru": "Большое спасибо за помощь."}, {"sr": "Nema na čemu. Prijatan dan!", "ru": "Не за что. Хорошего дня!"}, {"you": "I vama!", "alt": ["Takođe!"], "extra": ["hvala", "doviđenja", "zdravo", "sve"], "ru": "И вам!"}]}, {"id": "pharmacy", "name": "В аптеке", "emoji": "💊", "lines": [{"sr": "Dobar dan! Kako mogu da pomognem?", "ru": "Добрый день! Чем могу помочь?"}, {"you": "Treba mi nešto protiv glavobolje.", "alt": ["Imate li nešto za glavu?"], "extra": ["temperaturu", "kašalj", "stomak", "grip"], "ru": "Мне нужно что-то от головной боли."}, {"sr": "Imamo tablete i sirup. Šta više volite?", "ru": "У нас есть таблетки и сироп. Что предпочитаете?"}, {"you": "Tablete, molim.", "alt": ["Radije tablete."], "extra": ["sirup", "kapi", "kremu", "spray"], "ru": "Таблетки, пожалуйста."}, {"sr": "Uzmite jednu tabletu dva puta dnevno posle jela.", "ru": "Принимайте одну таблетку дважды в день после еды."}, {"you": "Razumem. Koliko košta?", "alt": ["Koliko je to?"], "extra": ["dinara", "recept", "pakovanje", "ukupno"], "ru": "Понял. Сколько стоит?"}, {"sr": "Petsto dinara.", "ru": "Пятьсот динаров."}, {"you": "Izvolite. Hvala.", "alt": ["Evo, hvala."], "extra": ["kartica", "novac", "kusur", "račun"], "ru": "Пожалуйста. Спасибо."}, {"sr": "Pijte puno vode i odmarajte se.", "ru": "Пейте много воды и отдыхайте."}, {"you": "Hoću. Hvala na savetu.", "alt": ["Hvala, tako ću."], "extra": ["doktor", "lekar", "recept", "doviđenja"], "ru": "Хорошо. Спасибо за совет."}]}, {"id": "doctor", "name": "У врача", "emoji": "🩺", "lines": [{"sr": "Dobar dan! Šta vas muči?", "ru": "Добрый день! Что вас беспокоит?"}, {"you": "Boli me glava i imam temperaturu.", "alt": ["Imam temperaturu i glavobolju."], "extra": ["grlo", "stomak", "kašalj", "nesvestica"], "ru": "У меня болит голова и температура."}, {"sr": "Od kada imate tegobe?", "ru": "С какого времени у вас жалобы?"}, {"you": "Od juče uveče.", "alt": ["Počelo je juče."], "extra": ["danas", "dva", "dana", "nedelje"], "ru": "Со вчерашнего вечера."}, {"sr": "Otvorite usta, molim. Recite 'a'.", "ru": "Откройте рот, пожалуйста. Скажите «а»."}, {"you": "Aaaaa...", "alt": ["A."], "extra": ["da", "dobro", "molim", "sad"], "ru": "Ааааа..."}, {"sr": "Grlo je crveno. Imate upalu. Prepisaću vam antibiotik.", "ru": "Горло красное. У вас воспаление. Выпишу вам антибиотик."}, {"you": "Kako da ga uzimam?", "alt": ["Kako se uzima?"], "extra": ["koliko", "dana", "ujutru", "uveče"], "ru": "Как его принимать?"}, {"sr": "Tri puta dnevno, sedam dana. I puno tečnosti.", "ru": "Три раза в день, семь дней. И много жидкости."}, {"you": "Hvala, doktore. Doviđenja.", "alt": ["Hvala vam."], "extra": ["recept", "apoteka", "sutra", "kontrola"], "ru": "Спасибо, доктор. До свидания."}]}, {"id": "police", "name": "В полиции", "emoji": "🚓", "lines": [{"sr": "Dobar dan! Kako mogu da pomognem?", "ru": "Добрый день! Чем могу помочь?"}, {"you": "Ukrali su mi novčanik.", "alt": ["Izgubio sam novčanik.", "Ukraden mi je novčanik."], "extra": ["telefon", "torbu", "pasoš", "ključeve"], "ru": "У меня украли кошелёк."}, {"sr": "Gde se to dogodilo?", "ru": "Где это произошло?"}, {"you": "U autobusu, pre pola sata.", "alt": ["Na stanici, jutros."], "extra": ["centru", "parku", "pijaci", "ulici"], "ru": "В автобусе, полчаса назад."}, {"sr": "Šta je bilo u novčaniku?", "ru": "Что было в кошельке?"}, {"you": "Novac, kartica i lična karta.", "alt": ["Dvesta evra i dokumenta."], "extra": ["pasoš", "vozačka", "slike", "ključ"], "ru": "Деньги, карта и удостоверение личности."}, {"sr": "Molim vas vaš pasoš ili dokument.", "ru": "Дайте мне ваш паспорт или документ."}, {"you": "Izvolite.", "alt": ["Evo."], "extra": ["kopiju", "fotografiju", "lićnu", "kartu"], "ru": "Пожалуйста."}, {"sr": "Popunite ovaj obrazac. Javićemo vam se za par dana.", "ru": "Заполните этот бланк. Мы свяжемся с вами через пару дней."}, {"you": "Hvala. Imam li nešto da potpišem?", "alt": ["Trebam li još nešto?"], "extra": ["kopiju", "broj", "telefon", "adresu"], "ru": "Спасибо. Мне нужно что-то подписать?"}]}, {"id": "bank", "name": "В банке", "emoji": "🏦", "lines": [{"sr": "Dobar dan! Kako mogu da pomognem?", "ru": "Добрый день! Чем могу помочь?"}, {"you": "Hteo bih da otvorim račun.", "alt": ["Želim da otvorim račun."], "extra": ["menjam", "podignem", "uplat", "kredit"], "ru": "Я хотел бы открыть счёт."}, {"sr": "Imate li ličnu kartu i pasoš?", "ru": "У вас есть удостоверение личности и паспорт?"}, {"you": "Imam. Izvolite.", "alt": ["Da, evo."], "extra": ["kopiju", "dokument", "samo", "jedno"], "ru": "Есть. Пожалуйста."}, {"sr": "Popunite ovaj formular, molim.", "ru": "Заполните эту форму, пожалуйста."}, {"you": "U redu. Koliko traje otvaranje računa?", "alt": ["Koliko se čeka?"], "extra": ["minuta", "dana", "sati", "brzo"], "ru": "Хорошо. Сколько длится открытие счёта?"}, {"sr": "Oko petnaest minuta.", "ru": "Около пятнадцати минут."}, {"you": "Mogu li da dobijem i karticu?", "alt": ["Da li dobijam karticu?"], "extra": ["internet", "bankarstvo", "aplikaciju", "keš"], "ru": "Могу я также получить карту?"}, {"sr": "Naravno, dobićete je poštom za nedelju dana.", "ru": "Конечно, вы получите её по почте через неделю."}, {"you": "Odlično. Hvala vam.", "alt": ["Hvala puno."], "extra": ["doviđenja", "prijatan", "dan", "sve"], "ru": "Отлично. Спасибо вам."}]}, {"id": "post", "name": "На почте", "emoji": "📮", "lines": [{"sr": "Dobar dan! Šta vam treba?", "ru": "Добрый день! Что вам нужно?"}, {"you": "Hteo bih da pošaljem paket.", "alt": ["Želim da pošaljem paket."], "extra": ["pismo", "razglednicu", "novac", "telegram"], "ru": "Я хотел бы отправить посылку."}, {"sr": "Kuda šaljete?", "ru": "Куда отправляете?"}, {"you": "U Rusiju, u Moskvu.", "alt": ["Za Rusiju."], "extra": ["Srbiju", "Nemačku", "Francusku", "grad"], "ru": "В Россию, в Москву."}, {"sr": "Šta je unutra?", "ru": "Что внутри?"}, {"you": "Knjige i slatkiši.", "alt": ["Samo knjige."], "extra": ["odeća", "suveniri", "poklon", "dokumenti"], "ru": "Книги и сладости."}, {"sr": "Popunite ovaj obrazac. To će koštati dve hiljade dinara.", "ru": "Заполните этот бланк. Это будет стоить две тысячи динаров."}, {"you": "U redu. Kada će stići?", "alt": ["Koliko dugo putuje?"], "extra": ["dana", "nedelja", "brzo", "avionom"], "ru": "Хорошо. Когда дойдёт?"}, {"sr": "Za oko dve nedelje.", "ru": "Примерно через две недели."}, {"you": "Hvala. Izvolite novac.", "alt": ["Evo, molim."], "extra": ["kartica", "kusur", "račun", "potvrdu"], "ru": "Спасибо. Вот деньги."}]}, {"id": "phone", "name": "Телефонный разговор", "emoji": "📱", "lines": [{"sr": "Halo?", "ru": "Алло?"}, {"you": "Halo, dobar dan. Mogu li da razgovaram sa Anom?", "alt": ["Halo, je li Ana tu?"], "extra": ["Markom", "direktorom", "gospođom", "molim"], "ru": "Алло, добрый день. Могу я поговорить с Аной?"}, {"sr": "Izvinite, nije tu trenutno. Ko je to?", "ru": "Извините, её сейчас нет. Кто это?"}, {"you": "Ovo je Ivan. Ostaviću poruku.", "alt": ["Ja sam Ivan. Mogu li da ostavim poruku?"], "extra": ["Petar", "prijatelj", "kolega", "komšija"], "ru": "Это Иван. Я оставлю сообщение."}, {"sr": "Naravno, izvolite.", "ru": "Конечно, пожалуйста."}, {"you": "Recite joj da sam zvao i da ću zvati kasnije.", "alt": ["Neka me pozove kada može."], "extra": ["ujutru", "uveče", "sutra", "kasnije"], "ru": "Скажите ей, что я звонил и позвоню позже."}, {"sr": "U redu, preneću.", "ru": "Хорошо, передам."}, {"you": "Hvala puno. Doviđenja.", "alt": ["Hvala, doviđenja."], "extra": ["prijatan", "dan", "izvini", "molim"], "ru": "Большое спасибо. До свидания."}, {"sr": "Doviđenja!", "ru": "До свидания!"}]}, {"id": "directions", "name": "Как пройти", "emoji": "🗺️", "lines": [{"sr": "Izvinite, mogu li da vas pitam nešto?", "ru": "Извините, можно вас спросить?"}, {"you": "Da, naravno. Izvolite.", "alt": ["Naravno, pitajte."], "extra": ["molim", "slobodno", "reći", "pomoći"], "ru": "Да, конечно. Пожалуйста."}, {"sr": "Kako da dođem do muzeja?", "ru": "Как добраться до музея?"}, {"you": "Idite pravo, pa skrenite levo na semaforu.", "alt": ["Pravo pa levo.", "Idite pravo do raskrsnice."], "extra": ["desno", "nazad", "drugom", "ulicom"], "ru": "Идите прямо, потом поверните налево на светофоре."}, {"sr": "A koliko je daleko?", "ru": "А как далеко?"}, {"you": "Oko deset minuta peške.", "alt": ["Nije daleko, deset minuta."], "extra": ["pet", "blizu", "daleko", "taksi"], "ru": "Около десяти минут пешком."}, {"sr": "Ima li autobus koji ide tamo?", "ru": "Есть автобус, который идёт туда?"}, {"you": "Da, broj dvadeset dva.", "alt": ["Ima, linija 22."], "extra": ["tramvaj", "trolejbus", "metro", "broj"], "ru": "Да, номер двадцать два."}, {"sr": "Hvala puno na pomoći!", "ru": "Большое спасибо за помощь!"}, {"you": "Nema na čemu. Srećan put!", "alt": ["Nema na čemu."], "extra": ["prijatan", "dan", "doviđenja", "sve"], "ru": "Не за что. Удачного пути!"}]}, {"id": "weather", "name": "Разговор о погоде", "emoji": "☀️", "lines": [{"sr": "Kakvo je vreme danas?", "ru": "Какая сегодня погода?"}, {"you": "Lepo je, sunčano i toplo.", "alt": ["Danas je sunčano."], "extra": ["hladno", "kišovito", "vetrovito", "oblačno"], "ru": "Хорошая, солнечно и тепло."}, {"sr": "Kakva je prognoza za sutra?", "ru": "Какой прогноз на завтра?"}, {"you": "Kažu da će padati kiša.", "alt": ["Biće kiše.", "Prognoza je loša."], "extra": ["sneg", "sunce", "vetar", "grad"], "ru": "Говорят, будет дождь."}, {"sr": "Baš šteta. Planirao sam da idem u šetnju.", "ru": "Как жаль. Я планировал пойти на прогулку."}, {"you": "Ponesi kišobran, za svaki slučaj.", "alt": ["Uzmi kišobran."], "extra": ["jaknu", "kapu", "rukavice", "šal"], "ru": "Возьми зонт, на всякий случай."}, {"sr": "Hvala na savetu. Koliko je stepeni?", "ru": "Спасибо за совет. Сколько градусов?"}, {"you": "Oko dvadeset stepeni.", "alt": ["Dvadeset stepeni."], "extra": ["deset", "trideset", "petnaest", "nula"], "ru": "Около двадцати градусов."}, {"sr": "To je prijatno. Volim takvo vreme.", "ru": "Это приятно. Люблю такую погоду."}, {"you": "I ja. Uživaj u danu!", "alt": ["I ja. Prijatan dan!"], "extra": ["hvala", "doviđenja", "sve", "lepo"], "ru": "И я. Наслаждайся днём!"}]}, {"id": "smalltalk", "name": "Светская беседа", "emoji": "💬", "lines": [{"sr": "Kako si? Dugo se nismo videli.", "ru": "Как ты? Давно не виделись."}, {"you": "Dobro sam, hvala. A ti?", "alt": ["Sve u redu, hvala. Kako si ti?"], "extra": ["odlično", "loše", "tako-tako", "super"], "ru": "Хорошо, спасибо. А ты?"}, {"sr": "I ja sam dobro. Šta ima novo?", "ru": "И я хорошо. Что нового?"}, {"you": "Ništa posebno. Radim i učim srpski.", "alt": ["Sve po starom."], "extra": ["putujem", "odmaram", "radim", "studiram"], "ru": "Ничего особенного. Работаю и учу сербский."}, {"sr": "Kako ti ide srpski?", "ru": "Как успехи с сербским?"}, {"you": "Polako, ali bolje nego pre.", "alt": ["Ide dobro."], "extra": ["loše", "odlično", "teško", "sporo"], "ru": "Потихоньку, но лучше, чем раньше."}, {"sr": "Bravo! Treba da vežbaš svaki dan.", "ru": "Молодец! Нужно практиковаться каждый день."}, {"you": "Znam, trudim se. A šta ti radiš ovih dana?", "alt": ["Trudim se. A ti?"], "extra": ["radim", "putujem", "odmaram", "studiram"], "ru": "Знаю, стараюсь. А ты чем занимаешься в эти дни?"}, {"sr": "Ja radim u novoj firmi. Zadovoljan sam.", "ru": "Я работаю в новой фирме. Доволен."}, {"you": "Drago mi je zbog tebe. Srećno!", "alt": ["Baš lepo. Srećno!"], "extra": ["čestitam", "bravo", "super", "odlično"], "ru": "Рад за тебя. Удачи!"}]}, {"id": "work", "name": "На работе", "emoji": "💼", "lines": [{"sr": "Dobar dan! Kako ste danas?", "ru": "Добрый день! Как вы сегодня?"}, {"you": "Dobro sam, hvala. A vi?", "alt": ["Sve u redu."], "extra": ["odlično", "umorno", "zauzeto", "super"], "ru": "Хорошо, спасибо. А вы?"}, {"sr": "Imamo sastanak u deset. Jeste li spremni?", "ru": "У нас совещание в десять. Вы готовы?"}, {"you": "Jesam, pripremio sam izveštaj.", "alt": ["Da, spreman sam."], "extra": ["dokument", "prezentaciju", "plan", "projekat"], "ru": "Да, я подготовил отчёт."}, {"sr": "Odlično. Pošaljite mi ga mejlom.", "ru": "Отлично. Пришлите мне его по почте."}, {"you": "Hoću, odmah ću ga poslati.", "alt": ["U redu, šaljem."], "extra": ["kasnije", "ujutru", "sada", "sutra"], "ru": "Хорошо, сейчас отправлю."}, {"sr": "Hvala. Vidimo se na sastanku.", "ru": "Спасибо. Увидимся на совещании."}, {"you": "Vidimo se. Prijatan rad!", "alt": ["Vidimo se kasnije."], "extra": ["doviđenja", "srećno", "sve", "dan"], "ru": "До встречи. Хорошей работы!"}]}, {"id": "school", "name": "В школе", "emoji": "🏫", "lines": [{"sr": "Dobar dan, đaci! Danas učimo nove reči.", "ru": "Добрый день, ученики! Сегодня учим новые слова."}, {"you": "Dobar dan, profesore! Spremni smo.", "alt": ["Dobar dan!"], "extra": ["učitelju", "molim", "knjige", "sveske"], "ru": "Добрый день, учитель! Мы готовы."}, {"sr": "Otvorite knjige na strani dvadeset.", "ru": "Откройте книги на двадцатой странице."}, {"you": "Izvolite. Koja je tema danas?", "alt": ["U redu. Šta učimo?"], "extra": ["gramatika", "vežbe", "test", "domaći"], "ru": "Хорошо. Какая сегодня тема?"}, {"sr": "Tema je 'U restoranu'. Ponavljamo dijalog.", "ru": "Тема — «В ресторане». Повторяем диалог."}, {"you": "Mogu li ja da počnem?", "alt": ["Da počnem?"], "extra": ["ponovo", "prvi", "sada", "posle"], "ru": "Можно я начну?"}, {"sr": "Naravno, izvolite.", "ru": "Конечно, пожалуйста."}, {"you": "Hvala. Radim domaći svaki dan.", "alt": ["Učim svaki dan."], "extra": ["pišem", "čitam", "vežbam", "ponavljam"], "ru": "Спасибо. Я делаю домашку каждый день."}, {"sr": "Bravo! To je pravi način.", "ru": "Молодец! Это правильный путь."}, {"you": "Hvala, profesore. Doviđenja!", "alt": ["Hvala vam."], "extra": ["vidimo", "se", "sutra", "doviđenja"], "ru": "Спасибо, учитель. До свидания!"}]}, {"id": "invitation", "name": "Приглашение", "emoji": "🎉", "lines": [{"sr": "Zdravo! Imaš li vremena u subotu?", "ru": "Привет! У тебя есть время в субботу?"}, {"you": "Mislim da imam. Zašto pitaš?", "alt": ["Verovatno imam. Šta se dešava?"], "extra": ["da", "ne", "možda", "ujutru"], "ru": "Думаю, есть. Почему спрашиваешь?"}, {"sr": "Pravim malu žurku. Dođi kod mene!", "ru": "Устраиваю небольшую вечеринку. Приходи ко мне!"}, {"you": "Baš lepo! Hvala na pozivu.", "alt": ["Sa zadovoljstvom! Hvala."], "extra": ["rado", "naravno", "sigurno", "hoću"], "ru": "Как здорово! Спасибо за приглашение."}, {"sr": "Počinjemo oko osam uveče.", "ru": "Начинаем около восьми вечера."}, {"you": "Da li da donesem nešto?", "alt": ["Treba li nešto da donesem?"], "extra": ["piće", "kolač", "vino", "sok"], "ru": "Принести что-нибудь?"}, {"sr": "Ne moraš ništa, samo dođi.", "ru": "Не нужно ничего, просто приходи."}, {"you": "U redu. Vidimo se u subotu!", "alt": ["Dogovoreno. Vidimo se!"], "extra": ["subotu", "osam", "kod", "tebe"], "ru": "Хорошо. Увидимся в субботу!"}, {"sr": "Jedva čekam! Doviđenja!", "ru": "С нетерпением жду! До свидания!"}]}, {"id": "birthday", "name": "День рождения", "emoji": "🎂", "lines": [{"sr": "Srećan rođendan!", "ru": "С днём рождения!"}, {"you": "Hvala puno! Baš si me iznenadio.", "alt": ["Hvala! Drago mi je."], "extra": ["lep", "poklon", "cveće", "iznenađenje"], "ru": "Большое спасибо! Ты меня удивил."}, {"sr": "Evo mali poklon za tebe.", "ru": "Вот небольшой подарок для тебя."}, {"you": "Hvala! Mogu li da otvorim?", "alt": ["Hvala, da otvorim?"], "extra": ["sada", "kasnije", "odmah", "kod kuće"], "ru": "Спасибо! Можно открыть?"}, {"sr": "Naravno, izvoli.", "ru": "Конечно, пожалуйста."}, {"you": "Vau! Baš lepo. Hvala ti puno.", "alt": ["Divno! Hvala!"], "extra": ["odlično", "super", "krasno", "sjajno"], "ru": "Вау! Как красиво. Большое спасибо."}, {"sr": "Koliko godina puniš?", "ru": "Сколько тебе исполняется?"}, {"you": "Trideset. Osećam se mlado!", "alt": ["Trideset godina."], "extra": ["dvadeset", "četrdeset", "mlado", "staro"], "ru": "Тридцать. Чувствую себя молодым!"}, {"sr": "Neka ti je srećno i veselo!", "ru": "Пусть будет счастливо и весело!"}, {"you": "Hvala! Želim ti sve najbolje.", "alt": ["Hvala ti!"], "extra": ["takođe", "zdravlje", "sreća", "ljubav"], "ru": "Спасибо! Желаю тебе всего наилучшего."}]}, {"id": "market", "name": "На рынке", "emoji": "🥬", "lines": [{"sr": "Izvolite, izvolite! Sveže voće i povrće!", "ru": "Подходите, подходите! Свежие фрукты и овощи!"}, {"you": "Dobar dan. Koliko košta kilo jabuka?", "alt": ["Pošto su jabuke?"], "extra": ["paradajz", "krompir", "banane", "grožđe"], "ru": "Добрый день. Сколько стоит кило яблок?"}, {"sr": "Sto pedeset dinara.", "ru": "Сто пятьдесят динаров."}, {"you": "Dajte mi dva kila, molim.", "alt": ["Dva kila, molim."], "extra": ["jedan", "tri", "pola", "kilo"], "ru": "Дайте мне два кило, пожалуйста."}, {"sr": "Još nešto?", "ru": "Что-нибудь ещё?"}, {"you": "Koliko su paradajz i krastavci?", "alt": ["Pošto je paradajz?"], "extra": ["paprika", "luk", "kupus", "šargarepa"], "ru": "Сколько стоят помидоры и огурцы?"}, {"sr": "Paradajz je dvesta, krastavci sto osamdeset.", "ru": "Помидоры — двести, огурцы — сто восемьдесят."}, {"you": "Dajte mi kilo paradajza i pola kila krastavaca.", "alt": ["Kilo paradajza i pola krastavaca."], "extra": ["kupus", "papriku", "luk", "šargarepu"], "ru": "Дайте кило помидоров и полкило огурцов."}, {"sr": "Ukupno petsto trideset dinara.", "ru": "Итого пятьсот тридцать динаров."}, {"you": "Izvolite. Hvala!", "alt": ["Evo. Hvala!"], "extra": ["kusur", "kesu", "račun", "doviđenja"], "ru": "Пожалуйста. Спасибо!"}]}, {"id": "hairdresser", "name": "В парикмахерской", "emoji": "✂️", "lines": [{"sr": "Dobar dan! Imate li termin?", "ru": "Добрый день! У вас есть запись?"}, {"you": "Nemam. Mogu li sada?", "alt": ["Nemam termin. Je li slobodno?"], "extra": ["da", "imam", "kasnije", "sutra"], "ru": "Нет. Можно сейчас?"}, {"sr": "Da, sedite. Kako želite da se ošišate?", "ru": "Да, садитесь. Как хотите подстричься?"}, {"you": "Kratko, molim. Samo malo skratite.", "alt": ["Kratko sa strane."], "extra": ["dugo", "srednje", "frizuru", "brijanje"], "ru": "Коротко, пожалуйста. Только немного укоротите."}, {"sr": "U redu. A brada?", "ru": "Хорошо. А борода?"}, {"you": "Samo malo podrezati.", "alt": ["Ne dirajte bradu."], "extra": ["obrijati", "skratiti", "urediti", "ostaviti"], "ru": "Только немного подровнять."}, {"sr": "U redu. Zatvorite oči, počinjemo.", "ru": "Хорошо. Закройте глаза, начинаем."}, {"you": "Koliko će koštati?", "alt": ["Koliko je?"], "extra": ["dinara", "evra", "ukupno", "sa", "bradom"], "ru": "Сколько будет стоить?"}, {"sr": "Hiljadu dinara.", "ru": "Тысяча динаров."}, {"you": "U redu. Izvolite. Hvala!", "alt": ["Evo, hvala!"], "extra": ["kusur", "kartica", "doviđenja", "sve"], "ru": "Хорошо. Пожалуйста. Спасибо!"}]}, {"id": "apartment", "name": "Аренда квартиры", "emoji": "🏠", "lines": [{"sr": "Dobar dan! Zvali ste zbog stana?", "ru": "Добрый день! Вы звонили по поводу квартиры?"}, {"you": "Da, video sam oglas. Je li još slobodan?", "alt": ["Da, zbog oglasa."], "extra": ["soba", "kuća", "garsonjera", "dvokrevetni"], "ru": "Да, я видел объявление. Она ещё свободна?"}, {"sr": "Jeste. Dvokrevetni stan, blizu centra.", "ru": "Да. Двухкомнатная квартира, недалеко от центра."}, {"you": "Kolika je kirija?", "alt": ["Koliko je mesečno?"], "extra": ["cena", "depozit", "računi", "ukupno"], "ru": "Какая аренда?"}, {"sr": "Trista evra mesečno plus računi.", "ru": "Триста евро в месяц плюс коммунальные."}, {"you": "Da li je namešten?", "alt": ["Ima li nameštaj?"], "extra": ["kuhinja", "kupatilo", "internet", "parking"], "ru": "Он меблирован?"}, {"sr": "Da, potpuno namešten. Ima i internet.", "ru": "Да, полностью меблирован. Есть и интернет."}, {"you": "Mogu li da ga vidim danas?", "alt": ["Može li razgledanje?"], "extra": ["sutra", "ujutru", "uveče", "sada"], "ru": "Могу я посмотреть его сегодня?"}, {"sr": "Naravno, u šest popodne.", "ru": "Конечно, в шесть вечера."}, {"you": "Odlično. Vidimo se. Hvala!", "alt": ["U redu. Hvala!"], "extra": ["adresa", "telefon", "doviđenja", "sve"], "ru": "Отлично. До встречи. Спасибо!"}]}, {"id": "emergency", "name": "Скорая помощь", "emoji": "🚑", "lines": [{"sr": "Halo, hitna pomoć. Šta se dogodilo?", "ru": "Алло, скорая помощь. Что случилось?"}, {"you": "Moj prijatelj se onesvestio. Treba nam pomoć!", "alt": ["Čovek se onesvestio!"], "extra": ["pao", "povredio", "bolestan", "loše"], "ru": "Мой друг потерял сознание. Нам нужна помощь!"}, {"sr": "Gde se nalazite?", "ru": "Где вы находитесь?"}, {"you": "U ulici Kneza Mihaila, broj petnaest.", "alt": ["U centru, kod parka."], "extra": ["adresa", "stan", "sprat", "zgrada"], "ru": "На улице Кнеза Михаила, дом пятнадцать."}, {"sr": "Da li diše?", "ru": "Он дышит?"}, {"you": "Da, diše, ali ne odgovara.", "alt": ["Da, ali je bez svesti."], "extra": ["ne", "jedva", "teško", "krvari"], "ru": "Да, дышит, но не отвечает."}, {"sr": "Ostanite na liniji. Ekipa dolazi za pet minuta.", "ru": "Оставайтесь на линии. Бригада приедет через пять минут."}, {"you": "Hvala, čekamo!", "alt": ["Hvala vam!"], "extra": ["brzo", "molim", "dolazimo", "spremni"], "ru": "Спасибо, ждём!"}, {"sr": "Ne pomerajte ga. Pokrijte ga nečim toplim.", "ru": "Не двигайте его. Накройте его чем-нибудь тёплым."}, {"you": "Razumem. Radim to sada.", "alt": ["U redu, radim."], "extra": ["jastuk", "ćebe", "vodu", "pomoć"], "ru": "Понял. Делаю это сейчас."}]}, {"id": "beach", "name": "На пляже", "emoji": "🏖️", "lines": [{"sr": "Kakvo je more danas?", "ru": "Какое сегодня море?"}, {"you": "Mirno i toplo. Idealno za kupanje!", "alt": ["More je mirno."], "extra": ["hladno", "talasasto", "prljavo", "čisto"], "ru": "Спокойное и тёплое. Идеально для купания!"}, {"sr": "Ima li slobodnih ležaljki?", "ru": "Есть свободные лежаки?"}, {"you": "Ima, tamo desno, blizu suncobrana.", "alt": ["Mislim da ima."], "extra": ["levo", "dalje", "blizu", "vode"], "ru": "Есть, вон там справа, возле зонта."}, {"sr": "Koliko košta iznajmljivanje?", "ru": "Сколько стоит аренда?"}, {"you": "Petsto dinara za ceo dan.", "alt": ["Petsto dinara."], "extra": ["hiljadu", "sat", "dva", "ležaljke"], "ru": "Пятьсот динаров за целый день."}, {"sr": "U redu. Hoćemo li da plivamo?", "ru": "Хорошо. Пойдём плавать?"}, {"you": "Da, ali prvo da se namažem kremom.", "alt": ["Sačekaj malo."], "extra": ["peškir", "vodu", "naočare", "šešir"], "ru": "Да, но сначала намажусь кремом."}, {"sr": "Pametno. Sunce je jako danas.", "ru": "Разумно. Солнце сегодня сильное."}, {"you": "Zato i nosim šešir. Idemo!", "alt": ["Zato imam šešir."], "extra": ["voda", "naočare", "peškir", "krema"], "ru": "Поэтому и ношу шляпу. Идём!"}]}, {"id": "gym", "name": "В спортзале", "emoji": "🏋️", "lines": [{"sr": "Zdravo! Prvi put kod nas?", "ru": "Привет! Впервые у нас?"}, {"you": "Da, hteo bih da se učlanim.", "alt": ["Da, želim da vežbam."], "extra": ["mesec", "godinu", "nedelju", "probu"], "ru": "Да, хотел бы записаться."}, {"sr": "Imamo mesečnu i godišnju članarinu.", "ru": "У нас есть месячный и годовой абонемент."}, {"you": "Koliko je mesečno?", "alt": ["Koliko košta mesec?"], "extra": ["godina", "nedelja", "dan", "ukupno"], "ru": "Сколько в месяц?"}, {"sr": "Tri hiljade dinara mesečno.", "ru": "Три тысячи динаров в месяц."}, {"you": "U redu. Šta je uključeno?", "alt": ["Šta dobijam?"], "extra": ["teretana", "bazen", "sauna", "trener"], "ru": "Хорошо. Что включено?"}, {"sr": "Teretana, kardio i tuševi. Trener je extra.", "ru": "Тренажёрный зал, кардио и душевые. Тренер — отдельно."}, {"you": "Dobro. Kada je najmanje ljudi?", "alt": ["Kada je tiho?"], "extra": ["ujutru", "uveče", "popodne", "vikend"], "ru": "Хорошо. Когда меньше всего людей?"}, {"sr": "Ujutru oko sedam.", "ru": "Утром около семи."}, {"you": "Odlično. Dolazim sutra. Hvala!", "alt": ["Vidimo se sutra."], "extra": ["danas", "ujutru", "uveče", "kasnije"], "ru": "Отлично. Приду завтра. Спасибо!"}]}, {"id": "visit", "name": "В гостях", "emoji": "🏡", "lines": [{"sr": "Dobro došli! Uđite, molim.", "ru": "Добро пожаловать! Входите, пожалуйста."}, {"you": "Hvala! Izvinite što kasnim.", "alt": ["Hvala na pozivu."], "extra": ["dolazim", "rano", "stigao", "malo"], "ru": "Спасибо! Извините, что опоздал."}, {"sr": "Nema problema. Izujte se i sedite.", "ru": "Ничего страшного. Разувайтесь и садитесь."}, {"you": "Donio sam vam mali poklon.", "alt": ["Evo nešto za vas."], "extra": ["cveće", "vino", "kolač", "čokoladu"], "ru": "Я принёс вам небольшой подарок."}, {"sr": "Baš lepo! Nije trebalo.", "ru": "Как приятно! Не нужно было."}, {"you": "Drago mi je da vam se sviđa.", "alt": ["Nema na čemu."], "extra": ["poklon", "iznenađenje", "mali", "znak"], "ru": "Рад, что вам нравится."}, {"sr": "Hoćete li čaj ili kafu?", "ru": "Хотите чай или кофе?"}, {"you": "Čaj, molim. Bez šećera.", "alt": ["Kafu, molim."], "extra": ["sok", "vodu", "sa", "mlekom"], "ru": "Чай, пожалуйста. Без сахара."}, {"sr": "Izvolite. Kako ste? Kako porodica?", "ru": "Пожалуйста. Как вы? Как семья?"}, {"you": "Svi smo dobro, hvala na pitanju.", "alt": ["Sve je u redu."], "extra": ["zdravi", "dobro", "super", "odlično"], "ru": "Все хорошо, спасибо за вопрос."}]}, {"id": "date", "name": "Свидание", "emoji": "💕", "lines": [{"sr": "Zdravo! Baš si lepa večeras.", "ru": "Привет! Ты очень красивая сегодня."}, {"you": "Hvala! I ti izgledaš odlično.", "alt": ["Hvala, i ti lepo izgledaš."], "extra": ["baš", "veoma", "dobro", "fino"], "ru": "Спасибо! Ты тоже отлично выглядишь."}, {"sr": "Gde bismo mogli da idemo?", "ru": "Куда бы нам пойти?"}, {"you": "Možda u restoran ili u šetnju?", "alt": ["Predlažem šetnju."], "extra": ["kafić", "bioskop", "park", "pozorište"], "ru": "Может, в ресторан или на прогулку?"}, {"sr": "Idemo prvo na kafu, pa ćemo videti.", "ru": "Пойдём сначала на кофе, потом посмотрим."}, {"you": "Zvuči dobro. Znaš li dobro mesto?", "alt": ["U redu. Predloži ti."], "extra": ["kafić", "restoran", "bar", "mesto"], "ru": "Звучит хорошо. Знаешь хорошее место?"}, {"sr": "Znam jedan mali kafić blizu reke.", "ru": "Знаю одно маленькое кафе у реки."}, {"you": "Zvuči romantično. Idemo!", "alt": ["Baš lepo!"], "extra": ["romantično", "mirno", "lepo", "tiho"], "ru": "Звучит романтично. Пойдём!"}, {"sr": "Baš mi je drago što si tu.", "ru": "Я очень рад, что ты здесь."}, {"you": "I meni. Lepo je biti s tobom.", "alt": ["I meni je drago."], "extra": ["sa", "tobom", "ovde", "sada"], "ru": "И мне. Приятно быть с тобой."}]}, {"id": "goodbye", "name": "Прощание", "emoji": "👋", "lines": [{"sr": "Već moram da idem.", "ru": "Мне уже пора идти."}, {"you": "Baš šteta. Bilo je lepo.", "alt": ["Već? Šteta."], "extra": ["vreme", "brzo", "drago", "lepо"], "ru": "Как жаль. Было приятно."}, {"sr": "Javi se kad stigneš kući.", "ru": "Дай знать, когда доберёшься домой."}, {"you": "Hoću, javiću se. Obećavam.", "alt": ["Naravno, javiću se."], "extra": ["poruku", "poziv", "ujutru", "sutra"], "ru": "Хорошо, дам знать. Обещаю."}, {"sr": "Čuvaj se i srećan put!", "ru": "Береги себя и удачного пути!"}, {"you": "Hvala. I ti se čuvaj!", "alt": ["Hvala, i ti!"], "extra": ["takođe", "srećno", "lepo", "dobro"], "ru": "Спасибо. И ты береги себя!"}, {"sr": "Vidimo se uskoro!", "ru": "Увидимся скоро!"}, {"you": "Vidimo se! Doviđenja!", "alt": ["Doviđenja!"], "extra": ["sutra", "uskoro", "za", "nedelju"], "ru": "Увидимся! До свидания!"}, {"sr": "Doviđenja i sve najbolje!", "ru": "До свидания и всего наилучшего!"}, {"you": "Hvala ti puno. Doviđenja!", "alt": ["Hvala, doviđenja!"], "extra": ["takođe", "sve", "najbolje", "pozdrav"], "ru": "Большое спасибо тебе. До свидания!"}]}];
-    <!-- END_DATA_INJECTION -->
+/* ============ ВСТРОЕННЫЕ ДАННЫЕ ============ */
+const BUILTIN_WORDS = [
+  {id:"greetings",name:"Приветствия",emoji:"👋",words:[
+    {e:"👋",ru:"привет",sr:"zdravo",srStress:"zdrȁvo"},{e:"🙋",ru:"здравствуйте",sr:"dobar dan",srStress:"dȍbar dȃn"},
+    {e:"🚪",ru:"пока",sr:"doviđenja",srStress:"dòviđēnja"},{e:"✅",ru:"да",sr:"da",srStress:"dȁ"},{e:"❌",ru:"нет",sr:"ne",srStress:"nȅ"},
+    {e:"🙏",ru:"спасибо",sr:"hvala",srStress:"hvȁla"},{e:"🤲",ru:"пожалуйста",sr:"molim",srStress:"mȍlim"},
+    {e:"😔",ru:"извините",sr:"izvinite",srStress:"izvínite"},{e:"🌅",ru:"доброе утро",sr:"dobro jutro",srStress:"dȍbro jȕtro"},
+    {e:"🌙",ru:"спокойной ночи",sr:"laku noć",srStress:"lȁku nȏć"},{e:"🤔",ru:"как дела?",sr:"kako si",srStress:"kȁko si"},
+    {e:"👍",ru:"хорошо",sr:"dobro",srStress:"dȍbro"},{e:"📛",ru:"меня зовут",sr:"zovem se",srStress:"zòvem se"},
+    {e:"🤝",ru:"очень приятно",sr:"drago mi je",srStress:"drȃgo mi je"}
+  ]},
+  {id:"family",name:"Семья",emoji:"👨‍👩‍👧",words:[
+    {e:"👨‍👩‍👧",ru:"семья",sr:"porodica",srStress:"poròdica"},{e:"👩",ru:"мама",sr:"majka",srStress:"mȃjka"},
+    {e:"👨",ru:"папа",sr:"otac",srStress:"òtac"},{e:"👫",ru:"родители",sr:"roditelji",srStress:"rodìtelji"},
+    {e:"👦",ru:"сын",sr:"sin",srStress:"sȋn"},{e:"👧",ru:"дочь",sr:"ćerka",srStress:"ćȇrka"},
+    {e:"🧑",ru:"брат",sr:"brat",srStress:"brȁt"},{e:"👩‍🦰",ru:"сестра",sr:"sestra",srStress:"sèstra"},
+    {e:"👵",ru:"бабушка",sr:"baba",srStress:"bába"},{e:"👴",ru:"дедушка",sr:"deda",srStress:"déda"},
+    {e:"🤵",ru:"муж",sr:"muž",srStress:"mȗž"},{e:"👰",ru:"жена",sr:"žena",srStress:"žèna"},
+    {e:"🤝",ru:"друг",sr:"prijatelj",srStress:"prijátelj"}
+  ]},
+  {id:"food",name:"Еда",emoji:"🍎",words:[
+    {e:"🍞",ru:"хлеб",sr:"hleb",srStress:"hlȅb"},{e:"🧀",ru:"сыр",sr:"sir",srStress:"sȉr"},
+    {e:"🥛",ru:"молоко",sr:"mleko",srStress:"mléko"},{e:"🥚",ru:"яйцо",sr:"jaje",srStress:"jȁje"},
+    {e:"🥩",ru:"мясо",sr:"meso",srStress:"mȅso"},{e:"🍗",ru:"курица",sr:"piletina",srStress:"piletìna"},
+    {e:"🐟",ru:"рыба",sr:"riba",srStress:"rȉba"},{e:"🍚",ru:"рис",sr:"pirinač",srStress:"pirìnač"},
+    {e:"🍲",ru:"суп",sr:"supa",srStress:"súpa"},{e:"🥔",ru:"картофель",sr:"krompir",srStress:"kròmpīr"},
+    {e:"🍅",ru:"помидор",sr:"paradajz",srStress:"paradȁjz"},{e:"🥒",ru:"огурец",sr:"krastavac",srStress:"kràstavac"},
+    {e:"🥕",ru:"морковь",sr:"šargarepa",srStress:"šargarèpa"},{e:"🧅",ru:"лук",sr:"luk",srStress:"lȕk"},
+    {e:"🧄",ru:"чеснок",sr:"beli luk",srStress:"bȇlī lȕk"}
+  ]},
+  {id:"drinks",name:"Напитки",emoji:"☕",words:[
+    {e:"☕",ru:"кофе",sr:"kafa",srStress:"kȁfa"},{e:"🍵",ru:"чай",sr:"čaj",srStress:"čȁj"},
+    {e:"💧",ru:"вода",sr:"voda",srStress:"vòda"},{e:"🧃",ru:"сок",sr:"sok",srStress:"sȍk"},
+    {e:"🍺",ru:"пиво",sr:"pivo",srStress:"pȉvo"},{e:"🍷",ru:"вино",sr:"vino",srStress:"víno"},
+    {e:"🥂",ru:"шампанское",sr:"šampanjac",srStress:"šampánjac"},{e:"🥃",ru:"виски",sr:"viski",srStress:"vȉski"},
+    {e:"🍸",ru:"коктейль",sr:"koktel",srStress:"kòktel"}
+  ]},
+  {id:"numbers",name:"Числа",emoji:"🔢",words:[
+    {e:"0️⃣",ru:"ноль",sr:"nula",srStress:"núla"},{e:"1️⃣",ru:"один",sr:"jedan",srStress:"jèdan"},
+    {e:"2️⃣",ru:"два",sr:"dva",srStress:"dvȃ"},{e:"3️⃣",ru:"три",sr:"tri",srStress:"trȋ"},
+    {e:"4️⃣",ru:"четыре",sr:"četiri",srStress:"čètiri"},{e:"5️⃣",ru:"пять",sr:"pet",srStress:"pȇt"},
+    {e:"6️⃣",ru:"шесть",sr:"šest",srStress:"šȇst"},{e:"7️⃣",ru:"семь",sr:"sedam",srStress:"sèdam"},
+    {e:"8️⃣",ru:"восемь",sr:"osam",srStress:"ȍsam"},{e:"9️⃣",ru:"девять",sr:"devet",srStress:"dèvēt"},
+    {e:"🔟",ru:"десять",sr:"deset",srStress:"dȅsēt"},{e:"💯",ru:"сто",sr:"sto",srStress:"stȏ"}
+  ]},
+  {id:"verbs",name:"Глаголы",emoji:"🏃",words:[
+    {e:"🏃",ru:"бежать",sr:"trčati",srStress:"tȑčati"},{e:"🚶",ru:"идти",sr:"ići",srStress:"íći"},
+    {e:"🧍",ru:"стоять",sr:"stajati",srStress:"stàjati"},{e:"🪑",ru:"сидеть",sr:"sedeti",srStress:"sèdēti"},
+    {e:"🛏️",ru:"лежать",sr:"ležati",srStress:"ležati"},{e:"😴",ru:"спать",sr:"spavati",srStress:"spávati"},
+    {e:"🍽️",ru:"есть",sr:"jesti",srStress:"jȅsti"},{e:"🥤",ru:"пить",sr:"piti",srStress:"pȉti"},
+    {e:"🗣️",ru:"говорить",sr:"govoriti",srStress:"govòriti"},{e:"👂",ru:"слушать",sr:"slušati",srStress:"slȕšati"},
+    {e:"👀",ru:"смотреть",sr:"gledati",srStress:"glȅdati"},{e:"✍️",ru:"писать",sr:"pisati",srStress:"písati"},
+    {e:"📖",ru:"читать",sr:"čitati",srStress:"čìtati"},{e:"🤔",ru:"думать",sr:"misliti",srStress:"mȉsliti"}
+  ]}
+];
 
-let DATA = null, DLG = null;
-const $app = document.getElementById('app');
-const $tabs = document.getElementById('tabs');
+const BUILTIN_DIALOGS = [
+  {id:"cafe",name:"В кафе",emoji:"☕",lines:[
+    {sr:"Dobar dan! Šta želite?",srStress:"Dȍbar dȃn! Štȁ žȇlīte?",ru:"Добрый день! Что желаете?"},
+    {you:"Želim kafu, molim.",youStress:"Žȇlīm kȁfu, mȍlim.",alt:["Molim kafu."],extra:["čaj","vodu","hvala"],ru:"Хочу кофе, пожалуйста."},
+    {sr:"Sa mlekom ili bez mleka?",srStress:"Sa mlékom íli bez mléka?",ru:"С молоком или без молока?"},
+    {you:"Bez mleka, hvala.",youStress:"Bez mléka, hvȁla.",alt:["Hvala, bez mleka."],extra:["sa","mlekom","molim"],ru:"Без молока, спасибо."},
+    {sr:"Izvolite. To je dvesta dinara.",srStress:"Ìzvolīte. Tȏ je dvȅsta dinára.",ru:"Пожалуйста. Это двести динаров."},
+    {you:"Evo, izvolite.",youStress:"Ȅvo, ìzvolīte.",alt:["Izvolite."],extra:["hvala","novac","koliko"],ru:"Вот, пожалуйста."},
+    {sr:"Prijatno!",srStress:"Prijátno!",ru:"Приятного!"},
+    {you:"Hvala, doviđenja.",youStress:"Hvȁla, dòviđēnja.",alt:["Doviđenja, hvala."],extra:["dobar","dan","molim"],ru:"Спасибо, до свидания."}
+  ]},
+  {id:"meet",name:"Знакомство",emoji:"👋",lines:[
+    {sr:"Zdravo! Kako se zoveš?",srStress:"Zdrȁvo! Kȁko se zòvēš?",ru:"Привет! Как тебя зовут?"},
+    {you:"Zovem se Ana.",youStress:"Zòvem se Àna.",alt:["Ja se zovem Ana."],extra:["ti","si","moje","ime"],ru:"Меня зовут Ана."},
+    {sr:"Drago mi je. Gde živiš?",srStress:"Drȃgo mi je. Gdȅ žíviš?",ru:"Приятно познакомиться. Где ты живёшь?"},
+    {you:"Živim u Nišu.",youStress:"Žívīm u Níšu.",alt:["U Nišu živim."],extra:["Beogradu","ja","sam"],ru:"Я живу в Нише."},
+    {sr:"Lepo! Pričaš li srpski?",srStress:"Lȇpo! Prȋčāš li sȑpski?",ru:"Здорово! Ты говоришь по-сербски?"},
+    {you:"Malo, ali učim.",youStress:"Mȁlo, ali ȕčīm.",alt:["Pričam malo, ali učim."],extra:["dobro","ne","srpski"],ru:"Немного, но учу."},
+    {sr:"Odlično! Super ti ide.",srStress:"Òdlično! Sȕper ti ìde.",ru:"Отлично! У тебя хорошо получается."},
+    {you:"Hvala puno!",youStress:"Hvȁla pȕno!",alt:["Puno hvala!"],extra:["molim","izvini","dobro"],ru:"Большое спасибо!"}
+  ]},
+  {id:"airport",name:"В аэропорту",emoji:"✈️",lines:[
+    {sr:"Dobar dan! Vaš pasoš i karta, molim.",srStress:"Dȍbar dȃn! Vȁš pȁsoš i kȃrta, mȍlim.",ru:"Добрый день! Ваш паспорт и билет, пожалуйста."},
+    {you:"Izvolite.",youStress:"Ìzvolīte.",alt:["Evo, molim."],extra:["karta","pasoš","lična"],ru:"Пожалуйста."},
+    {sr:"Kuda putujete?",srStress:"Kùda putȕjete?",ru:"Куда летите?"},
+    {you:"Letim za Moskvu.",youStress:"Lètīm za Mòskvu.",alt:["U Moskvu."],extra:["Beograd","Pariz","Nemačku"],ru:"Лечу в Москву."},
+    {sr:"Imate li prtljag za predaju?",srStress:"Ìmāte li prtljȃg za prȅdaju?",ru:"У вас есть багаж для сдачи?"},
+    {you:"Da, jedan kofer.",youStress:"Dȁ, jèdan kòfer.",alt:["Imam jedan kofer."],extra:["ručni","dva","ništa"],ru:"Да, один чемодан."},
+    {sr:"Stavite ga na vagu. Karta za ukrcavanje je kod izlaza B4.",srStress:"Stȁvite ga na vágu. Kȃrta za ukrcávānje je kod ìzlaza B4.",ru:"Поставьте его на весы. Посадочный талон у выхода B4."},
+    {you:"Hvala. U koliko sati je ukrcavanje?",youStress:"Hvȁla. U kòliko sáti je ukrcávānje?",alt:["Kada je boarding?"],extra:["poletanje","kapija","kasni"],ru:"Спасибо. Во сколько посадка?"},
+    {sr:"U četrnaest i trideset.",srStress:"U četr̀naest i trídēset.",ru:"В четырнадцать тридцать."},
+    {you:"Hvala, doviđenja.",youStress:"Hvȁla, dòviđēnja.",alt:["Hvala vam."],extra:["srećan","put","prijatan"],ru:"Спасибо, до свидания."}
+  ]},
+  {id:"shop",name:"В магазине",emoji:"🛒",lines:[
+    {sr:"Izvolite, kako mogu da vam pomognem?",srStress:"Ìzvolīte, kȁko mògu da vam pȍmognēm?",ru:"Пожалуйста, чем могу помочь?"},
+    {you:"Treba mi hleb i mleko.",youStress:"Trȅba mi hlȅb i mléko.",alt:["Hleb i mleko, molim."],extra:["sir","kafa","imam"],ru:"Мне нужны хлеб и молоко."},
+    {sr:"Da li želite još nešto?",srStress:"Dȁ li žȇlīte jȍš nȅšto?",ru:"Желаете ещё что-нибудь?"},
+    {you:"Ne, hvala. To je sve.",youStress:"Nȅ, hvȁla. Tȏ je svȅ.",alt:["To je sve, hvala."],extra:["da","još","nešto"],ru:"Нет, спасибо. Это всё."},
+    {sr:"U redu. To je sto osamdeset dinara.",srStress:"U rédu. Tȏ je stȏ ȍsamdesēt dinára.",ru:"Хорошо. Это сто восемьдесят динаров."},
+    {you:"Izvolite. Hvala vam.",youStress:"Ìzvolīte. Hvȁla vam.",alt:["Hvala vam."],extra:["evo","novac","kesu"],ru:"Пожалуйста. Спасибо вам."},
+    {sr:"Hvala vama. Prijatan dan!",srStress:"Hvȁla vama. Prijátan dȃn!",ru:"Спасибо вам. Хорошего дня!"},
+    {you:"I vama prijatan dan!",youStress:"I vama prijátan dȃn!",alt:["Prijatan dan i vama!"],extra:["hvala","doviđenja"],ru:"И вам хорошего дня!"}
+  ]},
+  {id:"doctor",name:"У врача",emoji:"🩺",lines:[
+    {sr:"Dobar dan! Šta vas muči?",srStress:"Dȍbar dȃn! Štȁ vas mȗči?",ru:"Добрый день! Что вас беспокоит?"},
+    {you:"Boli me glava i imam temperaturu.",youStress:"Bolȉ me gláva i ìmām temperatúru.",alt:["Imam temperaturu."],extra:["grlo","stomak","kašalj"],ru:"У меня болит голова и температура."},
+    {sr:"Od kada imate tegobe?",srStress:"Òd kada ìmāte tègobe?",ru:"С какого времени у вас жалобы?"},
+    {you:"Od juče uveče.",youStress:"Òd jȕčē ùvēče.",alt:["Počelo je juče."],extra:["danas","dva","dana"],ru:"Со вчерашнего вечера."},
+    {sr:"Otvorite usta, molim. Recite 'a'.",srStress:"Otvorite ústa, mȍlim. Rècite 'a'.",ru:"Откройте рот, пожалуйста. Скажите «а»."},
+    {you:"Aaaaa...",youStress:"Áaaaa...",alt:["A."],extra:["da","dobro","molim"],ru:"Ааааа..."},
+    {sr:"Grlo je crveno. Imate upalu. Prepisaću vam antibiotik.",srStress:"Gŕlo je cȑveno. Ìmāte ùpalu. Prepísaću vam antibiòtik.",ru:"Горло красное. У вас воспаление. Выпишу вам антибиотик."},
+    {you:"Kako da ga uzimam?",youStress:"Kȁko da ga ȕzimām?",alt:["Kako se uzima?"],extra:["koliko","dana","ujutru"],ru:"Как его принимать?"},
+    {sr:"Tri puta dnevno, sedam dana. I puno tečnosti.",srStress:"Trȋ púta dnȇvno, sèdam dána. I pȕno tȅčnōsti.",ru:"Три раза в день, семь дней. И много жидкости."},
+    {you:"Hvala, doktore. Doviđenja.",youStress:"Hvȁla, dȍktore. Dòviđēnja.",alt:["Hvala vam."],extra:["recept","apoteka","sutra"],ru:"Спасибо, доктор. До свидания."}
+  ]},
+  {id:"hotel",name:"В отеле",emoji:"🏨",lines:[
+    {sr:"Dobar dan! Kako mogu da pomognem?",srStress:"Dȍbar dȃn! Kȁko mògu da pȍmognēm?",ru:"Добрый день! Чем могу помочь?"},
+    {you:"Imam rezervaciju. Ime je Ivanov.",youStress:"Ìmām rezerváciju. Íme je Ìvanov.",alt:["Rezervisao sam sobu."],extra:["soba","noć","dolazak"],ru:"У меня бронь. Фамилия Иванов."},
+    {sr:"Trenutak... Da, vidim. Jednokrevetna soba, tri noći.",srStress:"Trènutak... Dȁ, vȉdīm. Jednokrèvetna sȍba, trȋ nȍći.",ru:"Минутку... Да, вижу. Одноместный номер, три ночи."},
+    {you:"Tako je. Da li je uključen doručak?",youStress:"Tàkō je. Dȁ li je ukljȗčen dòručak?",alt:["Je li doručak uključen?"],extra:["večera","ručak","wifi"],ru:"Верно. Завтрак включён?"},
+    {sr:"Da, doručak je od sedam do deset.",srStress:"Dȁ, dòručak je òd sèdam do dȅsēt.",ru:"Да, завтрак с семи до десяти."},
+    {you:"Odlično. A gde je lift?",youStress:"Òdlično. A gdȅ je lȉft?",alt:["Gde se nalazi lift?"],extra:["restoran","bar","teretana"],ru:"Отлично. А где лифт?"},
+    {sr:"Odmah levo, iza recepcije.",srStress:"Ȍdmāh lȇvo, íza recèpcije.",ru:"Сразу налево, за ресепшеном."},
+    {you:"Hvala. Kada je vreme za odjavu?",youStress:"Hvȁla. Kàda je vréme za òdjavu?",alt:["Do kada moram da se odjavim?"],extra:["podne","ujutru","kasno"],ru:"Спасибо. Когда время выезда?"},
+    {sr:"Do podneva.",srStress:"Do pódneva.",ru:"До полудня."},
+    {you:"U redu, hvala vam puno.",youStress:"U rédu, hvȁla vam pȕno.",alt:["Hvala na informaciji."],extra:["doviđenja","prijatan","boravak"],ru:"Хорошо, большое спасибо."}
+  ]}
+];
 
-/* ---------- память ---------- */
+const BUILTIN_LESSON = {
+  id:"builtin-basics",emoji:"📖",title:"Сербский с нуля",description:"Базовый курс · 7 блоков",
+  blocks:[
+    {id:"greetings",title:"Знакомство и первые фразы",description:"Приветствия, как представиться, спросить имя, попрощаться.",
+     content:'<h2>Блок 1. Знакомство</h2><p><strong>Приветствия:</strong> Zdravo! (неформ.) / Dobar dan! (форм.)</p><p><strong>Представиться:</strong> Ja sam Marko. — Я Марко.</p><p><strong>Спросить имя:</strong> Kako se zoveš? (ты) / Kako se zovete? (Вы)</p><p><strong>Попрощаться:</strong> Doviđenja! / Ćao!</p><div class="example">— Zdravo! Ja sam Ana. Kako se zoveš?<br>— Zdravo! Ja sam Marko.</div>',
+     quiz:[{q:"Как вежливо поздороваться?",opts:["Zdravo!","Dobar dan!","Ćao!"],a:1},{q:"Как спросить имя (на «ты»)?",opts:["Kako se zovete?","Kako se zoveš?","Kako si?"],a:1},{q:"Как представиться?",opts:["Ja sam...","Ti si...","On je..."],a:0}]},
+    {id:"airport",title:"Диалог в аэропорту",description:"Как сообщить имя, откуда вы, вежливые выражения.",
+     content:'<h2>Блок 2. В аэропорту</h2><div class="example">— Dobar dan! Vaš pasoš i karta, molim.<br>— Izvolite.<br>— Kuda putujete?<br>— Letim za Moskvu.</div>',
+     quiz:[{q:"Что означает «Kuda putujete?»",opts:["Откуда вы?","Куда вы летите?","Как вас зовут?"],a:1},{q:"Как вежливо подать документы?",opts:["Daj mi","Izvolite","Uzmi"],a:1},{q:"Как попрощаться?",opts:["Dobar dan","Doviđenja","Zdravo"],a:1}]},
+    {id:"institute",title:"Первый день в институте",description:"Знакомство с одногруппниками, рассказ о себе.",
+     content:'<h2>Блок 3. В институте</h2><div class="example">— Zdravo! Ja sam student. Kako se zoveš?<br>— Zdravo! Ja sam Ana. Drago mi je.<br>— Drago mi je. Odakle si?<br>— Ja sam iz Rusije.</div>',
+     quiz:[{q:"Как сказать «Я студент»?",opts:["Ja si student","Ja sam student","Ti si student"],a:1},{q:"Как спросить «Откуда ты?»",opts:["Kuda ideš?","Odakle si?","Kako si?"],a:1},{q:"Что значит «Drago mi je»?",opts:["Очень приятно","До свидания","Как дела"],a:0}]},
+    {id:"jesam",title:"Глагол JESAM — «быть»",description:"Формы глагола biti в настоящем времени.",
+     content:'<h2>Блок 4. Глагол JESAM</h2><table><tr><th>Сербский</th><th>Русский</th></tr><tr><td>Ja sam</td><td>Я есть</td></tr><tr><td>Ti si</td><td>Ты есть</td></tr><tr><td>On/Ona/Ono je</td><td>Он/Она/Оно есть</td></tr><tr><td>Mi smo</td><td>Мы есть</td></tr><tr><td>Vi ste</td><td>Вы есть</td></tr><tr><td>Oni/One/Ona su</td><td>Они есть</td></tr></table>',
+     quiz:[{q:"Ja ___ student.",opts:["si","sam","smo"],a:1},{q:"Ti ___ student.",opts:["sam","si","je"],a:1},{q:"Mi ___ studenti.",opts:["smo","ste","su"],a:0}]},
+    {id:"rod",title:"Род и число существительных",description:"Мужской, женский, средний род; единственное и множественное число.",
+     content:'<h2>Блок 5. Род и число</h2><p>Мужские часто на согласную, женские — на <strong>-a</strong>, средние — на <strong>-o</strong> или <strong>-e</strong>.</p><p>student → studenti, knjiga → knjige, mesto → mesta.</p>',
+     quiz:[{q:"Род слова «knjiga»?",opts:["Мужской","Женский","Средний"],a:1},{q:"Род слова «mesto»?",opts:["Мужской","Женский","Средний"],a:2},{q:"Множественное число от «student»:",opts:["studenta","studenti","studentje"],a:1}]},
+    {id:"prisvojne",title:"Притяжательные местоимения",description:"moj, moja, moje; tvoj, tvoja, tvoje; njegov, njen.",
+     content:'<h2>Блок 6. Притяжательные местоимения</h2><table><tr><th>Сербский</th><th>Русский</th><th>Пример</th></tr><tr><td>moj</td><td>мой</td><td>moj student</td></tr><tr><td>moja</td><td>моя</td><td>moja knjiga</td></tr><tr><td>moje</td><td>моё</td><td>moje mesto</td></tr><tr><td>tvoj/tvoja/tvoje</td><td>твой/твоя/твоё</td><td>tvoj brat</td></tr></table>',
+     quiz:[{q:"___ knjiga (моя книга)",opts:["moj","moja","moje"],a:1},{q:"___ student (мой студент)",opts:["moj","moja","moje"],a:0},{q:"___ mesto (моё место)",opts:["moj","moja","moje"],a:2}]},
+    {id:"pismo",title:"Словарь и письменность",description:"Латиница и кириллица, буквы č, ć, š, ž, đ.",
+     content:'<h2>Блок 7. Письменность</h2><p>Сербский использует и латиницу, и кириллицу. Основные: č (ч), ć (ч мягкое), š (ш), ž (ж), đ (дж).</p>',
+     quiz:[{q:"Какая буква = «ш»?",opts:["č","š","ž"],a:1},{q:"Что означает «škola»?",opts:["Школа","Книга","Учитель"],a:0},{q:"Буква «đ» читается как:",opts:["дж","дь","г"],a:0}]}
+  ]
+};
+
+/* ==== ХРАНИЛИЩЕ ==== */
 const store = {
   load(k,def){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):def; }catch(e){ return def; } },
   save(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); return true; }catch(e){ return false; } }
 };
 let settings = Object.assign({speed:'normal',textSize:'normal'}, store.load('sr_settings',{}));
-let stats = Object.assign({words:{},tests:[],days:{},dlg:{}}, store.load('sr_stats',{}));
+let stats = Object.assign({words:{},tests:[],days:{},dlg:{},lesson:{}}, store.load('sr_stats',{}));
 const saveSettings = () => store.save('sr_settings',settings);
 const saveStats = () => store.save('sr_stats',stats);
 const today = () => { const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); };
 const touchDay = () => { stats.days[today()] = 1; };
 const wordRec = sr => stats.words[sr] || (stats.words[sr] = {seen:0,ok:0,bad:0});
 
-/* ---------- размер текста ---------- */
+function getAllWords(){ const i = store.load('sr_words_v1', []); return [...BUILTIN_WORDS, ...i]; }
+function getAllDialogs(){ const i = store.load('sr_dialogs_v1', []); return [...BUILTIN_DIALOGS, ...i]; }
+function getAllLessons(){ const i = store.load('sr_lessons_v1', []); return [Object.assign({}, BUILTIN_LESSON, {imported:false}), ...i]; }
+function getLesson(lid){ return getAllLessons().find(l => l.id === lid); }
+
+/* ==== ОЗВУЧКА ==== */
 const SIZES = {small:'15px', normal:'18px', large:'22px'};
-function applyTextSize(){
-  document.documentElement.style.fontSize = SIZES[settings.textSize] || '18px';
+function applyTextSize(){ document.documentElement.style.fontSize = SIZES[settings.textSize] || '18px'; }
+const RATE = {slow:.6, normal:.9, fast:1.15};
+let currentAudio = null;
+async function speak(text, rate) {
+  if (!text) return;
+  if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+  if ('speechSynthesis' in window) speechSynthesis.cancel();
+  if (navigator.onLine) {
+    try {
+      const url = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=sr&q=${encodeURIComponent(text)}`;
+      const audio = new Audio(url);
+      audio.playbackRate = rate || RATE[settings.speed];
+      await audio.play();
+      currentAudio = audio; return;
+    } catch (e) {}
+  }
+  if ('speechSynthesis' in window) {
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'sr-RS'; u.rate = rate || RATE[settings.speed];
+    const voices = speechSynthesis.getVoices();
+    const v = voices.find(v => v.lang.startsWith('sr')) || voices.find(v => v.lang.startsWith('hr')) || voices.find(v => v.lang.startsWith('bs'));
+    if (v) u.voice = v;
+    speechSynthesis.speak(u);
+  }
 }
 
-/* ---------- озвучка ---------- */
-const LAT = {lj:'љ',nj:'њ','dž':'џ',a:'а',b:'б',c:'ц','č':'ч','ć':'ћ',d:'д','đ':'ђ',e:'е',f:'ф',g:'г',h:'х',i:'и',j:'ј',k:'к',l:'л',m:'м',n:'н',o:'о',p:'п',r:'р',s:'с','š':'ш',t:'т',u:'у',v:'в',z:'з','ž':'ж'};
-function toCyr(s){
-  s = s.toLowerCase().normalize('NFC'); let o = '';
-  for (let i=0;i<s.length;i++){
-    const two = s.substr(i,2);
-    if (LAT[two]){ o += LAT[two]; i++; } else o += LAT[s[i]] || s[i];
-  }
-  return o;
-}
-const RATE = {slow:.6, normal:.85, fast:1.1};
-const srVoices = () => {
-  try { return ('speechSynthesis' in window ? speechSynthesis.getVoices() : []).filter(v=>/^(sr|hr|bs|sh)/i.test(v.lang)); }
-  catch(e){ return []; }
-};
-function say(text){
-  if ('speechSynthesis' in window) speechSynthesis.cancel();
-  try {
-    const v = srVoices();
-    if (v.length){
-      const u = new SpeechSynthesisUtterance(text);
-      u.voice = v[0]; u.lang = v[0].lang;
-      u.rate = RATE[settings.speed];
-      speechSynthesis.speak(u);
-      return;
-    }
-  } catch(e){}
-  const url = 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=sr&q='+encodeURIComponent(toCyr(text));
-  try {
-    const a = new Audio(url);
-    a.play().catch(()=>{
-      if ('speechSynthesis' in window) try {
-        const u = new SpeechSynthesisUtterance(text);
-        u.lang = 'sr-RS'; u.rate = RATE[settings.speed];
-        speechSynthesis.speak(u);
-      } catch(e){}
-    });
-  } catch(e){
-    if ('speechSynthesis' in window) try {
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'sr-RS'; u.rate = RATE[settings.speed];
-      speechSynthesis.speak(u);
-    } catch(e){}
-  }
-}
+/* ==== НАВИГАЦИЯ ==== */
+const $app = document.getElementById('app');
+const $tabs = document.getElementById('tabs');
+let page = 'home';
+function setTab(p){ page=p; $tabs.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.p===p)); window.scrollTo(0,0); }
+$tabs.querySelectorAll('button').forEach(b=>b.onclick=()=>go(b.dataset.p));
+function go(p){ ({home,lesson:lessonPage,dialogs:dialogsPage,tests:testsPage,alphabet:alphabetPage,stats:statsPage,settings:settingsPage})[p](); }
 
 const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const shuffle = a => { a=[...a]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
 const plural = (n,a,b,c) => { const m=n%100, k=n%10; return (m>10&&m<20)?c:(k===1?a:(k>=2&&k<=4?b:c)); };
-let page = 'home';
-function setTab(p){ page=p; $tabs.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.p===p)); window.scrollTo(0,0); }
-$tabs.querySelectorAll('button').forEach(b=>b.onclick=()=>go(b.dataset.p));
-function go(p){ ({home,dialogs:dialogsPage,stats:statsPage,settings:settingsPage})[p](); }
-const bestOf = id => Math.max(0,...stats.tests.filter(t=>t.id===id).map(t=>t.right/t.total));
 
-/* ---------- данные ---------- */
-function applyBase(d){
-  if (!d || !Array.isArray(d.themes) || !d.themes.length) throw new Error('bad words');
-  DATA = d;
-}
-function applyDlg(d){
-  if (!d || !Array.isArray(d.dialogs) || !d.dialogs.length) throw new Error('bad dialogs');
-  d.dialogs.forEach(x=>{ if (!x.id || !x.name || !Array.isArray(x.lines) || !x.lines.some(l=>l.you)) throw new Error('bad'); });
-  DLG = d;
-}
-
-/* ---------- темы ---------- */
+/* ==== ГЛАВНАЯ ==== */
 function home(){
   setTab('home');
-  if (!DATA){
-    $app.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;margin:4px 0 2px"><h1 style="margin:0">Сербский для жизни</h1><a href="feedback.html" style="text-decoration:none;font-size:.85rem;color:var(--teal);white-space:nowrap">✉️ Связь</a></div><p class="sub">Данные не загружены. Запустите merge.py, чтобы вставить слова и диалоги.</p>';
-    return;
-  }
+  const themes = getAllWords();
+  const importedIds = new Set(store.load('sr_words_v1', []).map(t=>t.id));
   $app.innerHTML = `
-    <div style="display:flex;justify-content:space-between;align-items:center;margin:4px 0 2px">
-      <h1 style="margin:0">Сербский для жизни</h1>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h1>Сербский для жизни</h1>
       <a href="feedback.html" style="text-decoration:none;font-size:.85rem;color:var(--teal);white-space:nowrap">✉️ Связь</a>
     </div>
-    <p class="sub">Выберите тему и нажмите на неё</p>
+    <p class="sub">Выберите тему или начните урок</p>
+    <button class="add-btn" id="addWords" type="button">📥 Добавить тему слов</button>
     <div class="themes">
-      ${DATA.themes.map(t=>`
+      ${themes.map(t=>`
         <button class="theme" data-id="${esc(t.id)}">
-          ${bestOf(t.id)>=0.8?'<span class="star">⭐</span>':''}
-          <span class="e">${esc(t.emoji)}</span><span class="n">${esc(t.name)}</span>
+          ${importedIds.has(t.id)?'<span class="imported-tag">импорт</span>':''}
+          <span class="e">${esc(t.emoji||'📚')}</span>
+          <span class="n">${esc(t.name)}</span>
         </button>`).join('')}
+    </div>
+    <div class="nav" style="margin-top:16px">
+      <button class="wide" id="goLesson">📖 Начать урок</button>
     </div>`;
   $app.querySelectorAll('.theme').forEach(b=>b.onclick=()=>learn(b.dataset.id,0));
+  document.getElementById('goLesson').onclick = lessonPage;
+  document.getElementById('addWords').onclick = () => importJsonDialog('words');
 }
 
-/* ---------- карточки ---------- */
+/* ==== КАРТОЧКИ ==== */
 function learn(id,i){
   setTab('home');
-  const t = DATA.themes.find(x=>x.id===id), w = t.words[i], last = i===t.words.length-1;
+  const t = getAllWords().find(x=>x.id===id);
+  if (!t) return home();
+  const w = t.words[i], last = i===t.words.length-1;
   wordRec(w.sr).seen++; touchDay(); saveStats();
   $app.innerHTML = `
     <div class="top"><button class="back" id="home">← Темы</button><span class="count">${i+1} из ${t.words.length}</span></div>
     <div class="bar"><i style="width:${(i+1)/t.words.length*100}%"></i></div>
     <div class="card">
-      <div class="big">${esc(w.e)}</div>
+      <div class="big">${esc(w.e||'📖')}</div>
       <div class="ru">${esc(w.ru)}</div>
-      <div class="sr">${esc(w.sr)}</div>
+      <div class="sr">${esc(w.srStress || w.sr)}</div>
       <button class="say" id="say">🔊 Послушать</button>
     </div>
     <div class="nav">
@@ -229,16 +496,17 @@ function learn(id,i){
       ${last?'<button id="test">Проверить себя</button>':'<button id="next">Дальше →</button>'}
     </div>`;
   document.getElementById('home').onclick = home;
-  document.getElementById('say').onclick = () => say(w.sr);
+  document.getElementById('say').onclick = () => speak(w.sr);
   document.getElementById('prev').onclick = () => learn(id,i-1);
   if (last) document.getElementById('test').onclick = () => quiz(id);
   else document.getElementById('next').onclick = () => learn(id,i+1);
 }
 
-/* ---------- проверка ---------- */
+/* ==== ВИКТОРИНА ==== */
 function quiz(id){
   setTab('home');
-  const t = DATA.themes.find(x=>x.id===id);
+  const t = getAllWords().find(x=>x.id===id);
+  if (!t) return home();
   const order = shuffle(t.words.map((_,i)=>i));
   let n = 0, right = 0;
   const ask = () => {
@@ -255,28 +523,23 @@ function quiz(id){
       <div class="top"><button class="back" id="home">← Темы</button><span class="count">${n+1} из ${order.length}</span></div>
       <div class="bar"><i style="width:${n/order.length*100}%"></i></div>
       ${emo
-        ? `<div class="card compact"><div class="sr">${esc(w.sr)}</div><button class="back" id="hear0" style="margin-top:10px">🔊</button></div>
-           <p class="q">Выберите картинку</p>`
-        : `<div class="card compact"><div class="big">${esc(w.e)}</div><div class="ru">${esc(w.ru)}</div></div>
-           <p class="q">Как это по-сербски?</p>`}
-      <div class="opts${emo?' emo':''}">${opts.map(o=>`<button class="opt" data-sr="${esc(o.sr)}">${esc(emo?o.e:o.sr)}</button>`).join('')}</div>
+        ? `<div class="card compact"><div class="sr">${esc(w.srStress || w.sr)}</div><button class="back" id="hear0" style="margin-top:12px">🔊</button></div><p class="q">Выберите картинку</p>`
+        : `<div class="card compact"><div class="big">${esc(w.e||'📖')}</div><div class="ru">${esc(w.ru)}</div></div><p class="q">Как это по-сербски?</p>`}
+      <div class="opts${emo?' emo':''}">${opts.map(o=>`<button class="opt" data-sr="${esc(o.sr)}">${esc(emo?o.e:(o.srStress||o.sr))}</button>`).join('')}</div>
       <div class="msg" id="msg"></div>
       <div class="nav hide" id="nx"><button class="light" id="hear">🔊 Послушать</button><button id="go">Дальше →</button></div>`;
     document.getElementById('home').onclick = home;
-    const h0 = document.getElementById('hear0'); if (h0) h0.onclick = () => say(w.sr);
+    const h0 = document.getElementById('hear0'); if (h0) h0.onclick = () => speak(w.sr);
     let answered = false;
     $app.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
       if (answered) return; answered = true;
       const ok = b.dataset.sr === w.sr, r = wordRec(w.sr);
       if (ok){ right++; r.ok++; b.classList.add('right'); document.getElementById('msg').textContent='✅ Верно!'; }
-      else {
-        r.bad++; b.classList.add('wrong');
-        $app.querySelectorAll('.opt').forEach(x=>{ if(x.dataset.sr===w.sr) x.classList.add('right'); });
-        document.getElementById('msg').textContent = emo ? 'Правильно: '+w.e+' '+w.ru : 'Правильно: '+w.sr;
-      }
+      else { r.bad++; b.classList.add('wrong'); $app.querySelectorAll('.opt').forEach(x=>{ if(x.dataset.sr===w.sr) x.classList.add('right'); });
+        document.getElementById('msg').textContent = emo ? 'Правильно: '+w.e+' '+w.ru : 'Правильно: '+(w.srStress||w.sr); }
       touchDay(); saveStats();
       document.getElementById('nx').classList.remove('hide');
-      document.getElementById('hear').onclick = () => say(w.sr);
+      document.getElementById('hear').onclick = () => speak(w.sr);
       document.getElementById('go').onclick = () => { n++; ask(); };
     });
   };
@@ -286,149 +549,427 @@ function quiz(id){
     saveStats();
     const good = right/order.length >= 0.8;
     $app.innerHTML = `
-      <div class="res">
-        <div style="font-size:4rem">${good?'🎉':'💪'}</div>
-        <div class="score">${right} из ${order.length}</div>
-        <p class="sub">${good?'Отлично!':'Хорошо! Попробуйте ещё раз.'}</p>
-      </div>
-      <div class="nav">
-        <button class="light" id="again">Ещё раз</button>
-        <button id="themes">Другие темы</button>
-      </div>`;
+      <div class="res"><div style="font-size:4rem">${good?'🎉':'💪'}</div>
+      <div class="score">${right} из ${order.length}</div>
+      <p class="sub">${good?'Отлично!':'Хорошо! Попробуйте ещё раз.'}</p></div>
+      <div class="nav"><button class="light" id="again">Ещё раз</button><button id="themes">Другие темы</button></div>`;
     document.getElementById('again').onclick = () => quiz(id);
     document.getElementById('themes').onclick = home;
   };
   ask();
 }
 
-/* ---------- успехи ---------- */
-function streak(){
-  let n = 0; const d = new Date();
-  if (!stats.days[fmt(d)]) d.setDate(d.getDate()-1);
-  while (stats.days[fmt(d)]){ n++; d.setDate(d.getDate()-1); }
-  return n;
+/* ==== УРОКИ ==== */
+function courseDone(lesson){
+  const total = lesson.blocks.length; let done = 0;
+  const st = stats.lesson || {};
+  lesson.blocks.forEach((_, i) => { if (st[lesson.id + ':' + i]) done++; });
+  return { done, total };
 }
-function fmt(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
-function statsPage(){
-  setTab('stats');
-  if (!DATA){ $app.innerHTML = '<h1>Мои успехи</h1><p class="sub">Данные не загружены.</p>'; return; }
-  const all = DATA.themes.flatMap(t=>t.words);
-  const total = new Set(all.map(w=>w.sr)).size;
-  const seen = new Set(all.filter(w=>stats.words[w.sr]?.seen>0).map(w=>w.sr)).size;
-  const ok = Object.values(stats.words).reduce((a,r)=>a+r.ok,0);
-  const bad = Object.values(stats.words).reduce((a,r)=>a+r.bad,0);
-  const pct = ok+bad ? Math.round(ok/(ok+bad)*100)+'%' : '—';
-  const hard = all.filter((w,i,a)=>a.findIndex(x=>x.sr===w.sr)===i && stats.words[w.sr]?.bad>0)
-    .sort((a,b)=>(stats.words[b.sr].bad-stats.words[b.sr].ok)-(stats.words[a.sr].bad-stats.words[a.sr].ok)).slice(0,6);
+function lessonPage(){
+  setTab('lesson');
+  const lessons = getAllLessons();
   $app.innerHTML = `
-    <h1>Мои успехи</h1>
-    <div class="stats">
-      <div class="stat"><b>${seen} / ${total}</b><small>слов просмотрено</small></div>
-      <div class="stat"><b>${pct}</b><small>верных ответов</small></div>
-      <div class="stat"><b>${stats.tests.length}</b><small>${plural(stats.tests.length,'проверка пройдена','проверки пройдено','проверок пройдено')}</small></div>
-      <div class="stat"><b>${streak()}</b><small>${plural(streak(),'день подряд','дня подряд','дней подряд')}</small></div>
-    </div>
-    <h2>По темам</h2>
-    ${DATA.themes.map(t=>{
-      const s = t.words.filter(w=>stats.words[w.sr]?.seen>0).length, b = bestOf(t.id), has = stats.tests.some(x=>x.id===t.id);
-      return `<div class="row"><div class="t"><span>${esc(t.emoji)} ${esc(t.name)}</span><span>${has?'лучший: '+Math.round(b*100)+'%':''}</span></div>
-        <div class="bar"><i style="width:${s/t.words.length*100}%"></i></div><small>просмотрено ${s} из ${t.words.length}</small></div>`;}).join('')}
-    ${DLG?`<h2>Диалоги</h2>${DLG.dialogs.map(d=>{const r=(stats.dlg||{})[d.id]||{done:0};return `<div class="row"><div class="t"><span>${esc(d.emoji||'💬')} ${esc(d.name)}</span><span>пройдено: ${r.done}</span></div></div>`;}).join('')}`:''}
-    ${hard.length?`<h2>Чаще всего ошибки</h2>${hard.map(w=>`<div class="row"><div class="t"><span>${esc(w.e)} ${esc(w.sr)}</span><span>${esc(w.ru)}</span></div></div>`).join('')}`:''}`;
+    <h1>Уроки</h1>
+    <p class="sub">Выберите курс или добавьте свой</p>
+    <button class="add-btn" id="importBtn" type="button">📥 Добавить урок (JSON)</button>
+    ${lessons.map(l => {
+      const p = courseDone(l);
+      return `<div class="lesson-block" data-lid="${esc(l.id)}">
+        <h3>${esc(l.emoji||'📖')} ${esc(l.title)}${l.imported?'<span class="imported-tag">импорт</span>':''}</h3>
+        <p>${esc(l.description||'')}</p><small>Пройдено ${p.done} из ${p.total}</small>
+      </div>`;
+    }).join('')}`;
+  $app.querySelectorAll('[data-lid]').forEach(el => el.onclick = () => openLesson(el.dataset.lid));
+  document.getElementById('importBtn').onclick = () => importJsonDialog('lesson');
 }
 
-/* ---------- настройки ---------- */
-function settingsPage(){
-  setTab('settings');
+function openLesson(lid){
+  const lesson = getLesson(lid);
+  if (!lesson) return;
+  setTab('lesson');
+  const st = stats.lesson || {};
   $app.innerHTML = `
-    <h1>Настройки</h1>
-    <div class="set">
-      <label>Размер текста</label>
-      <div class="seg" id="size">
-        <button data-s="small">Мелкий</button>
-        <button data-s="normal">Обычный</button>
-        <button data-s="large">Крупный</button>
-      </div>
+    <div class="top"><button class="back" id="back">← Уроки</button><span class="count">${esc(lesson.emoji||'📖')} ${esc(lesson.title)}</span></div>
+    ${lesson.blocks.map((b,i)=>`
+      <div class="lesson-block" data-bid="${i}">
+        <h3><span class="num">${i+1}</span>${esc(b.title)}</h3>
+        <p>${esc(b.description||'')}</p>
+        ${st[lesson.id+':'+i]?'<span style="color:var(--ok);font-weight:700;font-size:.9rem">✅ пройдено</span>':''}
+      </div>`).join('')}
+    <div class="nav" style="margin-top:16px">
+      <button class="wide" id="finalBtn">🏆 Финальный тест</button>
     </div>
-    <div class="set">
-      <label>Скорость речи</label>
-      <div class="seg" id="speed">
-        <button data-s="slow">Медленно</button>
-        <button data-s="normal">Обычно</button>
-        <button data-s="fast">Быстро</button>
-      </div>
-    </div>
-    <div class="set">
-      <button class="say" id="try">🔊 Проверить звук</button>
-      <p class="note">Если звук не слышен — проверьте громкость и разрешение на воспроизведение.</p>
+    ${lesson.imported?'':'<div class="nav"><button class="wide light" id="dlBtn">💾 Скачать JSON</button></div>'}`;
+  document.getElementById('back').onclick = lessonPage;
+  $app.querySelectorAll('[data-bid]').forEach(el=>el.onclick = () => openBlock(lid, +el.dataset.bid));
+  document.getElementById('finalBtn').onclick = () => finalTest(lid);
+  const dl = document.getElementById('dlBtn');
+  if (dl) dl.onclick = () => downloadLesson(lid);
+}
+
+function openBlock(lid, idx){
+  const lesson = getLesson(lid);
+  const block = lesson.blocks[idx];
+  if (!block) return;
+  let qIndex = 0, right = 0;
+  const total = (block.quiz||[]).length;
+  $app.innerHTML = `
+    <div class="top"><button class="back" id="back">← Блоки</button><span class="count">Блок ${idx+1} из ${lesson.blocks.length}</span></div>
+    <div class="lesson-content">${block.content}</div>
+    ${total>0?'<div class="quiz-box" id="quizBox"></div>':''}
+    <div class="nav">
+      <button class="light" id="back2">← Назад</button>
+      <button id="next" disabled>${idx+1<lesson.blocks.length?'Дальше →':'Готово'}</button>
     </div>`;
-  const segS = document.getElementById('size');
-  const markS = () => segS.querySelectorAll('button').forEach(b=>b.classList.toggle('on', b.dataset.s === settings.textSize));
-  segS.querySelectorAll('button').forEach(b=>b.onclick = () => {
-    settings.textSize = b.dataset.s; saveSettings(); applyTextSize(); markS();
-  });
-  markS();
-  const segV = document.getElementById('speed');
-  const markV = () => segV.querySelectorAll('button').forEach(b=>b.classList.toggle('on', b.dataset.s === settings.speed));
-  segV.querySelectorAll('button').forEach(b=>b.onclick = () => {
-    settings.speed = b.dataset.s; saveSettings(); markV();
-  });
-  markV();
-  document.getElementById('try').onclick = () => say('dobar dan');
-}
-if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => { if (page==='settings' && DATA) settingsPage(); };
-
-/* ---------- диалоги ---------- */
-function dialogsPage(){
-  setTab('dialogs');
-  if (!DLG){
-    $app.innerHTML = '<h1>Диалоги</h1><p class="sub">Данные не загружены. Запустите merge.py.</p>';
+  document.getElementById('back').onclick = () => openLesson(lid);
+  document.getElementById('back2').onclick = () => openLesson(lid);
+  const nextBtn = document.getElementById('next');
+  const box = document.getElementById('quizBox');
+  if (!box) {
+    stats.lesson = stats.lesson || {}; stats.lesson[lid+':'+idx] = true; saveStats();
+    nextBtn.disabled = false;
+    nextBtn.onclick = () => { if (idx+1 < lesson.blocks.length) openBlock(lid, idx+1); else openLesson(lid); };
     return;
   }
+  const showQuiz = () => {
+    if (qIndex >= total) {
+      const passed = right === total;
+      if (passed) { stats.lesson = stats.lesson || {}; stats.lesson[lid+':'+idx] = true; saveStats(); }
+      box.innerHTML = `
+        <p style="color:${passed?'var(--ok)':'var(--bad)'};font-weight:700;font-size:1.05rem;text-align:center">
+          ${passed ? '✅ Блок пройден! ' : '❌ Не всё верно. '}${right} из ${total}
+        </p>
+        ${passed ? '' : '<p class="note" style="text-align:center">Повторите блок, чтобы он засчитался.</p>'}
+        ${passed ? '' : '<div class="nav" style="margin-top:10px"><button id="retryBlock">↻ Повторить блок</button></div>'}`;
+      nextBtn.disabled = !passed;
+      if (passed) nextBtn.onclick = () => { if (idx+1 < lesson.blocks.length) openBlock(lid, idx+1); else openLesson(lid); };
+      const retry = box.querySelector('#retryBlock');
+      if (retry) retry.onclick = () => openBlock(lid, idx);
+      return;
+    }
+    const q = block.quiz[qIndex];
+    box.innerHTML = `
+      <p class="q"><strong>Вопрос ${qIndex+1}:</strong> ${esc(q.q)}</p>
+      <div class="opts">${q.opts.map((o,i)=>`<button class="opt" data-i="${i}">${esc(o)}</button>`).join('')}</div>
+      <div class="msg" id="qmsg"></div>`;
+    let answered = false;
+    box.querySelectorAll('.opt').forEach(b=>{
+      b.onclick = () => {
+        if (answered) return; answered = true;
+        const i = +b.dataset.i;
+        if (i === q.a) { right++; b.classList.add('right'); document.getElementById('qmsg').textContent='✅ Верно!'; }
+        else { b.classList.add('wrong'); box.querySelectorAll('.opt')[q.a].classList.add('right');
+          document.getElementById('qmsg').textContent = '❌ Правильный ответ: ' + q.opts[q.a]; }
+        qIndex++; setTimeout(showQuiz, 900);
+      };
+    });
+  };
+  showQuiz();
+}
+
+function finalTest(lid){
+  setTab('lesson');
+  const lesson = getLesson(lid);
+  const allQ = [];
+  lesson.blocks.forEach(b => (b.quiz||[]).forEach(q => allQ.push(q)));
+  if (!allQ.length) { alert('В этом уроке нет вопросов для теста.'); return; }
+  const order = shuffle(allQ);
+  let n = 0, right = 0;
+  const ask = () => {
+    if (n >= order.length) return result();
+    const q = order[n];
+    $app.innerHTML = `
+      <div class="top"><button class="back" id="back">← Урок</button><span class="count">Тест ${n+1} из ${order.length}</span></div>
+      <div class="bar"><i style="width:${n/order.length*100}%"></i></div>
+      <div class="quiz-box" style="margin-top:16px">
+        <p class="q"><strong>${esc(q.q)}</strong></p>
+        <div class="opts">${q.opts.map((o,i)=>`<button class="opt" data-i="${i}">${esc(o)}</button>`).join('')}</div>
+        <div class="msg" id="msg"></div>
+      </div>`;
+    document.getElementById('back').onclick = () => openLesson(lid);
+    let answered = false;
+    $app.querySelectorAll('.opt').forEach(b=>{
+      b.onclick = () => {
+        if (answered) return; answered = true;
+        const i = +b.dataset.i;
+        if (i === q.a) { right++; b.classList.add('right'); document.getElementById('msg').textContent='✅ Верно!'; }
+        else { b.classList.add('wrong'); $app.querySelectorAll('.opt')[q.a].classList.add('right');
+          document.getElementById('msg').textContent = '❌ Правильный ответ: ' + q.opts[q.a]; }
+        setTimeout(() => { n++; ask(); }, 900);
+      };
+    });
+  };
+  const result = () => {
+    const total = order.length;
+    const pct = Math.round(right/total*100);
+    stats.tests.push({id:'final-'+lid,right,total,date:today()});
+    saveStats();
+    $app.innerHTML = `
+      <div class="res"><div style="font-size:4rem">${pct>=80?'🎉':'💪'}</div>
+      <div class="score">${right} / ${total}</div><p class="sub">${pct}%</p>
+      <p>${pct>=80?'Отлично! Материал усвоен.':pct>=60?'Хорошо, но стоит повторить некоторые блоки.':'Рекомендуется пройти урок заново.'}</p></div>
+      <div class="nav"><button class="light" id="again">Пройти ещё раз</button><button id="lesson">К уроку</button></div>`;
+    document.getElementById('again').onclick = () => finalTest(lid);
+    document.getElementById('lesson').onclick = () => openLesson(lid);
+  };
+  ask();
+}
+
+function downloadLesson(lid){
+  const lesson = getLesson(lid);
+  const data = { ...lesson }; delete data.imported;
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = (data.id||'lesson') + '.json';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ==== ВАЛИДАЦИЯ ==== */
+function validateLesson(data){
+  if (!data || typeof data !== 'object') return 'JSON должен быть объектом';
+  if (!data.title) return 'Отсутствует поле "title"';
+  if (!Array.isArray(data.blocks) || data.blocks.length === 0) return 'Поле "blocks" должно быть непустым массивом';
+  for (let i=0; i<data.blocks.length; i++){
+    const b = data.blocks[i];
+    if (!b.title) return `Блок ${i+1}: отсутствует "title"`;
+    if (!b.content) return `Блок ${i+1}: отсутствует "content"`;
+    if (!Array.isArray(b.quiz)) return `Блок ${i+1}: поле "quiz" должно быть массивом`;
+    for (let j=0; j<b.quiz.length; j++){
+      const q = b.quiz[j];
+      if (!q.q) return `Блок ${i+1}, вопрос ${j+1}: отсутствует "q"`;
+      if (!Array.isArray(q.opts) || q.opts.length < 2) return `Блок ${i+1}, вопрос ${j+1}: "opts" ≥2 вариантов`;
+      if (typeof q.a !== 'number' || q.a < 0 || q.a >= q.opts.length) return `Блок ${i+1}, вопрос ${j+1}: некорректный индекс "a"`;
+    }
+  }
+  return null;
+}
+function validateWords(data){
+  if (!data || typeof data !== 'object') return 'JSON должен быть объектом';
+  if (!data.name) return 'Отсутствует поле "name"';
+  if (!Array.isArray(data.words) || data.words.length === 0) return 'Поле "words" должно быть непустым массивом';
+  for (let i=0;i<data.words.length;i++){
+    const w = data.words[i];
+    if (!w.ru) return `Слово ${i+1}: нужно поле "ru"`;
+    if (!w.sr) return `Слово ${i+1}: нужно поле "sr"`;
+  }
+  return null;
+}
+function validateDialogs(data){
+  if (!data || typeof data !== 'object') return 'JSON должен быть объектом';
+  if (!data.name) return 'Отсутствует поле "name"';
+  if (!Array.isArray(data.lines) || data.lines.length === 0) return 'Поле "lines" должно быть непустым массивом';
+  for (let i=0;i<data.lines.length;i++){
+    const l = data.lines[i];
+    if (!l.sr && !l.you) return `Строка ${i+1}: нужен "sr" или "you"`;
+    if (!l.ru) return `Строка ${i+1}: отсутствует "ru"`;
+  }
+  if (!data.lines.some(l=>l.you)) return 'Диалог должен содержать хотя бы одну реплику "you"';
+  return null;
+}
+
+/* ==== ИМПОРТ ==== */
+const IMPORT_CONFIG = {
+  lesson: { tab:'lesson', title:'Импорт урока', back:lessonPage, afterImport:lessonPage,
+    storeKey:'sr_lessons_v1', idPrefix:'imported-lesson', validate:validateLesson,
+    exampleText:'{\n  "title": "Мой курс",\n  "emoji": "🎓",\n  "description": "Описание",\n  "blocks": [\n    {\n      "title": "Блок 1",\n      "description": "Что изучаем",\n      "content": "<h2>Заголовок</h2><p>Текст</p>",\n      "quiz": [\n        {"q": "Вопрос?", "opts": ["A","B","C"], "a": 1}\n      ]\n    }\n  ]\n}' },
+  words: { tab:'home', title:'Импорт темы слов', back:home, afterImport:home,
+    storeKey:'sr_words_v1', idPrefix:'imported-words', validate:validateWords,
+    exampleText:'{\n  "id": "my-theme",\n  "name": "Моя тема",\n  "emoji": "🎯",\n  "words": [\n    {"e": "👋", "ru": "привет", "sr": "zdravo", "srStress": "zdrȁvo"},\n    {"e": "🙏", "ru": "спасибо", "sr": "hvala", "srStress": "hvȁla"}\n  ]\n}' },
+  dialogs: { tab:'dialogs', title:'Импорт диалога', back:dialogsPage, afterImport:dialogsPage,
+    storeKey:'sr_dialogs_v1', idPrefix:'imported-dialog', validate:validateDialogs,
+    exampleText:'{\n  "id": "my-dialog",\n  "name": "Мой диалог",\n  "emoji": "💬",\n  "lines": [\n    {"sr": "Zdravo!", "srStress": "Zdrȁvo!", "ru": "Привет!"},\n    {"you": "Zdravo!", "youStress": "Zdrȁvo!", "ru": "Привет!", "extra": ["kako","si"]}\n  ]\n}' }
+};
+
+function importJsonDialog(type){
+  const cfg = IMPORT_CONFIG[type];
+  setTab(cfg.tab);
+  let pendingData = null;
+  $app.innerHTML = `
+    <div class="top"><button class="back" id="back">← Назад</button><span class="count">${cfg.title}</span></div>
+    <div class="lesson-content">
+      <h2>${cfg.title}</h2>
+      <p class="note">Скопируйте JSON (например, из примера ниже) и вставьте.</p>
+      <div class="example-box" id="exampleBox">
+        <pre>${esc(cfg.exampleText)}</pre>
+        <button class="copy-example" id="copyExample" type="button">📋 Скопировать пример</button>
+      </div>
+      <button class="say" id="pasteBtn" type="button">📋 Вставить из буфера</button>
+      <div class="manual-paste-box hide" id="manualPasteBox">
+        <p class="hint">👇 <b>Долгое нажатие</b> на поле → «Вставить»</p>
+        <textarea id="manualPasteTA" placeholder="Вставьте JSON сюда…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="text"></textarea>
+        <p class="parser-status" id="parserStatus"></p>
+      </div>
+      <label class="file-label">📁 Или выбрать файл
+        <input type="file" id="fileInput" accept=".json,application/json">
+      </label>
+      <div class="nav" style="margin-top:12px">
+        <button class="light" id="cancelBtn" type="button">Отмена</button>
+        <button id="importGo" type="button" disabled>Импортировать</button>
+      </div>
+      <div class="msg" id="importMsg" style="min-height:1.6em"></div>
+    </div>`;
+  const msg = document.getElementById('importMsg');
+  const importGo = document.getElementById('importGo');
+  const pasteBtn = document.getElementById('pasteBtn');
+  const manualBox = document.getElementById('manualPasteBox');
+  const parserStatus = document.getElementById('parserStatus');
+  const ta = document.getElementById('manualPasteTA');
+  const setMsg = (text, kind) => {
+    msg.textContent = text;
+    msg.style.color = kind === 'ok' ? 'var(--ok)' : kind === 'bad' ? 'var(--bad)' : 'var(--ink-soft)';
+  };
+  const setParser = (text, kind) => {
+    parserStatus.textContent = text;
+    parserStatus.className = 'parser-status' + (kind ? ' ' + kind : '');
+  };
+  const handleText = (text, sourceName) => {
+    if (!text || !text.trim()) { setMsg('Текст пуст', 'bad'); setParser('', null); return false; }
+    let data;
+    try { data = JSON.parse(text); }
+    catch (e) { setMsg('Ошибка JSON: ' + e.message, 'bad'); setParser('❌ ' + e.message, 'bad'); return false; }
+    const err = cfg.validate(data);
+    if (err) { setMsg('Ошибка структуры: ' + err, 'bad'); setParser('❌ ' + err, 'bad'); return false; }
+    pendingData = data;
+    importGo.disabled = false;
+    setMsg('✅ JSON ' + (sourceName ? '(' + sourceName + ') ' : '') + 'прочитан. Нажмите «Импортировать».', 'ok');
+    setParser('✅ JSON прочитан — можно импортировать', 'ok');
+    return true;
+  };
+  const showManualBox = () => {
+    manualBox.classList.remove('hide');
+    setParser('Вставьте JSON через долгое нажатие → «Вставить»', null);
+    setTimeout(() => {
+      ta.focus();
+      try { ta.click(); } catch(e) {}
+      manualBox.scrollIntoView({behavior:'smooth', block:'center'});
+    }, 100);
+  };
+  let inputTimer = null;
+  const tryParse = () => {
+    const text = ta.value;
+    if (!text.trim()) { setParser('', null); return; }
+    if (text.trim().length < 4) return;
+    handleText(text, 'поле');
+  };
+  ta.addEventListener('input', () => {
+    clearTimeout(inputTimer);
+    inputTimer = setTimeout(tryParse, 400);
+  });
+  ta.addEventListener('paste', () => {
+    clearTimeout(inputTimer);
+    setTimeout(tryParse, 50);
+  });
+  pasteBtn.onclick = async () => {
+    setMsg('Чтение буфера…');
+    let text = null;
+    try {
+      if (navigator.clipboard && navigator.clipboard.readText) {
+        text = await Promise.race([
+          navigator.clipboard.readText(),
+          new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 1500))
+        ]);
+      }
+    } catch (e) { text = null; }
+    if (text && text.trim()) { handleText(text, 'буфер'); return; }
+    setMsg('Автоматическое чтение недоступно. Вставьте вручную в поле ниже.', 'bad');
+    showManualBox();
+  };
+  document.getElementById('copyExample').onclick = async () => {
+    let copied = false;
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(cfg.exampleText);
+        copied = true;
+      }
+    } catch (e) {}
+    if (copied) { setMsg('Пример скопирован. Вставьте его в поле и отредактируйте.', 'ok'); return; }
+    const box = document.getElementById('exampleBox');
+    box.innerHTML = `
+      <textarea id="manualCopyTA" spellcheck="false" autocapitalize="off" autocorrect="off" style="width:100%;min-height:140px;font-family:ui-monospace,monospace;font-size:16px;padding:10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)">${esc(cfg.exampleText)}</textarea>
+      <p class="note" style="margin-top:6px;text-align:center">Текст выделен — нажмите <b>Ctrl+C</b> (или долгое нажатие → Копировать)</p>`;
+    const ta2 = document.getElementById('manualCopyTA');
+    ta2.focus(); ta2.select();
+    setMsg('Автокопирование недоступно. Текст выделен — скопируйте вручную.', 'ok');
+  };
+  document.getElementById('back').onclick = cfg.back;
+  document.getElementById('cancelBtn').onclick = cfg.back;
+  document.getElementById('fileInput').onchange = (e) => {
+    const f = e.target.files[0]; if (!f) return;
+    const reader = new FileReader();
+    reader.onload = () => handleText(String(reader.result), f.name);
+    reader.onerror = () => setMsg('Ошибка чтения файла', 'bad');
+    reader.readAsText(f);
+  };
+  importGo.onclick = () => {
+    if (!pendingData) return;
+    const data = pendingData;
+    const arr = store.load(cfg.storeKey, []);
+    if (!data.id) data.id = cfg.idPrefix + '-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+    if (arr.some(x => x.id === data.id) || (type === 'lesson' && data.id === BUILTIN_LESSON.id)) {
+      setMsg('Элемент с таким id уже существует. Измените "id".', 'bad'); return;
+    }
+    data.imported = true;
+    arr.push(data);
+    if (!store.save(cfg.storeKey, arr)) { setMsg('Не удалось сохранить (localStorage переполнен)', 'bad'); return; }
+    setMsg('✅ Добавлено: «' + (data.title || data.name) + '»', 'ok');
+    setTimeout(cfg.afterImport, 800);
+  };
+}
+
+/* ==== ДИАЛОГИ ==== */
+function dialogsPage(){
+  setTab('dialogs');
   const dr = id => (stats.dlg||{})[id];
+  const importedIds = new Set(store.load('sr_dialogs_v1', []).map(d=>d.id));
+  const dialogs = getAllDialogs();
   $app.innerHTML = `
     <h1>Диалоги</h1>
     <p class="sub">Ответьте собеседнику, составив фразу из слов</p>
+    <button class="add-btn" id="addDialog" type="button">📥 Добавить диалог</button>
     <div class="themes">
-      ${DLG.dialogs.map(d=>`
+      ${dialogs.map(d=>`
         <button class="theme" data-id="${esc(d.id)}">
+          ${importedIds.has(d.id)?'<span class="imported-tag">импорт</span>':''}
           ${dr(d.id)&&dr(d.id).done?'<span class="star">⭐</span>':''}
           <span class="e">${esc(d.emoji||'💬')}</span><span class="n">${esc(d.name)}</span>
         </button>`).join('')}
     </div>`;
-  $app.querySelectorAll('.theme').forEach(b=>b.onclick=()=>dialog(b.dataset.id));
+  $app.querySelectorAll('.theme').forEach(b=>b.onclick = () => dialog(b.dataset.id));
+  document.getElementById('addDialog').onclick = () => importJsonDialog('dialogs');
 }
 
 function dialog(id){
   setTab('dialogs');
-  const d = DLG.dialogs.find(x=>x.id===id), L = d.lines;
+  const d = getAllDialogs().find(x=>x.id===id);
+  if (!d) return dialogsPage();
+  const L = d.lines;
   stats.dlg = stats.dlg || {};
   const rec = stats.dlg[id] || (stats.dlg[id] = {done:0,errors:0});
   let i = 0, runErr = 0;
   $app.innerHTML = `
     <div class="top"><button class="back" id="home">← Диалоги</button><span class="count">${esc(d.emoji||'💬')} ${esc(d.name)}</span></div>
     <div class="bar"><i id="pb" style="width:0"></i></div>
-    <div class="chat" id="chat"></div>
-    <div id="act"></div>`;
+    <div class="chat" id="chat"></div><div id="act"></div>`;
   document.getElementById('home').onclick = dialogsPage;
   const chat = document.getElementById('chat'), act = document.getElementById('act'), pb = document.getElementById('pb');
   const toEnd = () => setTimeout(()=>window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}),60);
-
-  const bubble = (who,sr,ru) => {
+  const bubble = (who, sr, ru, stress) => {
     const b = document.createElement('div');
-    b.className = 'bub '+who;
-    b.innerHTML = `<div class="bs">${esc(sr)}</div><div class="br">${esc(ru||'')}</div><button class="spk" aria-label="Послушать">🔊</button>`;
-    b.querySelector('.spk').onclick = () => say(sr);
+    b.className = 'bub ' + who;
+    b.innerHTML = `<div class="bs">${esc(stress || sr)}</div><div class="br">${esc(ru||'')}</div><button class="spk" aria-label="Послушать">🔊</button>`;
+    b.querySelector('.spk').onclick = () => speak(sr);
     chat.appendChild(b);
   };
-
+  const normW = s => String(s||'').toLowerCase().replace(/[.,!?;:"„“”'’…()\-–—]/g,' ').split(/\s+/).filter(Boolean);
   const step = () => {
-    while (i<L.length && !L[i].you){ bubble('them',L[i].sr,L[i].ru); i++; }
+    while (i<L.length && !L[i].you){ bubble('them', L[i].sr, L[i].ru, L[i].srStress); i++; }
     pb.style.width = (i/L.length*100)+'%';
     if (i>=L.length) return finish();
     turn(L[i]); toEnd();
   };
-
   const turn = l => {
     const variants = [l.you,...(l.alt||[])];
     const main = normW(l.you), items = main.slice(), have = new Set(main);
@@ -450,16 +991,16 @@ function dialog(id){
       </div>`;
     const slot = document.getElementById('slot'), tiles = document.getElementById('tiles'), m = document.getElementById('m');
     const draw = () => {
-      slot.innerHTML = sel.length ? sel.map(k=>`<button class="tile" data-k="${k}">${esc(pool[k].w)}</button>`).join('') : '<span class="note">Нажимайте на слова ниже</span>';
+      slot.innerHTML = sel.length ? sel.map(k=>`<button class="tile" data-k="${k}">${esc(pool[k].w)}</button>`).join('') : '<span class="note" style="margin:0">Нажимайте на слова ниже</span>';
       tiles.innerHTML = pool.map((p,k)=>sel.includes(k)?'':`<button class="tile" data-k="${k}">${esc(p.w)}</button>`).join('');
       slot.querySelectorAll('.tile').forEach(b=>b.onclick=()=>{ sel.splice(sel.indexOf(+b.dataset.k),1); draw(); });
       tiles.querySelectorAll('.tile').forEach(b=>b.onclick=()=>{ sel.push(+b.dataset.k); m.textContent=''; draw(); });
     };
     draw();
     const accept = text => {
-      bubble('me',text,l.ru); say(text); i++;
+      bubble('me', text, l.ru, l.youStress); speak(text); i++;
       act.innerHTML = `<div class="nav"><button class="light" id="hear">🔊 Послушать</button><button id="go">${i>=L.length?'Завершить':'Дальше →'}</button></div>`;
-      document.getElementById('hear').onclick = () => say(text);
+      document.getElementById('hear').onclick = () => speak(text);
       document.getElementById('go').onclick = step;
       toEnd();
     };
@@ -476,15 +1017,12 @@ function dialog(id){
     };
     document.getElementById('show').onclick = () => accept(l.you);
   };
-
   const finish = () => {
     rec.done++; touchDay(); saveStats();
     act.innerHTML = `
-      <div class="res">
-        <div style="font-size:3.4rem">${runErr?'💪':'🎉'}</div>
-        <div class="score" style="font-size:2rem">Диалог пройден</div>
-        <p class="sub">${runErr?'Ошибок: '+runErr:'Без ошибок!'}</p>
-      </div>
+      <div class="res"><div style="font-size:3.4rem">${runErr?'💪':'🎉'}</div>
+      <div class="score" style="font-size:2rem">Диалог пройден</div>
+      <p class="sub">${runErr?'Ошибок: '+runErr:'Без ошибок!'}</p></div>
       <div class="nav"><button class="light" id="again">Ещё раз</button><button id="others">Другие диалоги</button></div>`;
     document.getElementById('again').onclick = () => dialog(id);
     document.getElementById('others').onclick = dialogsPage;
@@ -493,16 +1031,156 @@ function dialog(id){
   step();
 }
 
-const normW = s => String(s||'').toLowerCase().replace(/[.,!?;:"„“”'’…()\-–—]/g,' ').split(/\s+/).filter(Boolean);
+/* ==== ТЕСТЫ ==== */
+function testsPage(){
+  setTab('tests');
+  const words = getAllWords();
+  $app.innerHTML = `
+    <h1>Тесты</h1><p class="sub">Проверьте знания по темам или пройдите финальный тест урока</p>
+    <div class="themes">
+      ${words.map(t=>`
+        <button class="theme" data-quiz="${esc(t.id)}">
+          <span class="e">${esc(t.emoji||'📚')}</span>
+          <span class="n">${esc(t.name)}</span>
+        </button>`).join('')}
+    </div>
+    <div class="nav" style="margin-top:16px">
+      <button class="wide" id="finalTest">🏆 Финальный тест урока</button>
+    </div>`;
+  $app.querySelectorAll('[data-quiz]').forEach(b=>b.onclick=()=>quiz(b.dataset.quiz));
+  document.getElementById('finalTest').onclick = () => finalTest(BUILTIN_LESSON.id);
+}
 
-/* ---------- запуск ---------- */
+/* ==== АЗБУКА ==== */
+const ABC = {
+  lat: [['A','ananas','ананас'],['B','banana','банан'],['C','cvet','цветок'],['Č','čaj','чай'],['Ć','ćebe','одеяло'],['D','dan','день'],['Dž','džep','карман'],['Đ','đak','ученик'],['E','ekran','экран'],['F','fotelja','кресло'],['G','grad','город'],['H','hleb','хлеб'],['I','ime','имя'],['J','jabuka','яблоко'],['K','kafa','кофе'],['L','lopta','мяч'],['Lj','ljubav','любовь'],['M','mama','мама'],['N','nos','нос'],['Nj','njiva','поле'],['O','oko','глаз'],['P','pas','собака'],['R','riba','рыба'],['S','sunce','солнце'],['Š','šuma','лес'],['T','tata','папа'],['U','ulica','улица'],['V','voda','вода'],['Z','zub','зуб'],['Ž','žaba','жаба']],
+  cyr: [['А','ананас','ананас'],['Б','банана','банан'],['В','вода','вода'],['Г','град','город'],['Д','дан','день'],['Ђ','ђак','ученик'],['Е','екран','экран'],['Ж','жаба','жаба'],['З','зуб','зуб'],['И','име','имя'],['Ј','јабука','яблоко'],['К','кафа','кофе'],['Л','лопта','мяч'],['Љ','љубав','любовь'],['М','мама','мама'],['Н','нос','нос'],['Њ','њива','поле'],['О','око','глаз'],['П','пас','собака'],['Р','риба','рыба'],['С','сунце','солнце'],['Т','тата','папа'],['Ћ','ћебе','одеяло'],['У','улица','улица'],['Ф','фотеља','кресло'],['Х','хлеб','хлеб'],['Ц','цвет','цветок'],['Ч','чај','чай'],['Џ','џеп','карман'],['Ш','шума','лес']]
+};
+let alphaScript = 'lat', alphaSel = 0;
+function alphabetPage(){ setTab('alphabet'); renderAlpha(); }
+function renderAlpha(){
+  const list = ABC[alphaScript];
+  const [L, w, ru] = list[alphaSel];
+  $app.innerHTML = `
+    <h1>Азбука</h1><p class="sub">Нажмите на букву, чтобы услышать слово</p>
+    <div class="seg" style="grid-template-columns:1fr 1fr;margin-bottom:12px">
+      <button class="${alphaScript==='lat'?'on':''}" data-s="lat">Latinica</button>
+      <button class="${alphaScript==='cyr'?'on':''}" data-s="cyr">Ћирилица</button>
+    </div>
+    <div class="abc">${list.map((x,i)=>`<button class="lt${i===alphaSel?' on':''}" data-i="${i}">${esc(x[0])}</button>`).join('')}</div>
+    <div class="card" style="margin-top:12px">
+      <div class="big">${esc(L)}</div>
+      <div class="sr">${esc(w)}</div>
+      <div class="ru">${esc(ru)}</div>
+      <button class="say" id="sayW">🔊 Слово</button>
+      <button class="say" id="sayL" style="background:linear-gradient(180deg,var(--teal-2),var(--teal));color:#fff;box-shadow:var(--shadow-sm)">🔊 Буква</button>
+    </div>
+    <div class="nav">
+      <button class="light" id="pv" ${alphaSel===0?'disabled':''}>← Назад</button>
+      <button id="nx" ${alphaSel===list.length-1?'disabled':''}>Дальше →</button>
+    </div>`;
+  $app.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{ alphaScript=b.dataset.s; alphaSel=0; renderAlpha(); });
+  $app.querySelectorAll('.lt').forEach(b=>b.onclick=()=>{ alphaSel=+b.dataset.i; renderAlpha(); speak(ABC[alphaScript][alphaSel][1]); });
+  document.getElementById('sayW').onclick = () => speak(w);
+  document.getElementById('sayL').onclick = () => speak(L);
+  document.getElementById('pv').onclick = () => { alphaSel--; renderAlpha(); speak(ABC[alphaScript][alphaSel][1]); };
+  document.getElementById('nx').onclick = () => { alphaSel++; renderAlpha(); speak(ABC[alphaScript][alphaSel][1]); };
+}
+
+/* ==== УСПЕХИ ==== */
+function fmt(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function streak(){
+  let n = 0; const d = new Date();
+  if (!stats.days[fmt(d)]) d.setDate(d.getDate()-1);
+  while (stats.days[fmt(d)]){ n++; d.setDate(d.getDate()-1); }
+  return n;
+}
+function statsPage(){
+  setTab('stats');
+  const words = getAllWords();
+  const dialogs = getAllDialogs();
+  const all = words.flatMap(t=>t.words);
+  const total = new Set(all.map(w=>w.sr)).size;
+  const seen = new Set(all.filter(w=>stats.words[w.sr]?.seen>0).map(w=>w.sr)).size;
+  const ok = Object.values(stats.words).reduce((a,r)=>a+r.ok,0);
+  const bad = Object.values(stats.words).reduce((a,r)=>a+r.bad,0);
+  const pct = ok+bad ? Math.round(ok/(ok+bad)*100)+'%' : '—';
+  const dlgStats = stats.dlg || {};
+  const dlgDone = dialogs.filter(d => (dlgStats[d.id]?.done||0) > 0).length;
+  const dlgErrors = dialogs.reduce((s,d) => s + (dlgStats[d.id]?.errors || 0), 0);
+  $app.innerHTML = `
+    <h1>Мои успехи</h1>
+    <div class="stats">
+      <div class="stat"><b>${seen} / ${total}</b><small>слов просмотрено</small></div>
+      <div class="stat"><b>${pct}</b><small>верных ответов</small></div>
+      <div class="stat"><b>${stats.tests.length}</b><small>${plural(stats.tests.length,'тест','теста','тестов')}</small></div>
+      <div class="stat"><b>${streak()}</b><small>${plural(streak(),'день подряд','дня подряд','дней подряд')}</small></div>
+    </div>
+    <h2>Уроки</h2>
+    ${getAllLessons().map(l=>{
+      const p = courseDone(l);
+      return `<div class="row"><div class="t"><span>${esc(l.emoji||'📖')} ${esc(l.title)}</span><span>${p.done}/${p.total}</span></div>
+        <div class="bar"><i style="width:${p.total?p.done/p.total*100:0}%"></i></div></div>`;
+    }).join('')}
+    <h2>Диалоги <small style="color:var(--ink-mute);font-size:.85rem;font-weight:400">(пройдено ${dlgDone} из ${dialogs.length}${dlgErrors?', ошибок: '+dlgErrors:''})</small></h2>
+    ${dialogs.map(d => {
+      const r = dlgStats[d.id] || {done:0,errors:0};
+      const isDone = r.done > 0;
+      return `<div class="row"><div class="t">
+        <span>${esc(d.emoji||'💬')} ${esc(d.name)}</span>
+        <span style="color:${isDone?'var(--ok)':'var(--ink-mute)'};font-size:.9rem">${isDone ? 'пройден ×'+r.done : 'не пройден'}</span>
+      </div><small>${isDone ? 'ошибок: '+r.errors : 'начните с вкладки «Диалоги»'}</small></div>`;
+    }).join('')}
+    <h2>По темам слов</h2>
+    ${words.map(t=>{
+      const s = t.words.filter(w=>stats.words[w.sr]?.seen>0).length;
+      return `<div class="row"><div class="t"><span>${esc(t.emoji||'📚')} ${esc(t.name)}</span></div>
+        <div class="bar"><i style="width:${s/t.words.length*100}%"></i></div><small>просмотрено ${s} из ${t.words.length}</small></div>`;
+    }).join('')}
+  `;
+}
+
+/* ==== НАСТРОЙКИ ==== */
+function settingsPage(){
+  setTab('settings');
+  $app.innerHTML = `
+    <h1>Настройки</h1>
+    <div class="set"><label>Размер текста</label>
+      <div class="seg" id="size">
+        <button data-s="small">Мелкий</button>
+        <button data-s="normal">Обычный</button>
+        <button data-s="large">Крупный</button>
+      </div>
+    </div>
+    <div class="set"><label>Скорость речи</label>
+      <div class="seg" id="speed">
+        <button data-s="slow">Медленно</button>
+        <button data-s="normal">Обычно</button>
+        <button data-s="fast">Быстро</button>
+      </div>
+    </div>
+    <div class="set">
+      <button class="say" id="try">🔊 Проверить звук</button>
+      <p class="note">Для лучшего качества используется онлайн-сервис (при наличии интернета), иначе — локальный синтез речи.</p>
+    </div>`;
+  const segS = document.getElementById('size');
+  const markS = () => segS.querySelectorAll('button').forEach(b=>b.classList.toggle('on', b.dataset.s === settings.textSize));
+  segS.querySelectorAll('button').forEach(b=>b.onclick = () => {
+    settings.textSize = b.dataset.s; saveSettings(); applyTextSize(); markS();
+  });
+  markS();
+  const segV = document.getElementById('speed');
+  const markV = () => segV.querySelectorAll('button').forEach(b=>b.classList.toggle('on', b.dataset.s === settings.speed));
+  segV.querySelectorAll('button').forEach(b=>b.onclick = () => {
+    settings.speed = b.dataset.s; saveSettings(); markV();
+  });
+  markV();
+  document.getElementById('try').onclick = () => speak('dobar dan');
+}
+
+/* ==== ЗАПУСК ==== */
 applyTextSize();
-if (typeof wordsData !== 'undefined' && wordsData){
-  try { applyBase({themes: wordsData}); } catch(e){ console.error(e); }
-}
-if (typeof dialogsData !== 'undefined' && dialogsData){
-  try { applyDlg({dialogs: dialogsData}); } catch(e){ console.error(e); }
-}
+if ('speechSynthesis' in window) speechSynthesis.getVoices();
 home();
 </script>
 </body>
