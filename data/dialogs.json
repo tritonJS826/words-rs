@@ -76,7 +76,8 @@
         ],
         "ru": "Спасибо, до свидания."
       }
-    ]
+    ],
+    "level": "A1"
   },
   {
     "id": "meet",
@@ -156,7 +157,8 @@
         ],
         "ru": "Большое спасибо!"
       }
-    ]
+    ],
+    "level": "A1"
   },
   {
     "id": "airport",
@@ -253,7 +255,8 @@
         ],
         "ru": "Спасибо, до свидания."
       }
-    ]
+    ],
+    "level": "A2"
   },
   {
     "id": "shop",
@@ -331,7 +334,8 @@
         ],
         "ru": "И вам хорошего дня!"
       }
-    ]
+    ],
+    "level": "A1"
   },
   {
     "id": "doctor",
@@ -428,7 +432,8 @@
         ],
         "ru": "Спасибо, доктор. До свидания."
       }
-    ]
+    ],
+    "level": "A2"
   },
   {
     "id": "hotel",
@@ -524,6 +529,1821 @@
           "boravak"
         ],
         "ru": "Хорошо, большое спасибо."
+      }
+    ],
+    "level": "A2"
+  },
+  {
+    "id": "a1-greeting-neighbour",
+    "level": "A1",
+    "name": "Приветствие соседа",
+    "emoji": "👋",
+    "lines": [
+      {
+        "sr": "Dobro jutro! Kako ste danas?",
+        "ru": "Доброе утро! Как вы сегодня?"
+      },
+      {
+        "you": "Dobro sam, hvala. A Vi?",
+        "ru": "Я в порядке, спасибо. А Вы?",
+        "alt": [
+          "Dobro sam, hvala Vama."
+        ],
+        "extra": [
+          "loše",
+          "danas",
+          "ovde"
+        ]
+      },
+      {
+        "sr": "I ja sam odlično, hvala na pitanju.",
+        "ru": "И я отлично, спасибо за вопрос."
+      },
+      {
+        "sr": "Idete li u prodavnicu?",
+        "ru": "Вы идете в магазин?"
+      },
+      {
+        "you": "Da, idem u prodavnicu.",
+        "ru": "Да, я иду в магазин.",
+        "alt": [
+          "Da, idem sada."
+        ],
+        "extra": [
+          "ne",
+          "škola",
+          "brzo"
+        ]
+      },
+      {
+        "sr": "Možete li mi kupiti mleko?",
+        "ru": "Можете купить мне молока?"
+      },
+      {
+        "sr": "Biću vam veoma zahvalan.",
+        "ru": "Буду вам очень благодарен."
+      },
+      {
+        "sr": "Vidimo se kasnije!",
+        "ru": "Увидимся позже!"
+      }
+    ]
+  },
+  {
+    "id": "a1-buying-bread",
+    "level": "A1",
+    "name": "Покупка хлеба",
+    "emoji": "🥖",
+    "lines": [
+      {
+        "sr": "Dobar dan! Izvolite.",
+        "ru": "Добрый день! Пожалуйста (слушаю вас)."
+      },
+      {
+        "you": "Dobar dan. Molim vas, jedan hleb.",
+        "ru": "Добрый день. Пожалуйста, один хлеб.",
+        "alt": [
+          "Želim jedan hleb, molim vas."
+        ],
+        "extra": [
+          "voda",
+          "dva",
+          "sir"
+        ]
+      },
+      {
+        "sr": "Izvolite, jedan svež hleb.",
+        "ru": "Пожалуйста, один свежий хлеб."
+      },
+      {
+        "sr": "Želite li još nešto?",
+        "ru": "Желаете что-нибудь еще?"
+      },
+      {
+        "you": "Ne hvala, to je sve.",
+        "ru": "Нет, спасибо, это всё.",
+        "alt": [
+          "Ne, hvala Vam."
+        ],
+        "extra": [
+          "da",
+          "jabuka",
+          "mleko"
+        ]
+      },
+      {
+        "sr": "To će biti sto pedeset dinara.",
+        "ru": "Это будет сто пятьдесят динаров."
+      },
+      {
+        "sr": "Platite karticom ili gotovinom?",
+        "ru": "Оплатите картой или наличными?"
+      },
+      {
+        "you": "Karticom, molim vas.",
+        "ru": "Картой, пожалуйста.",
+        "alt": [
+          "Gotovinom, molim vas.",
+          "Platiću karticom."
+        ],
+        "extra": [
+          "hleb",
+          "sutra",
+          "skupo"
+        ]
+      },
+      {
+        "sr": "Hvala puno, prijatno!",
+        "ru": "Большое спасибо, всего доброго!"
+      }
+    ]
+  },
+  {
+    "id": "a1-asking-time",
+    "level": "A1",
+    "name": "Вопрос о времени",
+    "emoji": "⌚",
+    "lines": [
+      {
+        "sr": "Izvinite, smetam li Vam?",
+        "ru": "Извините, я вам мешаю?"
+      },
+      {
+        "you": "Ne smetate, izvolite.",
+        "ru": "Не мешаете, пожалуйста.",
+        "alt": [
+          "Ne, izvolite."
+        ],
+        "extra": [
+          "da",
+          "kasno",
+          "sada"
+        ]
+      },
+      {
+        "sr": "Da li znate koliko je sati?",
+        "ru": "Вы знаете, сколько сейчас времени?"
+      },
+      {
+        "you": "Sada je pet sati.",
+        "ru": "Сейчас пять часов.",
+        "alt": [
+          "Sat je pet."
+        ],
+        "extra": [
+          "jutro",
+          "deset",
+          "dan"
+        ]
+      },
+      {
+        "sr": "Hvala Vam puno.",
+        "ru": "Большое вам спасибо."
+      },
+      {
+        "sr": "Da li je autobusna stanica blizu?",
+        "ru": "Остановка автобуса рядом?"
+      },
+      {
+        "sr": "Autobusna stanica je blizu, idite pravo pa levo.",
+        "ru": "Автобусная остановка рядом: идите прямо, затем налево."
+      },
+      {
+        "sr": "Želim vam lep dan!",
+        "ru": "Желаю вам хорошего дня!"
+      }
+    ]
+  },
+  {
+    "id": "a1-introducing-friend",
+    "level": "A1",
+    "name": "Знакомство с другом",
+    "emoji": "🤝",
+    "lines": [
+      {
+        "sr": "Zdravo! Ko je ovo sa tobom?",
+        "ru": "Привет! Кто это с тобой?"
+      },
+      {
+        "you": "Zdravo! Ovo je moj prijatelj Mark.",
+        "ru": "Привет! Это мой друг Марк.",
+        "alt": [
+          "Upoznaj mog prijatelja Marka."
+        ],
+        "extra": [
+          "brat",
+          "ona",
+          "ime"
+        ]
+      },
+      {
+        "sr": "Drago mi je, Mark. Ja sam Ana.",
+        "ru": "Приятно познакомиться, Марк. Я Ана."
+      },
+      {
+        "sr": "Odakle je Mark?",
+        "ru": "Откуда Марк?"
+      },
+      {
+        "you": "On je iz Amerike.",
+        "ru": "Он из Америки.",
+        "alt": [
+          "Mark je iz Amerike."
+        ],
+        "extra": [
+          "ja",
+          "Srbije",
+          "grad"
+        ]
+      },
+      {
+        "sr": "Zanimljivo! Da li govoriš srpski?",
+        "ru": "Интересно! Ты говоришь по-сербски?"
+      },
+      {
+        "ru": "Немного, но я учу каждый день.",
+        "you": "Malo, ali učim svaki dan.",
+        "alt": [
+          "Govorim malo srpski.",
+          "Učim srpski svaki dan."
+        ],
+        "extra": [
+          "mnogo",
+          "nikada",
+          "Engleski"
+        ]
+      },
+      {
+        "sr": "Dobrodošao u Beograd!",
+        "ru": "Добро пожаловать в Белград!"
+      }
+    ]
+  },
+  {
+    "id": "a2-booking",
+    "level": "A2",
+    "name": "Бронирование номера",
+    "emoji": "🏨",
+    "lines": [
+      {
+        "sr": "Dobar dan, Hotel Splendid. Izvolite?",
+        "ru": "Добрый день, отель «Сплендид». Слушаю вас?"
+      },
+      {
+        "you": "Dobar dan, želim da rezervišem sobu.",
+        "ru": "Добрый день, я хочу забронировать номер.",
+        "alt": [
+          "Zdravo, hteo bih jednu sobu."
+        ],
+        "extra": [
+          "piti",
+          "brzo",
+          "škola"
+        ]
+      },
+      {
+        "sr": "Naravno. Za koji datum i na koliko noćenja?",
+        "ru": "Конечно. На какую дату и на сколько ночей?"
+      },
+      {
+        "you": "Za sutra, na dve noći.",
+        "ru": "На завтра, на две ночи.",
+        "alt": [
+          "Sutra dolazim na dve noći."
+        ],
+        "extra": [
+          "zeleno",
+          "pas",
+          "čitati"
+        ]
+      },
+      {
+        "sr": "Imamo slobodnu dvokrevetnu sobu. Da li želite doručak?",
+        "ru": "У нас есть свободный двухместный номер. Желаете ли вы завтрак?"
+      },
+      {
+        "you": "Da, molim vas sa doručkom.",
+        "ru": "Да, пожалуйста, с завтраком.",
+        "alt": [
+          "Da, želim doručak."
+        ],
+        "extra": [
+          "kiša",
+          "stolica",
+          "pevati"
+        ]
+      },
+      {
+        "sr": "U redu. Cena je sto evra po noćenju.",
+        "ru": "Хорошо. Цена сто евро за ночь."
+      },
+      {
+        "sr": "Čekamo vas sutra. Prijatno!",
+        "ru": "Ждем вас завтра. Всего доброго!"
+      }
+    ]
+  },
+  {
+    "id": "a2-bus",
+    "level": "A2",
+    "name": "Поездка на автобусе",
+    "emoji": "🚌",
+    "lines": [
+      {
+        "sr": "Izvinite, da li ovaj autobus ide za centar grada?",
+        "ru": "Извините, этот автобус едет в центр города?"
+      },
+      {
+        "you": "Da, ide pravo u centar.",
+        "ru": "Да, едет прямо в центр.",
+        "alt": [
+          "Da, ovaj autobus ide tamo."
+        ],
+        "extra": [
+          "hladno",
+          "knjiga",
+          "spavati"
+        ]
+      },
+      {
+        "sr": "Hvala vam. Znate li gde je najbliža prodavnica karata?",
+        "ru": "Спасибо вам. Вы знаете, где ближайший билетный киоск?"
+      },
+      {
+        "you": "Prodavnica karata je odmah pored stanice.",
+        "ru": "Билетная касса прямо рядом с остановкой.",
+        "alt": [
+          "Kiosk je ovde blizu."
+        ],
+        "extra": [
+          "crveno",
+          "voda",
+          "trčati"
+        ]
+      },
+      {
+        "sr": "Odlično. Koliko košta karta za jednu zonu?",
+        "ru": "Отлично. Сколько стоит билет на одну зону?"
+      },
+      {
+        "sr": "Košta sto pedeset dinara.",
+        "ru": "Стоит сто пятьдесят динаров."
+      },
+      {
+        "sr": "Hvala puno na pomoći!",
+        "ru": "Большое спасибо за помощь!"
+      },
+      {
+        "you": "Nema na čemu, prijatno!",
+        "ru": "Не за что, всего доброго!",
+        "alt": [
+          "Nema problema, doviđenja!"
+        ],
+        "extra": [
+          "jabuka",
+          "visoko",
+          "pisati"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a2-lunch",
+    "level": "A2",
+    "name": "Заказ обеда",
+    "emoji": "🍲",
+    "lines": [
+      {
+        "sr": "Dobar dan, izvolite meni.",
+        "ru": "Добрый день, вот меню."
+      },
+      {
+        "sr": "Šta želite da pijete?",
+        "ru": "Что желаете выпить?"
+      },
+      {
+        "you": "Mogu li dobiti jednu mineralnu vodu?",
+        "ru": "Можно мне одну минеральную воду?",
+        "alt": [
+          "Želim mineralnu vodu, molim vas."
+        ],
+        "extra": [
+          "brzo",
+          "plavo",
+          "šetati"
+        ]
+      },
+      {
+        "sr": "Naravno. A za glavno jelo?",
+        "ru": "Конечно. А на основное блюдо?"
+      },
+      {
+        "you": "Želim ćevape sa lukom i lepinjom.",
+        "ru": "Я хочу чевапы с луком и лепёшкой.",
+        "alt": [
+          "Hteo bih ćevape, molim vas."
+        ],
+        "extra": [
+          "malo",
+          "grad",
+          "gledati"
+        ]
+      },
+      {
+        "sr": "Želite li još nešto uz to?",
+        "ru": "Желаете ли вы что-то еще к этому?"
+      },
+      {
+        "you": "Ne hvala, to je sve.",
+        "ru": "Нет, спасибо, это всё.",
+        "alt": [
+          "Samo toliko, hvala."
+        ],
+        "extra": [
+          "stari",
+          "more",
+          "skakati"
+        ]
+      },
+      {
+        "sr": "U redu, stiže za deset minuta.",
+        "ru": "Хорошо, будет готово через десять минут."
+      }
+    ]
+  },
+  {
+    "id": "a2-doctor",
+    "level": "A2",
+    "name": "Звонок врачу",
+    "emoji": "🩺",
+    "lines": [
+      {
+        "sr": "Ordinacija doktora Petrovića, izvolite?",
+        "ru": "Кабинет доктора Петровича, слушаю вас?"
+      },
+      {
+        "you": "Dobar dan, želim da zakažem pregled.",
+        "ru": "Добрый день, я хочу записаться на осмотр.",
+        "alt": [
+          "Zdravo, treba mi termin kod doktora."
+        ],
+        "extra": [
+          "lepo",
+          "vreme",
+          "kupiti"
+        ]
+      },
+      {
+        "sr": "Šta vas muči? Imate li neke simptome?",
+        "ru": "Что вас беспокоит? Есть ли у вас какие-то симптомы?"
+      },
+      {
+        "you": "Imam visoku temperaturu i kašljem.",
+        "ru": "У меня высокая температура и я кашляю.",
+        "alt": [
+          "Boli me grlo i imam temperaturu."
+        ],
+        "extra": [
+          "novac",
+          "daleko",
+          "spavati"
+        ]
+      },
+      {
+        "sr": "Razumem. Možete doći sutra u deset sati.",
+        "ru": "Понимаю. Вы можете прийти завтра в десять часов."
+      },
+      {
+        "you": "Da, to vreme mi odgovara.",
+        "ru": "Да, это время мне подходит.",
+        "alt": [
+          "U deset sati je u redu."
+        ],
+        "extra": [
+          "brdo",
+          "srećan",
+          "trčati"
+        ]
+      },
+      {
+        "sr": "Odlično. Zapišite termin i dođite sutra.",
+        "ru": "Отлично. Запишите время и приходите завтра."
+      },
+      {
+        "sr": "Doviđenja i želim vam brz oporavak.",
+        "ru": "До свидания и желаю вам скорейшего выздоровления."
+      }
+    ]
+  },
+  {
+    "id": "b1-renting-apartment",
+    "level": "B1",
+    "name": "Аренда квартиры",
+    "emoji": "🏠",
+    "lines": [
+      {
+        "sr": "Dobar dan, zovem Vas povodom oglasa za stan u centru.",
+        "ru": "Добрый день, я звоню вам по поводу объявления о квартире в центре."
+      },
+      {
+        "sr": "Dobar dan! Da, stan je još uvek slobodan. Da li Vas zanima nešto konkretno?",
+        "ru": "Добрый день! Да, квартира всё ещё свободна. Вас интересует что-то конкретное?"
+      },
+      {
+        "you": "Koliko iznosi mesečna kirija i da li su računi uključeni?",
+        "ru": "Сколько составляет ежемесячная аренда и включены ли счета?",
+        "alt": [
+          "Koja je cena stana i da li su računi uračunati?"
+        ],
+        "extra": [
+          "prodaja",
+          "besplatno",
+          "kućni ljubimac"
+        ]
+      },
+      {
+        "sr": "Kirija je 400 evra, a računi se plaćaju posebno, zavisno od potrošnje.",
+        "ru": "Аренда составляет 400 евро, а счета оплачиваются отдельно, в зависимости от потребления."
+      },
+      {
+        "sr": "Stan ima dve sobe, kuhinju i kupatilo. Sve je potpuno novo.",
+        "ru": "В квартире две комнаты, кухня и ванная. Всё абсолютно новое."
+      },
+      {
+        "you": "Da li je moguće zakazati termin da pogledam stan sutra?",
+        "ru": "Можно ли назначить встречу, чтобы посмотреть квартиру завтра?",
+        "alt": [
+          "Mogu li doći sutra da vidim stan?"
+        ],
+        "extra": [
+          "danas",
+          "nikada",
+          "prodavnica"
+        ]
+      },
+      {
+        "sr": "Naravno, odgovara mi sutra u 17 sati. Da li Vam to odgovara?",
+        "ru": "Конечно, мне подходит завтра в 17 часов. Вам это удобно?"
+      },
+      {
+        "sr": "Odlično, poslaću Vam tačnu adresu putem SMS-a.",
+        "ru": "Отлично, я пришлю вам точный адрес по СМС."
+      }
+    ]
+  },
+  {
+    "id": "b1-weekend-plans",
+    "level": "B1",
+    "name": "Планы на выходные",
+    "emoji": "☀️",
+    "lines": [
+      {
+        "sr": "Ćao Marko! Imaš li neke planove za ovaj vikend?",
+        "ru": "Привет, Марко! У тебя есть какие-нибудь планы на эти выходные?"
+      },
+      {
+        "sr": "Još uvek nemam ništa zaplanirano. Zašto pitaš?",
+        "ru": "Пока ещё ничего не запланировал. Почему спрашиваешь?"
+      },
+      {
+        "you": "Hteo sam da te pitam da li želiš da idemo na planinu.",
+        "ru": "Я хотел спросить тебя, не хочешь ли ты поехать в горы.",
+        "alt": [
+          "Želim da te pozovem na izlet u planine."
+        ],
+        "extra": [
+          "bioskop",
+          "spavati",
+          "posao"
+        ]
+      },
+      {
+        "sr": "To zvuči sjajno! Koje planine predlažeš?",
+        "ru": "Это звучит здорово! Какие горы предлагаешь?"
+      },
+      {
+        "sr": "Mislim na Zlatibor, tamo je sada prelepo.",
+        "ru": "Я имею в виду Златибор, там сейчас очень красиво."
+      },
+      {
+        "you": "Odlična ideja, možemo ići kolima u subotu ujutru.",
+        "ru": "Отличная идея, мы можем поехать на машинах в субботу утром.",
+        "alt": [
+          "Super, možemo krenuti automobilom u subotu."
+        ],
+        "extra": [
+          "avionom",
+          "kasno",
+          "ponedeljak"
+        ]
+      },
+      {
+        "sr": "Dogovoreno! Ja ću rezervisati smeštaj za jednu noć.",
+        "ru": "Договорились! Я забронирую жильё на одну ночь."
+      },
+      {
+        "sr": "Super, javi mi koliko treba da ti platim za hotel.",
+        "ru": "Супер, сообщи мне, сколько я должен тебе заплатить за отель."
+      }
+    ]
+  },
+  {
+    "id": "b1-returning-purchase",
+    "level": "B1",
+    "name": "Возврат покупки",
+    "emoji": "🛍️",
+    "lines": [
+      {
+        "sr": "Dobar dan, mogu li Vam pomoći?",
+        "ru": "Добрый день, я могу вам помочь?"
+      },
+      {
+        "you": "Želeo bih da vratim ovaj džem jer je rok trajanja prošao.",
+        "ru": "Я хотел бы вернуть этот джем, потому что срок годности истёк.",
+        "alt": [
+          "Želim da vratim ovaj proizvod jer je istekao rok."
+        ],
+        "extra": [
+          "kupiti",
+          "skupo",
+          "novac"
+        ]
+      },
+      {
+        "sr": "Žao mi je zbog toga. Da li imate račun pri sebi?",
+        "ru": "Мне жаль. У вас есть с собой чек?"
+      },
+      {
+        "sr": "Moram da proverim u sistemu kada je ovaj proizvod stigao.",
+        "ru": "Мне нужно проверить в системе, когда этот товар поступил."
+      },
+      {
+        "you": "Evo računa, kupio sam ga pre dva dana.",
+        "ru": "Вот чек, я купил его два дня назад.",
+        "alt": [
+          "Izvolite račun, kupovina je bila pre dva dana."
+        ],
+        "extra": [
+          "nedelju",
+          "zaboravio",
+          "kartica"
+        ]
+      },
+      {
+        "sr": "U pravu ste, ovo je greška naše prodavnice.",
+        "ru": "Вы правы, это ошибка нашего магазина."
+      },
+      {
+        "sr": "Možete li izabrati drugi proizvod ili želite povrat novca?",
+        "ru": "Вы можете выбрать другой товар или хотите возврат денег?"
+      },
+      {
+        "sr": "U redu, evo Vašeg novca. Izvinite još jednom.",
+        "ru": "Хорошо, вот ваши деньги. Извините ещё раз."
+      }
+    ]
+  },
+  {
+    "id": "b1-museum-directions",
+    "level": "B1",
+    "name": "Дорога в музей",
+    "emoji": "🖼️",
+    "lines": [
+      {
+        "sr": "Izvinite, možete li mi pomoći? Tražim Narodni muzej.",
+        "ru": "Извините, вы можете мне помочь? Я ищу Национальный музей."
+      },
+      {
+        "sr": "Naravno, niste daleko, ali morate proći kroz centar.",
+        "ru": "Конечно, вы недалеко, но вам нужно пройти через центр."
+      },
+      {
+        "you": "Da li je bolje da idem pešice ili autobusom?",
+        "ru": "Лучше идти пешком или поехать на автобусе?",
+        "alt": [
+          "Da li je brže pešice ili autobusom?"
+        ],
+        "extra": [
+          "taksi",
+          "biciklom",
+          "brzo"
+        ]
+      },
+      {
+        "sr": "Pešice je brže, treba Vam samo deset minuta hoda.",
+        "ru": "Пешком быстрее, вам потребуется всего десять минут ходьбы."
+      },
+      {
+        "sr": "Idite pravo ovom ulicom do sledeće raskrsnice.",
+        "ru": "Идите прямо по этой улице до следующего перекрестка."
+      },
+      {
+        "you": "Zatim treba da skrenem levo ili desno?",
+        "ru": "Затем мне нужно повернуть налево или направо?",
+        "alt": [
+          "Gde tačno treba da skrenem na raskrsnici?"
+        ],
+        "extra": [
+          "nazad",
+          "stajati",
+          "ulica"
+        ]
+      },
+      {
+        "sr": "Skrenite desno i videćete veliku zgradu sa kolonama.",
+        "ru": "Поверните направо и увидите большое здание с колоннами."
+      },
+      {
+        "sr": "To je muzej. Srećno i uživajte u izložbi!",
+        "ru": "Это музей. Удачи и наслаждайтесь выставкой!"
+      }
+    ]
+  },
+  {
+    "id": "b2-job-interview",
+    "level": "B2",
+    "name": "Собеседование на работу",
+    "emoji": "💼",
+    "lines": [
+      {
+        "sr": "Dobar dan, hvala vam što ste došli. Možete li nam reći nešto više o vašem prethodnom iskustvu?",
+        "ru": "Добрый день, спасибо, что пришли. Не могли бы вы рассказать нам больше о вашем предыдущем опыте?"
+      },
+      {
+        "you": "Radila sam tri godine kao menadžer projekata u međunarodnoj firmi.",
+        "ru": "Я работала три года менеджером проектов в международной компании.",
+        "alt": [
+          "Radio sam tri godine na poziciji menadžera projekata u stranoj kompaniji."
+        ],
+        "extra": [
+          "škola",
+          "kuhati",
+          "brzo"
+        ]
+      },
+      {
+        "sr": "To zvuči impresivno. Kako ste se nosili sa stresnim situacijama i kratkim rokovima?",
+        "ru": "Это звучит впечатляюще. Как вы справлялись со стрессовыми ситуациями и сжатыми сроками?"
+      },
+      {
+        "sr": "Verujem da je organizacija ključna, ali me zanima vaš lični pristup rešavanju konflikata.",
+        "ru": "Я верю, что организация имеет ключевое значение, но меня интересует ваш личный подход к разрешению конфликтов."
+      },
+      {
+        "you": "Uvek pokušavam da saslušam sve strane pre nego što donesem odluku.",
+        "ru": "Я всегда стараюсь выслушать все стороны, прежде чем принять решение.",
+        "alt": [
+          "Trudim se da objektivno analiziram situaciju i razgovaram sa kolegama."
+        ],
+        "extra": [
+          "spavati",
+          "zeleno",
+          "avion"
+        ]
+      },
+      {
+        "sr": "Odlično. Koje su vaše očekivanja u pogledu plate i benefita?",
+        "ru": "Отлично. Каковы ваши ожидания относительно зарплаты и бонусов?"
+      },
+      {
+        "sr": "Mi nudimo fleksibilno radno vreme i privatno zdravstveno osiguranje.",
+        "ru": "Мы предлагаем гибкий график работы и частную медицинскую страховку."
+      },
+      {
+        "you": "To su veoma privlačni uslovi, ali bih voleo da dogovorimo i mogućnost rada od kuće.",
+        "ru": "Это очень привлекательные условия, но я бы хотел согласовать и возможность работы из дома.",
+        "alt": [
+          "Uslovi su super, mada bih želeo da prodiskutujemo o hibridnom modelu rada."
+        ],
+        "extra": [
+          "piti",
+          "stolica",
+          "daleko"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b2-news-discussion",
+    "level": "B2",
+    "name": "Обсуждение новостей",
+    "emoji": "📰",
+    "lines": [
+      {
+        "sr": "Jesi li video današnje vesti o novim ekološkim zakonima u gradu?",
+        "ru": "Ты видел сегодняшние новости о новых экологических законах в городе?"
+      },
+      {
+        "sr": "Kažu da će potpuno zabraniti plastične kese u svim prodavnicama od sledećeg meseca.",
+        "ru": "Говорят, что со следующего месяца полностью запретят пластиковые пакеты во всех магазинах."
+      },
+      {
+        "you": "Mislim da je to odlična odluka za očuvanje prirode.",
+        "ru": "Думаю, что это отличное решение для сохранения природы.",
+        "alt": [
+          "Slažem se, već je odavno bilo vreme da se uvede takva mera."
+        ],
+        "extra": [
+          "hladno",
+          "pevati",
+          "staklo"
+        ]
+      },
+      {
+        "sr": "Možda, ali ljudi će se buniti jer je to nepraktično za one koji zaborave torbe.",
+        "ru": "Возможно, но люди будут возмущаться, так как это непрактично для тех, кто забывает сумки."
+      },
+      {
+        "sr": "S druge strane, zagađenje plastikom je postalo ozbiljan problem za naše reke.",
+        "ru": "С другой стороны, загрязнение пластиком стало серьезной проблемой для наших рек."
+      },
+      {
+        "you": "Upravo tako, dugoročne koristi su mnogo veće od trenutne neprijatnosti.",
+        "ru": "Именно так, долгосрочные выгоды гораздо больше сиюминутных неудобств.",
+        "alt": [
+          "Tako je, zdravlje planete je važnije od kratkoročnih neprijatnosti."
+        ],
+        "extra": [
+          "trčati",
+          "crveno",
+          "karta"
+        ]
+      },
+      {
+        "sr": "Zanimljivo je da su neke druge evropske zemlje već to uradile pre deset godina.",
+        "ru": "Интересно, что некоторые другие европейские страны сделали это еще десять лет назад."
+      },
+      {
+        "you": "Trebalo bi da pratimo te primere i uvodimo još strože mere.",
+        "ru": "Нам следовало бы следовать этим примерам и вводить еще более строгие меры.",
+        "alt": [
+          "Trebalo bi da učimo od njih kako bismo brže postigli rezultate."
+        ],
+        "extra": [
+          "pisati",
+          "kiša",
+          "sto"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b2-service-complaint",
+    "level": "B2",
+    "name": "Жалоба на обслуживание",
+    "emoji": "😡",
+    "lines": [
+      {
+        "sr": "Izvolite, šta je problem sa vašom porudžbinom?",
+        "ru": "Пожалуйста, в чем проблема с вашим заказом?"
+      },
+      {
+        "you": "Čekam hranu već sat vremena, a rekli ste da će stići za dvadeset minuta.",
+        "ru": "Я жду еду уже час, а вы сказали, что она прибудет через двадцать минут.",
+        "alt": [
+          "Moja porudžbina kasni previše, obećali ste brzu dostavu."
+        ],
+        "extra": [
+          "spavati",
+          "plavo",
+          "knjiga"
+        ]
+      },
+      {
+        "sr": "Žao mi je, imali smo veliki broj porudžbina i kurir se zaglavio u saobraćaju.",
+        "ru": "Мне жаль, у нас было много заказов, и курьер застрял в пробке."
+      },
+      {
+        "sr": "Razumem vaše nezadovoljstvo. Nažalost, ne možemo uticati na saobraćaj.",
+        "ru": "Я понимаю ваше недовольство. К сожалению, мы не можем повлиять на дорожное движение."
+      },
+      {
+        "you": "Zahtevam da mi vratite novac ili da dobijem neki popust za sledeći put.",
+        "ru": "Я требую, чтобы вы вернули мне деньги или чтобы я получил скидку на следующий раз.",
+        "alt": [
+          "Želeo bih refundaciju ili bar neki kupon za izvinjenje."
+        ],
+        "extra": [
+          "skakati",
+          "belo",
+          "voda"
+        ]
+      },
+      {
+        "sr": "Mogu vam ponuditi besplatan desert uz ovu porudžbinu kao izvinjenje.",
+        "ru": "Я могу предложить вам бесплатный десерт к этому заказу в качестве извинения."
+      },
+      {
+        "sr": "Da li vam to odgovara ili želite da razgovarate sa menadžerom?",
+        "ru": "Вам это подходит или вы хотите поговорить с менеджером?"
+      },
+      {
+        "you": "To je prihvatljivo, ali nadam se da se ovakve greške neće ponoviti.",
+        "ru": "Это приемлемо, но надеюсь, что подобные ошибки не повторятся.",
+        "alt": [
+          "U redu, prihvatam desert, ali molim vas budite efikasniji."
+        ],
+        "extra": [
+          "leteti",
+          "žuto",
+          "prozor"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b2-trip-planning",
+    "level": "B2",
+    "name": "Планирование поездки",
+    "emoji": "✈️",
+    "lines": [
+      {
+        "sr": "Ljudi, moramo konačno da odlučimo gde idemo na letovanje ove godine!",
+        "ru": "Ребята, мы должны наконец решить, куда поедем в отпуск в этом году!"
+      },
+      {
+        "sr": "Ja predlažem Grčku jer su plaže fantastične i cene su pristupačne.",
+        "ru": "Я предлагаю Грецию, потому что пляжи фантастические, а цены доступные."
+      },
+      {
+        "you": "Ja bih radije išao u planine, možda u Crnu Goru, da izbegnemo gužve.",
+        "ru": "Я бы скорее поехал в горы, может быть в Черногорию, чтобы избежать толп.",
+        "alt": [
+          "Šta mislite o Crnoj Gori? Planine su mi privlačnije od plaža."
+        ],
+        "extra": [
+          "kuvati",
+          "brzo",
+          "sivo"
+        ]
+      },
+      {
+        "sr": "Crna Gora je super, ali tamo je sada jako puno turista zbog sezone.",
+        "ru": "Черногория — это супер, но там сейчас очень много туристов из-за сезона."
+      },
+      {
+        "sr": "Možda bismo mogli da iznajmimo kućicu negde u manjem mestu, dalje od centra.",
+        "ru": "Может быть, мы могли бы снять домик где-нибудь в маленьком городке, подальше от центра."
+      },
+      {
+        "you": "To je odlična ideja, tako bismo mogli više da se opustimo.",
+        "ru": "Это отличная идея, так мы могли бы больше расслабиться.",
+        "alt": [
+          "Slažem se, mirniji smeštaj bi bio idealan za odmor."
+        ],
+        "extra": [
+          "trčati",
+          "slano",
+          "sat"
+        ]
+      },
+      {
+        "sr": "Ko će preuzeti organizaciju smeštaja i prevoza?",
+        "ru": "Кто возьмет на себя организацию жилья и транспорта?"
+      },
+      {
+        "you": "Ja mogu da potražim najbolje ponude na internetu i pošaljem vam linkove.",
+        "ru": "Я могу поискать лучшие предложения в интернете и прислать вам ссылки.",
+        "alt": [
+          "Mogu ja da istražim opcije za smeštaj i javim vam sutra."
+        ],
+        "extra": [
+          "spavati",
+          "crno",
+          "most"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c1-transport",
+    "level": "C1",
+    "name": "Дебаты о городском транспорте",
+    "emoji": "🚌",
+    "lines": [
+      {
+        "sr": "Mislim da je potpuno neodrživo nastaviti sa trenutnim sistemom javnog prevoza u gradu.",
+        "ru": "Я думаю, что совершенно недопустимо продолжать использовать нынешнюю систему общественного транспорта в городе."
+      },
+      {
+        "sr": "Slažem se, ali da li je rešenje zaista u uvođenju više autobuskih linija ili u potpunoj promeni infrastrukture?",
+        "ru": "Согласен, но действительно ли решение заключается во введении большего количества автобусных маршрутов или в полной смене инфраструктуры?"
+      },
+      {
+        "you": "Smatram da bi prioritet trebalo biti razvoj brzog šinskog transporta kako bismo smanjili gužve.",
+        "ru": "Я считаю, что приоритетом должно стать развитие скоростного рельсового транспорта, чтобы уменьшить пробки.",
+        "alt": [
+          "Verujem da bi razvoj brzog transporta bio ključan za smanjenje zagušenja."
+        ],
+        "extra": [
+          "polako",
+          "stari",
+          "automobil"
+        ]
+      },
+      {
+        "sr": "To zvuči idealno, ali investicije za metro ili tramvaje su ogromne i traju decenijama.",
+        "ru": "Это звучит идеально, но инвестиции в метро или трамваи огромны и длятся десятилетиями."
+      },
+      {
+        "sr": "Upravo tako. Možda bi ekološki hibridni autobusi bili kompromis koji možemo implementirati odmah.",
+        "ru": "Именно так. Возможно, экологичные гибридные автобусы стали бы компромиссом, который мы могли бы внедрить немедленно."
+      },
+      {
+        "you": "Ipak, to je samo privremeno rešenje koje ne rešava koren problema urbanog planiranja.",
+        "ru": "Тем не менее, это лишь временное решение, которое не решает корень проблемы городского планирования.",
+        "alt": [
+          "To je samo privremena mera koja ne rešava suštinu problema."
+        ],
+        "extra": [
+          "brzo",
+          "jeftino",
+          "ulica"
+        ]
+      },
+      {
+        "sr": "Možda, ali u realnosti moramo raditi sa onim resursima koje trenutno imamo na raspolaganju.",
+        "ru": "Возможно, но в реальности мы должны работать с теми ресурсами, которые сейчас имеем в распоряжении."
+      },
+      {
+        "sr": "U pravu ste. Moramo pronaći balans između vizije i praktičnosti.",
+        "ru": "Вы правы. Мы должны найти баланс между видением и практичностью."
+      }
+    ]
+  },
+  {
+    "id": "c1-culture",
+    "level": "C1",
+    "name": "Культурный обзор",
+    "emoji": "🎭",
+    "lines": [
+      {
+        "sr": "Da li ste imali priliku da posetite novu izložbu savremene umetnosti u galeriji?",
+        "ru": "У вас была возможность посетить новую выставку современного искусства в галерее?"
+      },
+      {
+        "sr": "Jesam, mada moram priznati da me neki radovi ostavili potpuno zbunjenim.",
+        "ru": "Да, хотя должен признать, что некоторые работы оставили меня в полном недоумении."
+      },
+      {
+        "you": "Meni se čini da je autor namerno pokušao da izazove neprijatnost kod posetioca.",
+        "ru": "Мне кажется, что автор намеренно пытался вызвать дискомфорт у посетителя.",
+        "alt": [
+          "Imam utisak da je umetnik svesno hteo da izazove osećaj nelagode."
+        ],
+        "extra": [
+          "lepo",
+          "slika",
+          "srećno"
+        ]
+      },
+      {
+        "sr": "To je česta karakteristika postmodernizma, gde je interpretacija važnija od same estetike.",
+        "ru": "Это частая характеристика постмодернизма, где интерпретация важнее самой эстетики."
+      },
+      {
+        "sr": "Slažem se, ali gde povlačimo granicu između genijalnosti i običnog haosa?",
+        "ru": "Согласен, но где мы проводим грань между гениальностью и обычным хаосом?"
+      },
+      {
+        "you": "Upravo u toj subjektivnosti leži snaga umetnosti koja nas tera na razmišljanje.",
+        "ru": "Именно в этой субъективности заключается сила искусства, которое заставляет нас задуматься.",
+        "alt": [
+          "Ta subjektivnost je zapravo snaga umetnosti koja podstiče kritičko razmišljanje."
+        ],
+        "extra": [
+          "dosadno",
+          "muzej",
+          "boja"
+        ]
+      },
+      {
+        "sr": "Zanimljiv pogled. Možda bi trebalo da pogledamo katalog kako bismo bolje razumeli kontekst.",
+        "ru": "Интересный взгляд. Возможно, нам стоит посмотреть каталог, чтобы лучше понять контекст."
+      },
+      {
+        "sr": "Slažem se, to bi nam pomoglo da povežemo ta razbacana dela u jednu celinu.",
+        "ru": "Согласен, это помогло бы нам связать эти разрозненные работы в единое целое."
+      }
+    ]
+  },
+  {
+    "id": "c1-complaint",
+    "level": "C1",
+    "name": "Официальная жалоба",
+    "emoji": "📄",
+    "lines": [
+      {
+        "ru": "Добрый день, я хочу подать официальную жалобу в связи с услугой, которую я получил.",
+        "you": "Dobar dan, želim da podnesem zvaničnu reklamaciju u vezi sa uslugom koju sam primio.",
+        "alt": [
+          "Dobar dan, došao sam da uložim zvaničnu reklamaciju na uslugu."
+        ],
+        "extra": [
+          "hvala",
+          "sutra",
+          "brzo"
+        ]
+      },
+      {
+        "sr": "Žao mi je što to čujem. Možete li mi detaljnije objasniti u čemu je problem?",
+        "ru": "Мне жаль это слышать. Можете ли вы более детально объяснить, в чем проблема?"
+      },
+      {
+        "you": "Neprihvatljivo je da ste zakasnili tri dana sa isporukom bez ikakvog obaveštenja.",
+        "ru": "Недопустимо, что вы опоздали на три дня с доставкой без какого-либо уведомления.",
+        "alt": [
+          "Smatram neprihvatljivim to što isporuka kasni tri dana bez prethodnog obaveštenja."
+        ],
+        "extra": [
+          "brzo",
+          "paket",
+          "hvala"
+        ]
+      },
+      {
+        "sr": "Razumem vaše nezadovoljstvo, ali imali smo nepredviđene tehničke poteškoće u logističkom centru.",
+        "ru": "Я понимаю ваше недовольство, но у нас возникли непредвиденные технические трудности в логистическом центре."
+      },
+      {
+        "sr": "Uradićemo sve što je u našoj moći da ovo ne ponovimo u budućnosti.",
+        "ru": "Мы сделаем все, что в наших силах, чтобы это не повторилось в будущем."
+      },
+      {
+        "you": "To su prazne reči; očekujem konkretnu kompenzaciju za ovaj propust.",
+        "ru": "Это пустые слова; я ожидаю конкретной компенсации за этот промах.",
+        "alt": [
+          "Te reči nisu dovoljne; insistiram na adekvatnoj kompenzaciji za ovaj propust."
+        ],
+        "extra": [
+          "novac",
+          "izvinjenje",
+          "sutra"
+        ]
+      },
+      {
+        "sr": "Mogu vam ponuditi popust od dvadeset procenata na sledeću porudžbinu kao znak izvinjenja.",
+        "ru": "Я могу предложить вам скидку в двадцать процентов на следующий заказ в знак извинения."
+      },
+      {
+        "sr": "Nadam se da će vam taj predlog biti prihvatljiv u ovoj situaciji.",
+        "ru": "Надеюсь, что это предложение будет для вас приемлемым в данной ситуации."
+      }
+    ]
+  },
+  {
+    "id": "c1-balance",
+    "level": "C1",
+    "name": "Обсуждение баланса работы и жизни",
+    "emoji": "⚖️",
+    "lines": [
+      {
+        "sr": "Primetio sam da u poslednje vreme radiš prekovremeno skoro svaki dan.",
+        "ru": "Я заметил, что в последнее время ты работаешь сверхурочно почти каждый день."
+      },
+      {
+        "sr": "Da, projekat je u kritičnoj fazi i osećam ogroman pritisak da sve bude savršeno.",
+        "ru": "Да, проект находится в критической фазе, и я чувствую огромное давление, чтобы всё было идеально."
+      },
+      {
+        "you": "Pazi da ne dođeš do tačke potpunog sagorevanja, jer to nije održivo na duge staze.",
+        "ru": "Следи за тем, чтобы не дойти до точки полного выгорания, потому что это не устойчиво в долгосрочной перспективе.",
+        "alt": [
+          "Čuvaj se profesionalnog sagorevanja, jer ovakav tempo nije održiv."
+        ],
+        "extra": [
+          "odmor",
+          "posao",
+          "stres"
+        ]
+      },
+      {
+        "sr": "Znam, ali imam utisak da će moja karijera stagnirati ako ne dam maksimum sada.",
+        "ru": "Знаю, но у меня такое ощущение, что моя карьера застопорится, если я не выложусь на максимум сейчас."
+      },
+      {
+        "sr": "Ali zar kvalitet tvog rada ne opada kada si hronično umoran?",
+        "ru": "Но разве качество твоей работы не падает, когда ты хронически устал?"
+      },
+      {
+        "you": "Možda si u pravu, ali teško je postaviti jasne granice u korporativnom okruženju.",
+        "ru": "Возможно, ты прав, но трудно установить четкие границы в корпоративной среде.",
+        "alt": [
+          "Verovatno jesi, ali je veoma izazovno definisati granice u ovakvom sistemu rada."
+        ],
+        "extra": [
+          "šef",
+          "kancelarija",
+          "vreme"
+        ]
+      },
+      {
+        "sr": "Upravo zato je važno naučiti reći 'ne' kako bi se sačuvalo mentalno zdravlje.",
+        "ru": "Именно поэтому важно научиться говорить «нет», чтобы сохранить психическое здоровье."
+      },
+      {
+        "sr": "Hvala ti na savetu, pokušaću da organizujem svoje vreme efikasnije od sutra.",
+        "ru": "Спасибо за совет, я попробую организовать свое время эффективнее с завтрашнего дня."
+      }
+    ]
+  },
+  {
+    "id": "a1-extra-market",
+    "level": "A1",
+    "name": "На рынке: покупка фруктов",
+    "emoji": "🛒",
+    "lines": [
+      {
+        "sr": "Dobar dan! Izvolite, šta želite?",
+        "ru": "Добрый день! Пожалуйста, что вы хотите?"
+      },
+      {
+        "you": "Dobar dan. Želim jabuke.",
+        "ru": "Добрый день. Я хочу яблоки.",
+        "alt": [
+          "Želim kilo jabuka"
+        ],
+        "extra": [
+          "hleb",
+          "voda",
+          "molim"
+        ]
+      },
+      {
+        "sr": "Izvolite, jabuke su sveže. Koliko kilograma želite?",
+        "ru": "Пожалуйста, яблоки свежие. Сколько килограммов вы хотите?"
+      },
+      {
+        "you": "Molim vas, jedan kilogram.",
+        "ru": "Пожалуйста, один килограмм.",
+        "alt": [
+          "Jedan kilo, molim vas"
+        ],
+        "extra": [
+          "dva",
+          "mnogo",
+          "ovde"
+        ]
+      },
+      {
+        "sr": "Izvolite. Želite li još nešto?",
+        "ru": "Пожалуйста. Желаете что-нибудь еще?"
+      },
+      {
+        "sr": "Imamo i odlične kruške danas.",
+        "ru": "У нас сегодня и отличные груши."
+      },
+      {
+        "you": "Koliko koštaju kruške?",
+        "ru": "Сколько стоят груши?",
+        "alt": [
+          "Koja je cena krušaka?"
+        ],
+        "extra": [
+          "gde",
+          "kako",
+          "danas"
+        ]
+      },
+      {
+        "sr": "Kruške su dvesta dinara po kilogramu.",
+        "ru": "Груши стоят двести динаров за килограмм."
+      },
+      {
+        "sr": "Ukupno je četiri stotine dinara.",
+        "ru": "Итого четыреста динаров."
+      },
+      {
+        "sr": "Izvolite kusur. Prijatno!",
+        "ru": "Вот ваша сдача. Всего доброго!"
+      }
+    ]
+  },
+  {
+    "id": "a2-extra-pharmacy",
+    "level": "A2",
+    "name": "В аптеке",
+    "emoji": "💊",
+    "lines": [
+      {
+        "sr": "Dobar dan! Izvolite, kako mogu da vam pomognem?",
+        "ru": "Добрый день! Пожалуйста, чем я могу вам помочь?"
+      },
+      {
+        "you": "Dobar dan. Treba mi nešto za prehladu.",
+        "ru": "Добрый день. Мне нужно что-нибудь от простуды.",
+        "alt": [
+          "Imam prehladu, šta preporučujete?"
+        ],
+        "extra": [
+          "voda",
+          "škola",
+          "jutro"
+        ]
+      },
+      {
+        "sr": "Razumem. Da li imate temperaturu ili samo kašaljete?",
+        "ru": "Понимаю. У вас температура или вы только кашляете?"
+      },
+      {
+        "you": "Imam visoku temperaturu i jako me boli grlo.",
+        "ru": "У меня высокая температура и очень болит горло.",
+        "alt": [
+          "Boli me grlo i imam temperaturu."
+        ],
+        "extra": [
+          "knjiga",
+          "brzo",
+          "zeleno"
+        ]
+      },
+      {
+        "sr": "U redu. Preporučujem ovaj sirup za grlo i ove tablete za temperaturu.",
+        "ru": "Хорошо. Рекомендую этот сироп для горла и эти таблетки от температуры."
+      },
+      {
+        "sr": "Ovo je najefikasniji lek za vaše simptome.",
+        "ru": "Это самое эффективное лекарство при ваших симптомах."
+      },
+      {
+        "sr": "Želite li još nešto?",
+        "ru": "Желаете что-нибудь еще?"
+      },
+      {
+        "you": "Ne hvala. Kako treba da pijem ove lekove?",
+        "ru": "Нет, спасибо. Как мне принимать эти лекарства?",
+        "alt": [
+          "Koliko puta dnevno pijem lekove?"
+        ],
+        "extra": [
+          "stolica",
+          "daleko",
+          "plavo"
+        ]
+      },
+      {
+        "sr": "Sirup pijte dva puta dnevno, a tabletu samo jednom uveče.",
+        "ru": "Сироп пейте два раза в день, а таблетку только один раз вечером."
+      },
+      {
+        "sr": "To je sve. Izvolite račun, želim vam brz oporavak!",
+        "ru": "Это всё. Вот ваш чек, желаю вам скорейшего выздоровления!"
+      }
+    ]
+  },
+  {
+    "id": "b1-extra-bank",
+    "level": "B1",
+    "name": "В банке",
+    "emoji": "🏦",
+    "lines": [
+      {
+        "sr": "Dobar dan, izvolite. Kako mogu da vam pomognem?",
+        "ru": "Добрый день, пожалуйста. Чем я могу вам помочь?"
+      },
+      {
+        "you": "Moja kartica ne radi, mislim da je blokirana.",
+        "ru": "Моя карта не работает, я думаю, она заблокирована.",
+        "alt": [
+          "Moja kartica ne funkcioniše, verovatno je blokirana."
+        ],
+        "extra": [
+          "novac",
+          "raditi",
+          "zaboraviti"
+        ]
+      },
+      {
+        "sr": "Žao mi je. Mogu li dobiti vaš pasoš i broj računa?",
+        "ru": "Мне жаль. Могу я получить ваш паспорт и номер счета?"
+      },
+      {
+        "you": "Izvolite dokumenta. Možete li proveriti stanje na računu?",
+        "ru": "Вот документы. Можете проверить баланс на счету?",
+        "alt": [
+          "Evo dokumenata. Da li možete proveriti stanje?"
+        ],
+        "extra": [
+          "bankomat",
+          "potpisati",
+          "pomoć"
+        ]
+      },
+      {
+        "sr": "Da, vidim. Stanje je u redu, ali kartica je istekla prošlog meseca.",
+        "ru": "Да, вижу. Баланс в порядке, но срок действия карты истек в прошлом месяце."
+      },
+      {
+        "sr": "Moramo da naručimo novu karticu za vas.",
+        "ru": "Нам нужно заказать для вас новую карту."
+      },
+      {
+        "you": "U redu, želim novu karticu. Kada će biti spremna?",
+        "ru": "Хорошо, я хочу новую карту. Когда она будет готова?",
+        "alt": [
+          "Važi, naručite novu. Kada je mogu preuzeti?"
+        ],
+        "extra": [
+          "brzo",
+          "plaćanje",
+          "datum"
+        ]
+      },
+      {
+        "sr": "Biće spremna za pet radnih dana. Obavestićemo vas SMS-om.",
+        "ru": "Она будет готова через пять рабочих дней. Мы уведомим вас по СМС."
+      },
+      {
+        "sr": "Imate li još nešto za danas?",
+        "ru": "У вас есть что-то еще на сегодня?"
+      },
+      {
+        "you": "To je sve, hvala puno. Prijatno!",
+        "ru": "Это всё, большое спасибо. Всего доброго!",
+        "alt": [
+          "Nema ništa više, hvala. Do viđenja!"
+        ],
+        "extra": [
+          "novac",
+          "pomoć",
+          "srećno"
+        ]
+      },
+      {
+        "sr": "Hvala vama, do viđenja!",
+        "ru": "Спасибо вам, до свидания!"
+      }
+    ]
+  },
+  {
+    "id": "b1-extra-job-search",
+    "level": "B1",
+    "name": "Звонок о работе",
+    "emoji": "💼",
+    "lines": [
+      {
+        "sr": "Halo, ovde firma 'Tehno-Svet'. Zovete povodom oglasa za posao?",
+        "ru": "Алло, здесь фирма 'Техно-Свет'. Вы звоните по поводу объявления о работе?"
+      },
+      {
+        "you": "Da, zovem zbog pozicije menadžera prodaje. Da li je još slobodna?",
+        "ru": "Да, я звоню по поводу позиции менеджера по продажам. Она еще свободна?",
+        "alt": [
+          "Da, interesuje me posao menadžera prodaje. Da li je mesto zauzeto?"
+        ],
+        "extra": [
+          "pismo",
+          "tražiti",
+          "sastanak"
+        ]
+      },
+      {
+        "sr": "Jeste, još uvek tražimo pravog kandidata. Recite mi, imate li iskustva?",
+        "ru": "Да, мы все еще ищем подходящего кандидата. Скажите мне, у вас есть опыт?"
+      },
+      {
+        "you": "Imam tri godine iskustva u prodaji elektronike u Beogradu.",
+        "ru": "У меня три года опыта в продаже электроники в Белграде.",
+        "alt": [
+          "Radio sam tri godine u prodaji elektronike."
+        ],
+        "extra": [
+          "škola",
+          "učenje",
+          "grad"
+        ]
+      },
+      {
+        "sr": "To zvuči odlično. Radimo od ponedeljka do petka, od devet do sedam.",
+        "ru": "Это звучит отлично. Мы работаем с понедельника по пятницу, с девяти до семи."
+      },
+      {
+        "sr": "Plata je fiksna, plus procenat od prodaje. Da li vam to odgovara?",
+        "ru": "Зарплата фиксированная, плюс процент от продаж. Вам это подходит?"
+      },
+      {
+        "you": "Da, uslovi mi odgovaraju. Gde se nalazi vaša kancelarija?",
+        "ru": "Да, условия мне подходят. Где находится ваш офис?",
+        "alt": [
+          "Gde je vaša kancelarija?"
+        ],
+        "extra": [
+          "novac",
+          "putovati",
+          "vreme"
+        ]
+      },
+      {
+        "sr": "Nalazimo se u centru, blizu glavne pošte. Možemo li zakazati intervju?",
+        "ru": "Мы находимся в центре, рядом с главной почтой. Можем ли мы назначить собеседование?"
+      },
+      {
+        "sr": "Da li vam odgovara sutra u deset sati?",
+        "ru": "Вам подходит завтра в десять часов?"
+      },
+      {
+        "you": "Da, sutra u deset mi odgovara. Vidimo se!",
+        "ru": "Да, завтра в десять мне подходит. Увидимся!",
+        "alt": [
+          "Može, sutra u deset sam slobodan. Vidimo se!"
+        ],
+        "extra": [
+          "kasno",
+          "zvoniti",
+          "pitanje"
+        ]
+      },
+      {
+        "sr": "Dogovoreno. Čekamo vas sutra. Prijatno!",
+        "ru": "Договорились. Ждем вас завтра. Всего доброго!"
+      }
+    ]
+  },
+  {
+    "id": "b2-extra-university",
+    "level": "B2",
+    "name": "В университете",
+    "emoji": "🏫",
+    "lines": [
+      {
+        "sr": "Zdravo, da li si stigao da pročitaš nove smernice za ovaj semestar?",
+        "ru": "Привет, ты успел прочитать новые рекомендации на этот семестр?"
+      },
+      {
+        "sr": "Profesor je baš podigao kriterijume za završni rad, sada traži mnogo više izvora.",
+        "ru": "Профессор действительно поднял критерии для итоговой работы, теперь он требует гораздо больше источников."
+      },
+      {
+        "you": "Da li znaš koji je tačan rok za predaju prvog nacrta?",
+        "ru": "Ты знаешь, какой точный срок сдачи первого черновика?",
+        "alt": [
+          "Kada je tačno krajnji rok za predaju prvog nacrta?"
+        ],
+        "extra": [
+          "sutra",
+          "knjiga",
+          "brzo"
+        ]
+      },
+      {
+        "sr": "Rok je sledeći petak do podne, ali preporučuje da pošaljemo ranije.",
+        "ru": "Срок до следующей пятницы до полудня, но он рекомендует отправить раньше."
+      },
+      {
+        "sr": "Mene brine ova ogromna količina literature koju moramo preći do tada.",
+        "ru": "Меня беспокоит этот огромный объем литературы, который мы должны пройти к тому времени."
+      },
+      {
+        "you": "Slažem se, akademsko opterećenje je ove godine neverovatno veliko.",
+        "ru": "Согласен, академическая нагрузка в этом году невероятно большая.",
+        "alt": [
+          "Slažem se, imamo neverovatno veliko akademsko opterećenje ove godine."
+        ],
+        "extra": [
+          "škola",
+          "lakše",
+          "stolica"
+        ]
+      },
+      {
+        "sr": "Istina je. Ako ne organizujemo vreme, bićemo u ozbiljnim problemima.",
+        "ru": "Это правда. Если мы не организуем время, у нас будут серьезные проблемы."
+      },
+      {
+        "sr": "Hajde da se dogovorimo oko zajedničkog učenja u biblioteci.",
+        "ru": "Давай договоримся о совместном обучении в библиотеке."
+      },
+      {
+        "you": "To je odlična ideja, možemo zajedno analizirati najteže tekstove.",
+        "ru": "Это отличная идея, мы можем вместе проанализировать самые сложные тексты.",
+        "alt": [
+          "To zvuči odlično, mogli bismo zajedno analizirati najteže tekstove."
+        ],
+        "extra": [
+          "kafa",
+          "spavati",
+          "brzo"
+        ]
+      },
+      {
+        "sr": "Dogovoreno, vidimo se sutra u deset sati.",
+        "ru": "Договорились, увидимся завтра в десять часов."
+      }
+    ]
+  },
+  {
+    "id": "b2-extra-environment",
+    "level": "B2",
+    "name": "Сортировка мусора",
+    "emoji": "♻️",
+    "lines": [
+      {
+        "sr": "Dobro jutro, primetio sam da u našoj zgradi i dalje svi bacaju sve u jednu kantu.",
+        "ru": "Доброе утро, я заметил, что в нашем доме все до сих пор выбрасывают всё в один бак."
+      },
+      {
+        "sr": "To je zaista problem, trebalo bi da uvedemo sistem razvrstavanja otpada.",
+        "ru": "Это действительно проблема, нам следовало бы ввести систему сортировки отходов."
+      },
+      {
+        "you": "Šta mislite o tome da organizujemo posebno mesto za reciklažu?",
+        "ru": "Что вы думаете о том, чтобы организовать специальную площадку для переработки?",
+        "alt": [
+          "Šta mislite o tome da napravimo prostor za reciklažu ispred zgrade?"
+        ],
+        "extra": [
+          "voda",
+          "auto",
+          "brzo"
+        ]
+      },
+      {
+        "sr": "Mislim da je to odlična inicijativa, ali moramo prvo pitati upravnika zgrade.",
+        "ru": "Думаю, это отличная инициатива, но сначала мы должны спросить управляющего домом."
+      },
+      {
+        "sr": "Takođe, morali bismo da nabavimo različite kontejnere za plastiku, staklo i papir.",
+        "ru": "Также нам пришлось бы приобрести разные контейнеры для пластика, стекла и бумаги."
+      },
+      {
+        "you": "Mogli bismo da pokrenemo peticiju kako bi više komšija podržalo ovu ideju.",
+        "ru": "Мы могли бы запустить петицию, чтобы больше соседей поддержали эту идею.",
+        "alt": [
+          "Možemo pokrenuti peticiju da dobijemo podršku ostalih komšija."
+        ],
+        "extra": [
+          "hrana",
+          "kiša",
+          "stolica"
+        ]
+      },
+      {
+        "sr": "To je pametno, jer neki ljudi možda neće razumeti prednosti reciklaže.",
+        "ru": "Это умно, потому что некоторые люди, возможно, не поймут преимуществ переработки."
+      },
+      {
+        "sr": "Kada želite da počnemo sa prikupljanjem potpisa?",
+        "ru": "Когда вы хотите начать сбор подписей?"
+      },
+      {
+        "you": "Predlažem da počnemo već ovog vikenda dok su svi kod kuće.",
+        "ru": "Предлагаю начать уже в эти выходные, пока все дома.",
+        "alt": [
+          "Mislim da bi bilo najbolje početi ovog vikenda."
+        ],
+        "extra": [
+          "zima",
+          "more",
+          "brzo"
+        ]
+      },
+      {
+        "sr": "U redu, dogovoreno. Ja ću pripremiti papire za peticiju.",
+        "ru": "Хорошо, договорились. Я подготовлю бумаги для петиции."
+      }
+    ]
+  },
+  {
+    "id": "c1-extra-education",
+    "level": "C1",
+    "name": "Реформа образования",
+    "emoji": "🗞️",
+    "lines": [
+      {
+        "sr": "Smatram da je trenutni obrazovni sistem potpuno zastareo i da se previše oslanja na puko memorisanje činjenica.",
+        "ru": "Я считаю, что нынешняя система образования полностью устарела и слишком полагается на простое заучивание фактов."
+      },
+      {
+        "sr": "Slažem se, ali pitanje je kako implementirati reformu koja ne bi ugrozila kvalitet u ime dostupnosti.",
+        "ru": "Согласен, но вопрос в том, как внедрить реформу, которая не поставила бы под угрозу качество ради доступности."
+      },
+      {
+        "you": "Mislim da bi fokus trebalo prebaciti na kritičko razmišljanje i razvoj mekih veština.",
+        "ru": "Я думаю, что фокус следует сместить на критическое мышление и развитие мягких навыков.",
+        "alt": [
+          "Smatram da bi akcenat trebalo staviti na kritičko razmišljanje i razvoj mekih veština"
+        ],
+        "extra": [
+          "memorisanje",
+          "škola",
+          "knjiga"
+        ]
+      },
+      {
+        "sr": "To je idealno, ali šta je sa ulogom nastavnika? Da li oni uopšte imaju resurse za takav pristup?",
+        "ru": "Это идеально, но как быть с ролью учителя? Есть ли у них вообще ресурсы для такого подхода?"
+      },
+      {
+        "sr": "Upravo tako. Bez adekvatne obuke pedagoškog kadra, svaka reforma ostaje samo na papiru.",
+        "ru": "Именно так. Без адекватного обучения педагогического состава любая реформа остается только на бумаге."
+      },
+      {
+        "you": "Slažem se, nastavnik više ne sme biti jedini izvor informacija, već mentor u procesu učenja.",
+        "ru": "Согласен, учитель больше не должен быть единственным источником информации, а должен стать ментором в процессе обучения.",
+        "alt": [
+          "Slažem se, uloga nastavnika treba da evoluira iz predavača u mentora"
+        ],
+        "extra": [
+          "učenik",
+          "tablica",
+          "zaboraviti"
+        ]
+      },
+      {
+        "sr": "To zahteva potpunu promenu mentaliteta, ne samo promenu nastavnog plana i programa.",
+        "ru": "Это требует полного изменения менталитета, а не просто изменения учебного плана и программы."
+      },
+      {
+        "sr": "Takođe, digitalizacija mora biti alat, a ne zamena za ljudsku interakciju u učionici.",
+        "ru": "Также цифровизация должна быть инструментом, а не заменой человеческого взаимодействия в классе."
+      },
+      {
+        "you": "Upravo tako, tehnologija treba da podrži, a ne da potisne pedagogiju.",
+        "ru": "Именно так, технология должна поддерживать, а не вытеснять педагогику.",
+        "alt": [
+          "Tako je, tehnologija treba da bude pomoćno sredstvo, a ne primarni cilj"
+        ],
+        "extra": [
+          "kompjuter",
+          "brzo",
+          "greška"
+        ]
+      },
+      {
+        "sr": "Ako uspemo da uskladimo ove elemente, tek tada možemo pričati o stvarnom kvalitetu obrazovanja.",
+        "ru": "Если нам удастся согласовать эти элементы, только тогда мы сможем говорить о реальном качестве образования."
+      }
+    ]
+  },
+  {
+    "id": "c1-extra-media",
+    "level": "C1",
+    "name": "Медиаграмотность",
+    "emoji": "🗞️",
+    "lines": [
+      {
+        "sr": "Primećujem da je količina dezinformacija na društvenim mrežama dostigla alarmantne razmere.",
+        "ru": "Я замечаю, что количество дезинформации в социальных сетях достигло тревожных масштабов."
+      },
+      {
+        "sr": "Problem je u tome što algoritmi favorizuju senzacionalizam nad objektivnom istinom.",
+        "ru": "Проблема в том, что алгоритмы отдают приоритет сенсационности, а не объективной истине."
+      },
+      {
+        "you": "Smatram da platforme moraju snositi veću pravnu odgovornost za sadržaj koji promovišu.",
+        "ru": "Я считаю, что платформы должны нести большую юридическую ответственность за контент, который они продвигают.",
+        "alt": [
+          "Mislim da bi platforme trebalo da budu pravno odgovorne za širenje lažnih vesti"
+        ],
+        "extra": [
+          "novine",
+          "istina",
+          "brisanje"
+        ]
+      },
+      {
+        "sr": "Ali gde povlačimo granicu između borbe protiv laži i uvođenja cenzure?",
+        "ru": "Но где мы проводим грань между борьбой с ложью и введением цензуры?"
+      },
+      {
+        "sr": "To je najteže pitanje. Ako neka komisija odlučuje šta je istina, rizikujemo gubitak slobode govora.",
+        "ru": "Это самый сложный вопрос. Если какая-то комиссия будет решать, что есть истина, мы рискуем потерей свободы слова."
+      },
+      {
+        "you": "Zato je ključno investirati u medijsku pismenost građana kako bi sami prepoznali manipulaciju.",
+        "ru": "Поэтому крайне важно инвестировать в медиаграмотность граждан, чтобы они сами могли распознать манипуляцию.",
+        "alt": [
+          "Upravo zato je neophodno podizanje nivoa medijske pismenosti u društvu"
+        ],
+        "extra": [
+          "čitanje",
+          "internet",
+          "skupno"
+        ]
+      },
+      {
+        "sr": "Potpuno se slažem. Edukacija je jedini dugoročni mehanizam odbrane od propagande.",
+        "ru": "Полностью согласен. Образование — единственный долгосрочный механизм защиты от пропаганды."
+      },
+      {
+        "sr": "Ipak, brzina kojom se lažne vesti šire je daleko veća od brzine kojom se vrši njihova korekcija.",
+        "ru": "Тем не менее, скорость, с которой распространяются фейковые новости, гораздо выше скорости их исправления."
+      },
+      {
+        "you": "Možda bi rešenje bilo uvođenje obaveznog proveravanja činjenica pre deljenja sadržaja.",
+        "ru": "Возможно, решением стало бы введение обязательной проверки фактов перед распространением контента.",
+        "alt": [
+          "Možda bi pomoglo uvođenje sistema za verifikaciju informacija u realnom vremenu"
+        ],
+        "extra": [
+          "klik",
+          "slika",
+          "brzo"
+        ]
+      },
+      {
+        "sr": "To zvuči utopijski, ali je jedini put ka zdravijem digitalnom prostoru.",
+        "ru": "Это звучит утопически, но это единственный путь к более здоровому цифровому пространству."
       }
     ]
   }

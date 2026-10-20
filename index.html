@@ -323,6 +323,12 @@ kbd{font-family:inherit;font-size:.7rem;font-weight:700;padding:1px 6px;border-r
 .seg button{background:transparent;color:var(--ink-soft);font-weight:700;padding:8px 4px;font-size:.88rem;min-height:42px;border-radius:11px;transition:background .2s,color .2s}
 .seg button.on{background:var(--surface);color:var(--teal);box-shadow:var(--shadow-sm)}
 .seg button small{display:block;font-size:.7rem;font-weight:600;opacity:.75;margin-top:1px}
+.levelbar{display:flex;gap:6px;overflow-x:auto;padding:4px;margin:2px 0 4px;background:var(--surface-3);border-radius:var(--r-md);scrollbar-width:none}
+.levelbar::-webkit-scrollbar{display:none}
+.levelbar button{flex:1 0 auto;min-width:52px;background:transparent;color:var(--ink-soft);font-weight:800;padding:8px 12px;font-size:.86rem;min-height:40px;border-radius:11px;transition:background .2s,color .2s}
+.levelbar button.on{background:var(--surface);color:var(--teal);box-shadow:var(--shadow-sm)}
+.lvl-badge{align-self:flex-start;padding:2px 8px;border-radius:999px;background:var(--tint, rgba(42,157,143,.14));color:var(--teal);font-size:.68rem;font-weight:800;letter-spacing:.02em}
+.theme .lvl-badge+.star{right:12px;left:auto}
 .note{color:var(--ink-mute);font-size:.85rem;margin-top:10px;line-height:1.5}
 
 /* ================= МЕНЮ «ЕЩЁ» ================= */
@@ -588,7 +594,7 @@ const store = {
   load(k,def){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):def; }catch(e){ return def; } },
   save(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); return true; }catch(e){ return false; } }
 };
-let settings = Object.assign({speed:'normal',textSize:'normal',theme:'auto',script:'lat',goal:20,fx:true}, store.load('sr_settings',{}));
+let settings = Object.assign({speed:'normal',textSize:'normal',theme:'auto',script:'lat',goal:20,fx:true,level:'all'}, store.load('sr_settings',{}));
 let stats = Object.assign({words:{},tests:[],days:{},dlg:{},lesson:{}}, store.load('sr_stats',{}));
 const saveSettings = () => store.save('sr_settings',settings);
 const saveStats = () => store.save('sr_stats',stats);
@@ -602,6 +608,22 @@ function getAllWords(){ const i = store.load('sr_words_v1', []); return [...BUIL
 function getAllDialogs(){ const i = store.load('sr_dialogs_v1', []); return [...BUILTIN_DIALOGS, ...i]; }
 function getAllLessons(){ const i = store.load('sr_lessons_v1', []); return [...BUILTIN_LESSONS.map(l => Object.assign({}, l, {imported:false})), ...i]; }
 function getLesson(lid){ return getAllLessons().find(l => l.id === lid); }
+
+const CEFR_LEVELS = ['A1','A2','B1','B2','C1'];
+const currentLevel = () => settings.level || 'all';
+const levelMatch = x => currentLevel() === 'all' || !x.level || x.level === currentLevel();
+function levelBarHTML(){
+  const active = currentLevel();
+  return `<div class="levelbar" role="tablist" aria-label="Уровень">
+    ${['all', ...CEFR_LEVELS].map(l => `<button type="button" role="tab" data-level="${l}" class="${active===l?'on':''}" aria-selected="${active===l}">${l==='all'?'Все':l}</button>`).join('')}
+  </div>`;
+}
+function bindLevelBar(rerender){
+  $app.querySelectorAll('[data-level]').forEach(b => b.onclick = () => {
+    settings.level = b.dataset.level; saveSettings(); rerender();
+  });
+}
+function levelBadge(x){ return x.level ? `<span class="lvl-badge">${esc(x.level)}</span>` : ''; }
 
 /* ==== ОЗВУЧКА ==== */
 const SIZES = {small:'15px', normal:'', large:'21px'};  // '' — размер по умолчанию из CSS (зависит от ширины экрана)
@@ -907,7 +929,7 @@ function bindInstall(){
 /* ==== ГЛАВНАЯ ==== */
 function home(){
   setTab('home');
-  const themes = getAllWords();
+  const themes = getAllWords().filter(levelMatch);
   const importedIds = new Set(store.load('sr_words_v1', []).map(t=>t.id));
   const all = themes.flatMap(t=>t.words);
   const total = new Set(all.map(w=>w.sr)).size;
@@ -942,7 +964,7 @@ function home(){
       <section class="wod">
         <span class="wod-tag">✨ Слово дня</span>
         <div class="wod-body">
-          <span class="wod-e">${esc(wod.w.e||'📖')}</span>
+          <span class="wod-e">${esc(wod.w.e||wod.t.emoji||'📖')}</span>
           <div class="wod-t"><b>${esc(srText(wod.w.srStress||wod.w.sr))}</b><small>${esc(wod.w.ru)}</small></div>
           <button class="wod-say" id="wodSay" type="button" aria-label="Послушать">🔊</button>
         </div>
@@ -962,12 +984,14 @@ function home(){
         <span><b>Повторите сложные слова</b><small>${review.length} ${plural(review.length,'слово','слова','слов')} с ошибками — это займёт пару минут</small></span>
         <span class="go">›</span>
       </button>` : ''}
+      ${levelBarHTML()}
       <div class="section-head"><h2>Темы слов</h2><button class="link-btn" id="goLesson" type="button">📖 Уроки →</button></div>
-      <div class="themes">
+      ${themes.length ? `<div class="themes">
         ${themes.map(t=>{
           const p = progress(t);
           return `
           <button class="theme" data-id="${esc(t.id)}">
+            ${levelBadge(t)}
             ${importedIds.has(t.id)?'<span class="imported-tag">свой</span>':''}
             ${p && p === t.words.length ? '<span class="star" title="Все слова просмотрены">✅</span>' : ''}
             <span class="e">${esc(t.emoji||'📚')}</span>
@@ -975,10 +999,11 @@ function home(){
             <span class="meta">${p ? p+' из '+t.words.length : t.words.length+' '+plural(t.words.length,'слово','слова','слов')}
               <span class="bar"><i style="width:${p/t.words.length*100}%"></i></span></span>
           </button>`;}).join('')}
-      </div>
+      </div>` : '<p class="share-empty">Для этого уровня пока нет тем.</p>'}
       <button class="add-btn" id="addWords" type="button" style="margin-top:14px">＋ Добавить свою тему слов</button>
     </div>`;
   $app.querySelectorAll('.theme').forEach(b=>b.onclick=()=>learn(b.dataset.id,0));
+  bindLevelBar(home);
   const cont = document.getElementById('continue');
   if (cont) cont.onclick = () => { const p = progress(next); learn(next.id, p < next.words.length ? p : 0); };
   if (wod) {
@@ -1000,7 +1025,7 @@ function home(){
     res.innerHTML = found.length
       ? `<p class="sub" style="margin:4px 2px 10px">Найдено: ${found.length}</p><div class="results">${found.map((x,k) => `
           <div class="result">
-            <button class="r-main" data-k="${k}" type="button"><span class="r-e">${esc(x.w.e||'📖')}</span>
+            <button class="r-main" data-k="${k}" type="button"><span class="r-e">${esc(x.w.e||x.t.emoji||'📖')}</span>
               <span class="r-t"><b>${esc(srText(x.w.srStress||x.w.sr))}</b><small>${esc(x.w.ru)} · ${esc(x.t.emoji||'📚')} ${esc(x.t.name)}</small></span></button>
             <button class="r-say" data-say="${k}" type="button" aria-label="Послушать">🔊</button>
           </div>`).join('')}</div>`
@@ -1046,7 +1071,7 @@ function learn(id,i){
       <span class="count">${esc(t.emoji||'📚')} ${i+1} из ${t.words.length}</span></div>
     <div class="bar"><i style="width:${(i+1)/t.words.length*100}%"></i></div>
     <div class="card" id="card">
-      <div class="big">${esc(w.e||'📖')}</div>
+      <div class="big">${esc(w.e||t.emoji||'📖')}</div>
       <div class="ru">${esc(w.ru)}</div>
       <div class="sr" id="srWord">${esc(srText(w.srStress || w.sr))}</div>
       <button class="say" id="say">🔊 Послушать</button>
@@ -1097,19 +1122,22 @@ function quiz(id){
   const ask = () => {
     if (n >= order.length) return result();
     const w = t.words[order[n]];
-    const emo = Math.random() < 0.5;
+    let emo = !!w.e && Math.random() < 0.5;
     let wrong;
     if (emo){
       const seen = new Set([w.e]); wrong = [];
-      for (const x of shuffle(pool)){ if (!seen.has(x.e)){ seen.add(x.e); wrong.push(x); if (wrong.length===2) break; } }
-    } else wrong = shuffle(pool.filter(x=>x.sr!==w.sr)).slice(0,2);
+      for (const x of shuffle(pool)){ if (x.e && !seen.has(x.e)){ seen.add(x.e); wrong.push(x); if (wrong.length===2) break; } }
+      if (wrong.length < 2) emo = false;
+    }
+    if (!emo) wrong = shuffle(pool.filter(x=>x.sr!==w.sr && x.e !== w.e)).slice(0,2);
+    if (!emo && wrong.length < 2) wrong = shuffle(pool.filter(x=>x.sr!==w.sr)).slice(0,2);
     const opts = shuffle([w,...wrong]);
     $app.innerHTML = `
       <div class="top"><button class="back" id="home">← ${id === REVIEW_ID ? 'Тесты' : 'Темы'}</button><span class="count">${esc(t.emoji||'📚')} ${n+1} из ${order.length}</span></div>
       <div class="bar"><i style="width:${n/order.length*100}%"></i></div>
       ${emo
         ? `<div class="card compact"><div class="sr">${esc(srText(w.srStress || w.sr))}</div><button class="back" id="hear0" style="margin-top:12px">🔊 Послушать</button></div><p class="q">Выберите картинку</p>`
-        : `<div class="card compact"><div class="big">${esc(w.e||'📖')}</div><div class="ru">${esc(w.ru)}</div></div><p class="q">Как это по-сербски?</p>`}
+        : `<div class="card compact"><div class="big">${esc(w.e||t.emoji||'📖')}</div><div class="ru">${esc(w.ru)}</div></div><p class="q">Как это по-сербски?</p>`}
       <div class="opts${emo?' emo':''}">${opts.map(o=>`<button class="opt" data-sr="${esc(o.sr)}">${esc(emo?o.e:srText(o.srStress||o.sr))}</button>`).join('')}</div>
       <div class="msg" id="msg"></div>
       <div class="nav hide" id="nx"><button class="light" id="hear">🔊 Послушать</button><button id="go">Дальше →</button></div>
@@ -1155,21 +1183,24 @@ function courseDone(lesson){
 }
 function lessonPage(){
   setTab('lesson');
-  const lessons = getAllLessons();
+  const lessons = getAllLessons().filter(levelMatch);
   $app.innerHTML = `
     <h1>Уроки</h1>
     <p class="sub">Грамматика по шагам: короткая теория и мини-тест в каждом блоке</p>
-    ${lessons.map(l => {
+    ${levelBarHTML()}
+    ${lessons.length ? lessons.map(l => {
       const p = courseDone(l);
       return `<div class="lesson-block" data-lid="${esc(l.id)}" role="button" tabindex="0">
+        ${levelBadge(l)}
         <h3>${esc(l.emoji||'📖')} ${esc(l.title)}</h3>${l.imported?'<span class="imported-tag">свой</span>':''}
         <p>${esc(l.description||'')}</p>
         <small>${p.done === p.total ? '<span class="done-tag">✅ Курс пройден</span>' : 'Пройдено '+p.done+' из '+p.total+' '+plural(p.total,'блока','блоков','блоков')}</small>
         <div class="bar"><i style="width:${p.total ? p.done/p.total*100 : 0}%"></i></div>
       </div>`;
-    }).join('')}
+    }).join('') : '<p class="share-empty">Для этого уровня пока нет уроков.</p>'}
     <button class="add-btn" id="importBtn" type="button">＋ Добавить свой урок (JSON)</button>`;
   $app.querySelectorAll('[data-lid]').forEach(el => el.onclick = () => openLesson(el.dataset.lid));
+  bindLevelBar(lessonPage);
   document.getElementById('importBtn').onclick = () => importJsonDialog('lesson');
 }
 
@@ -1181,6 +1212,7 @@ function openLesson(lid){
   const p = courseDone(lesson);
   $app.innerHTML = `
     <div class="top"><button class="back" id="back">← Уроки</button><span class="count">${p.done} из ${p.total} ${plural(p.total,'блока','блоков','блоков')}</span></div>
+    ${levelBadge(lesson)}
     <h1>${esc(lesson.emoji||'📖')} ${esc(lesson.title)}</h1>
     <p class="sub">${esc(lesson.description||'')}</p>
     <div class="bar" style="margin-bottom:18px"><i style="width:${p.total ? p.done/p.total*100 : 0}%"></i></div>
@@ -1727,21 +1759,24 @@ function dialogsPage(){
   setTab('dialogs');
   const dr = id => (stats.dlg||{})[id];
   const importedIds = new Set(store.load('sr_dialogs_v1', []).map(d=>d.id));
-  const dialogs = getAllDialogs();
+  const dialogs = getAllDialogs().filter(levelMatch);
   $app.innerHTML = `
     <h1>Диалоги</h1>
     <p class="sub">Живые ситуации: ответьте собеседнику, собрав фразу из слов</p>
-    <div class="themes">
+    ${levelBarHTML()}
+    ${dialogs.length ? `<div class="themes">
       ${dialogs.map(d=>`
         <button class="theme" data-id="${esc(d.id)}">
+          ${levelBadge(d)}
           ${importedIds.has(d.id)?'<span class="imported-tag">свой</span>':''}
           ${dr(d.id)&&dr(d.id).done?'<span class="star" title="Пройден">⭐</span>':''}
           <span class="e">${esc(d.emoji||'💬')}</span><span class="n">${esc(d.name)}</span>
           <span class="meta">${dr(d.id)&&dr(d.id).done ? 'пройден ×'+dr(d.id).done : d.lines.filter(l=>l.you).length+' '+plural(d.lines.filter(l=>l.you).length,'ответ','ответа','ответов')}</span>
         </button>`).join('')}
-    </div>
+    </div>` : '<p class="share-empty">Для этого уровня пока нет диалогов.</p>'}
     <button class="add-btn" id="addDialog" type="button" style="margin-top:14px">＋ Добавить свой диалог</button>`;
   $app.querySelectorAll('.theme').forEach(b=>b.onclick = () => dialog(b.dataset.id));
+  bindLevelBar(dialogsPage);
   document.getElementById('addDialog').onclick = () => importJsonDialog('dialogs');
 }
 
@@ -1755,6 +1790,7 @@ function dialog(id){
   let i = 0, runErr = 0;
   $app.innerHTML = `
     <div class="top"><button class="back" id="home">← Диалоги</button><span class="count">${esc(d.emoji||'💬')} ${esc(d.name)}</span></div>
+    ${levelBadge(d)}
     <div class="bar"><i id="pb" style="width:0"></i></div>
     <div class="chat" id="chat"></div><div id="act"></div>`;
   document.getElementById('home').onclick = dialogsPage;
@@ -1840,40 +1876,43 @@ function dialog(id){
 /* ==== ТЕСТЫ ==== */
 function testsPage(){
   setTab('tests');
-  const words = getAllWords();
+  const words = getAllWords().filter(levelMatch);
+  const lessons = getAllLessons().filter(levelMatch);
   const review = reviewList();
-  const lesson = BUILTIN_LESSON;
   // Лучший результат по каждой теме
   const best = {};
   stats.tests.forEach(r => { const p = r.total ? r.right/r.total : 0; if (!best[r.id] || p > best[r.id].p) best[r.id] = {p, r}; });
   $app.innerHTML = `
     <h1>Тесты</h1><p class="sub">Проверьте знания по темам или пройдите финальный тест урока</p>
+    ${levelBarHTML()}
     <button class="review-banner${review.length ? '' : ' calm'}" id="review" type="button">
       <span class="ic">🔁</span>
       <span><b>Повторение ошибок</b><small>${review.length ? review.length+' '+plural(review.length,'слово','слова','слов')+' ждут повторения' : 'Пока ошибок нет — так держать!'}</small></span>
       <span class="go">›</span>
     </button>
-    ${lesson ? `<button class="review-banner gold" id="finalTest" type="button">
-      <span class="ic">🏆</span>
-      <span><b>Финальный тест урока</b><small>${esc(lesson.title)}${best['final-'+lesson.id] ? ' · лучший: '+Math.round(best['final-'+lesson.id].p*100)+'%' : ''}</small></span>
-      <span class="go">›</span>
-    </button>` : ''}
+    ${lessons.length ? `<div class="section-head"><h2>Финальные тесты</h2></div>
+      ${lessons.map(l => `<button class="review-banner gold" data-final="${esc(l.id)}" type="button">
+        <span class="ic">🏆</span>
+        <span><b>${esc(l.emoji||'📖')} ${esc(l.title)}</b><small>${best['final-'+l.id] ? 'лучший: '+Math.round(best['final-'+l.id].p*100)+'%' : 'финальный тест курса'}</small></span>
+        <span class="go">›</span>
+      </button>`).join('')}` : ''}
     <div class="section-head"><h2>По темам слов</h2></div>
-    <div class="themes">
+    ${words.length ? `<div class="themes">
       ${words.map(t=>{
         const b = best[t.id];
         return `
         <button class="theme" data-quiz="${esc(t.id)}">
+          ${levelBadge(t)}
           ${b && b.p === 1 ? '<span class="star" title="Без ошибок">🏅</span>' : ''}
           <span class="e">${esc(t.emoji||'📚')}</span>
           <span class="n">${esc(t.name)}</span>
           <span class="meta">${b ? 'лучший: '+b.r.right+' из '+b.r.total : 'ещё не пройден'}</span>
         </button>`;}).join('')}
-    </div>`;
+    </div>` : '<p class="share-empty">Для этого уровня пока нет тем.</p>'}`;
   $app.querySelectorAll('[data-quiz]').forEach(b=>b.onclick=()=>quiz(b.dataset.quiz));
+  $app.querySelectorAll('[data-final]').forEach(b=>b.onclick=()=>finalTest(b.dataset.final));
+  bindLevelBar(testsPage);
   document.getElementById('review').onclick = () => quiz(REVIEW_ID);
-  const finalBtn = document.getElementById('finalTest');
-  if (finalBtn) finalBtn.onclick = () => finalTest(lesson.id);
 }
 
 /* ==== АЗБУКА ==== */
@@ -1928,14 +1967,18 @@ function streak(){
 }
 function statsPage(){
   setTab('stats');
-  const words = getAllWords();
-  const dialogs = getAllDialogs();
+  const words = getAllWords().filter(levelMatch);
+  const dialogs = getAllDialogs().filter(levelMatch);
+  const lessons = getAllLessons().filter(levelMatch);
   const all = words.flatMap(t=>t.words);
-  const total = new Set(all.map(w=>w.sr)).size;
+  const wordSet = new Set(all.map(w=>w.sr));
+  const total = wordSet.size;
   const seen = new Set(all.filter(w=>stats.words[w.sr]?.seen>0).map(w=>w.sr)).size;
-  const ok = Object.values(stats.words).reduce((a,r)=>a+r.ok,0);
-  const bad = Object.values(stats.words).reduce((a,r)=>a+r.bad,0);
+  const ok = [...wordSet].reduce((a,sr)=>a+(stats.words[sr]?.ok||0),0);
+  const bad = [...wordSet].reduce((a,sr)=>a+(stats.words[sr]?.bad||0),0);
   const pct = ok+bad ? Math.round(ok/(ok+bad)*100)+'%' : '—';
+  const themeIds = new Set(words.map(t => t.id));
+  const testCount = stats.tests.filter(r => themeIds.has(r.id)).length;
   const dlgStats = stats.dlg || {};
   const dlgDone = dialogs.filter(d => (dlgStats[d.id]?.done||0) > 0).length;
   const dlgErrors = dialogs.reduce((s,d) => s + (dlgStats[d.id]?.errors || 0), 0);
@@ -1947,10 +1990,11 @@ function statsPage(){
   $app.innerHTML = `
     <h1>Мои успехи</h1>
     <p class="sub">Ваш прогресс сохраняется на этом устройстве</p>
+    ${levelBarHTML()}
     <div class="stats">
       <div class="stat"><span class="stat-ic">📚</span><b>${seen} / ${total}</b><small>слов просмотрено</small></div>
       <div class="stat"><span class="stat-ic">🎯</span><b>${pct}</b><small>верных ответов</small></div>
-      <div class="stat"><span class="stat-ic">📝</span><b>${stats.tests.length}</b><small>${plural(stats.tests.length,'тест','теста','тестов')}</small></div>
+      <div class="stat"><span class="stat-ic">📝</span><b>${testCount}</b><small>${plural(testCount,'тест','теста','тестов')}</small></div>
       <div class="stat"><span class="stat-ic">🔥</span><b>${streak()}</b><small>${plural(streak(),'день подряд','дня подряд','дней подряд')}</small></div>
     </div>
     <div class="section-head"><h2>Активность</h2><small class="muted">${activeDays} ${plural(activeDays,'день','дня','дней')} из 28 с занятиями</small></div>
@@ -1958,7 +2002,7 @@ function statsPage(){
     <div class="days-cap"><span>4 недели назад</span><span>Меньше <i class="lg"></i><i class="lg l1"></i><i class="lg l2"></i><i class="lg l3"></i> Больше</span><span>Сегодня</span></div>
     <div class="grid-2"><div>
     <h2>Уроки</h2>
-    ${getAllLessons().map(l=>{
+    ${lessons.map(l=>{
       const p = courseDone(l);
       return `<div class="row"><div class="t"><span>${esc(l.emoji||'📖')} ${esc(l.title)}</span><span>${p.done}/${p.total}</span></div>
         <div class="bar"><i style="width:${p.total?p.done/p.total*100:0}%"></i></div></div>`;
@@ -1981,6 +2025,7 @@ function statsPage(){
     }).join('')}
     </div></div>
   `;
+  bindLevelBar(statsPage);
 }
 
 /* ==== НАСТРОЙКИ ==== */

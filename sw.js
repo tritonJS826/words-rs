@@ -1,6 +1,6 @@
 // Service Worker: приложение открывается и работает без интернета.
 // При изменении файлов приложения увеличьте номер версии — старый кэш удалится.
-const VERSION = 'v2';
+const VERSION = 'v5';
 const CACHE = 'srpski-app-' + VERSION;
 const TTS_CACHE = 'srpski-tts';
 const ASSETS = [
