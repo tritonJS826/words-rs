@@ -222,6 +222,23 @@ button{
 .manual-paste-box .parser-status.ok{color:var(--ok)}
 .manual-paste-box .parser-status.bad{color:var(--bad)}
 
+/* Обмен материалами */
+.share-group{margin-bottom:14px}
+.share-group h2{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.share-group h2 small{color:var(--ink-mute);font-size:.8rem;font-weight:400}
+.share-item{display:flex;align-items:center;gap:10px;background:linear-gradient(180deg, #fff, var(--paper-2));border:1px solid var(--line);border-radius:var(--r-md);padding:10px 12px;margin-bottom:8px;box-shadow:var(--shadow-xs)}
+.share-item label{flex:1;display:flex;align-items:center;gap:10px;cursor:pointer;min-width:0}
+.share-item input[type=checkbox]{width:22px;height:22px;accent-color:var(--teal);flex-shrink:0}
+.share-item .si-name{font-weight:700;color:var(--teal);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.share-item .si-meta{display:block;color:var(--ink-mute);font-size:.8rem;font-weight:400}
+.share-item .si-del{background:transparent;border:1px solid var(--line);color:var(--bad);min-height:40px;min-width:40px;padding:0;border-radius:10px;flex-shrink:0}
+.share-empty{color:var(--ink-mute);font-size:.9rem;margin:0 0 10px}
+.share-preview{list-style:none;padding:0;margin:10px 0;font-size:.92rem}
+.share-preview li{padding:6px 0;border-bottom:1px solid var(--line-soft)}
+.share-preview li.bad{color:var(--bad)}
+.share-opt{display:flex;align-items:center;gap:8px;font-size:.92rem;margin:8px 0;cursor:pointer}
+.share-opt input{width:20px;height:20px;accent-color:var(--teal)}
+
 @media (min-width:600px){html{font-size:20px}}
 </style>
 </head>
@@ -452,6 +469,15 @@ function go(p){ ({home,lesson:lessonPage,dialogs:dialogsPage,tests:testsPage,alp
 
 const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const shuffle = a => { a=[...a]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+// Чужие уроки могут прийти от других пользователей — убираем скрипты и обработчики событий
+function sanitizeHtml(html){
+  const doc = new DOMParser().parseFromString(String(html), 'text/html');
+  doc.body.querySelectorAll('script,style,iframe,object,embed,link,meta,form,base').forEach(n => n.remove());
+  doc.body.querySelectorAll('*').forEach(n => [...n.attributes].forEach(a => {
+    if (/^on/i.test(a.name) || /^\s*(javascript|data):/i.test(a.value)) n.removeAttribute(a.name);
+  }));
+  return doc.body.innerHTML;
+}
 const plural = (n,a,b,c) => { const m=n%100, k=n%10; return (m>10&&m<20)?c:(k===1?a:(k>=2&&k<=4?b:c)); };
 
 /* ==== ГЛАВНАЯ ==== */
@@ -462,7 +488,10 @@ function home(){
   $app.innerHTML = `
     <div style="display:flex;justify-content:space-between;align-items:center">
       <h1>Сербский для жизни</h1>
-      <a href="feedback.html" style="text-decoration:none;font-size:.85rem;color:var(--teal);white-space:nowrap">✉️ Связь</a>
+      <span style="display:flex;gap:12px">
+        <a href="#" id="goShare" style="text-decoration:none;font-size:.85rem;color:var(--teal);white-space:nowrap">📦 Обмен</a>
+        <a href="feedback.html" style="text-decoration:none;font-size:.85rem;color:var(--teal);white-space:nowrap">✉️ Связь</a>
+      </span>
     </div>
     <p class="sub">Выберите тему или начните урок</p>
     <button class="add-btn" id="addWords" type="button">📥 Добавить тему слов</button>
@@ -480,6 +509,7 @@ function home(){
   $app.querySelectorAll('.theme').forEach(b=>b.onclick=()=>learn(b.dataset.id,0));
   document.getElementById('goLesson').onclick = lessonPage;
   document.getElementById('addWords').onclick = () => importJsonDialog('words');
+  document.getElementById('goShare').onclick = e => { e.preventDefault(); sharePage(); };
 }
 
 /* ==== КАРТОЧКИ ==== */
@@ -623,7 +653,7 @@ function openBlock(lid, idx){
   const total = (block.quiz||[]).length;
   $app.innerHTML = `
     <div class="top"><button class="back" id="back">← Блоки</button><span class="count">Блок ${idx+1} из ${lesson.blocks.length}</span></div>
-    <div class="lesson-content">${block.content}</div>
+    <div class="lesson-content">${lesson.imported ? sanitizeHtml(block.content) : block.content}</div>
     ${total>0?'<div class="quiz-box" id="quizBox"></div>':''}
     <div class="nav">
       <button class="light" id="back2">← Назад</button>
@@ -926,6 +956,211 @@ function importJsonDialog(type){
   };
 }
 
+/* ==== ОБМЕН: ЭКСПОРТ / ИМПОРТ ВСЕХ СВОИХ МАТЕРИАЛОВ ==== */
+const SHARE_TYPES = [
+  { key:'words',   storeKey:'sr_words_v1',   label:'Темы слов', emoji:'📚', validate:validateWords,
+    name:x=>x.name,  meta:x=>x.words.length+' '+plural(x.words.length,'слово','слова','слов'), builtinIds:()=>BUILTIN_WORDS.map(x=>x.id) },
+  { key:'dialogs', storeKey:'sr_dialogs_v1', label:'Диалоги',   emoji:'💬', validate:validateDialogs,
+    name:x=>x.name,  meta:x=>x.lines.length+' '+plural(x.lines.length,'реплика','реплики','реплик'), builtinIds:()=>BUILTIN_DIALOGS.map(x=>x.id) },
+  { key:'lessons', storeKey:'sr_lessons_v1', label:'Уроки',     emoji:'📖', validate:validateLesson,
+    name:x=>x.title, meta:x=>x.blocks.length+' '+plural(x.blocks.length,'блок','блока','блоков'), builtinIds:()=>[BUILTIN_LESSON.id] }
+];
+const BUNDLE_FORMAT = 'words-rs-bundle';
+
+const stripImported = x => { const c = { ...x }; delete c.imported; return c; };
+
+function buildBundle(selected){
+  const b = { format:BUNDLE_FORMAT, version:1, exportedAt:new Date().toISOString() };
+  SHARE_TYPES.forEach(t => {
+    b[t.key] = store.load(t.storeKey, []).filter(x => selected.has(t.key+':'+x.id)).map(stripImported);
+  });
+  return b;
+}
+
+// Принимает пакет (bundle) или одиночную тему/диалог/урок. Возвращает {words,dialogs,lessons} или строку-ошибку.
+function parseShared(data){
+  if (!data || typeof data !== 'object' || Array.isArray(data)) return 'JSON должен быть объектом';
+  if (data.format === BUNDLE_FORMAT || (!data.name && !data.title && SHARE_TYPES.some(t => Array.isArray(data[t.key])))) {
+    const out = {};
+    SHARE_TYPES.forEach(t => { out[t.key] = Array.isArray(data[t.key]) ? data[t.key] : []; });
+    return out;
+  }
+  if (Array.isArray(data.blocks)) return { words:[], dialogs:[], lessons:[data] };
+  if (Array.isArray(data.lines))  return { words:[], dialogs:[data], lessons:[] };
+  if (Array.isArray(data.words))  return { words:[data], dialogs:[], lessons:[] };
+  return 'Не похоже на материалы приложения: нет "words", "lines" или "blocks"';
+}
+
+function downloadJson(obj, filename){
+  const blob = new Blob([JSON.stringify(obj, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function sharePage(){
+  setTab('settings');
+  const selected = new Set();
+  SHARE_TYPES.forEach(t => store.load(t.storeKey, []).forEach(x => selected.add(t.key+':'+x.id)));
+  const totalOwn = selected.size;
+  $app.innerHTML = `
+    <div class="top"><button class="back" id="back">← Настройки</button><span class="count">Обмен материалами</span></div>
+    <h1>Мои материалы</h1>
+    <p class="sub">Экспортируйте свои темы слов, диалоги и уроки в файл и отправьте другу. Он сможет загрузить их у себя.</p>
+    ${SHARE_TYPES.map(t => {
+      const items = store.load(t.storeKey, []);
+      return `<div class="share-group">
+        <h2>${t.emoji} ${t.label} <small>${items.length}</small></h2>
+        ${items.length ? items.map(x => `
+          <div class="share-item">
+            <label>
+              <input type="checkbox" data-sel="${esc(t.key+':'+x.id)}" checked>
+              <span style="min-width:0"><span class="si-name">${esc(x.emoji||t.emoji)} ${esc(t.name(x)||'Без названия')}</span>
+              <span class="si-meta">${esc(t.meta(x))}</span></span>
+            </label>
+            <button class="si-del" data-del="${esc(t.key)}" data-id="${esc(x.id)}" type="button" aria-label="Удалить">🗑</button>
+          </div>`).join('') : '<p class="share-empty">Пока ничего не добавлено</p>'}
+      </div>`;
+    }).join('')}
+    ${totalOwn ? `
+      <div class="nav" style="margin-top:6px">
+        <button class="light" id="selAll" type="button">Выбрать все</button>
+        <button class="light" id="selNone" type="button">Снять все</button>
+      </div>
+      <div class="nav">
+        <button class="wide" id="expFile" type="button">💾 Скачать файл</button>
+      </div>
+      <div class="nav">
+        <button class="light" id="expCopy" type="button">📋 Копировать JSON</button>
+        <button class="light" id="expShare" type="button">📤 Поделиться</button>
+      </div>` : ''}
+    <div class="msg" id="expMsg" style="min-height:1.6em"></div>
+    <h2>Загрузить материалы</h2>
+    <div class="lesson-content">
+      <p class="note">Выберите файл, который вам прислали, или вставьте его содержимое. Подходит и общий файл, и отдельная тема, диалог или урок.</p>
+      <label class="file-label">📁 Выбрать файл
+        <input type="file" id="impFile" accept=".json,application/json">
+      </label>
+      <div class="manual-paste-box">
+        <textarea id="impTA" placeholder="…или вставьте JSON сюда" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+      </div>
+      <div id="impPreview"></div>
+      <div class="msg" id="impMsg" style="min-height:1.6em"></div>
+    </div>`;
+
+  const expMsg = document.getElementById('expMsg');
+  const impMsg = document.getElementById('impMsg');
+  const say = (el, text, kind) => {
+    el.textContent = text;
+    el.style.color = kind === 'ok' ? 'var(--ok)' : kind === 'bad' ? 'var(--bad)' : 'var(--ink-soft)';
+  };
+  document.getElementById('back').onclick = settingsPage;
+
+  /* --- экспорт --- */
+  const boxes = () => [...$app.querySelectorAll('[data-sel]')];
+  boxes().forEach(cb => cb.onchange = () => { cb.checked ? selected.add(cb.dataset.sel) : selected.delete(cb.dataset.sel); });
+  const setAll = on => boxes().forEach(cb => { cb.checked = on; on ? selected.add(cb.dataset.sel) : selected.delete(cb.dataset.sel); });
+  const bundleOrWarn = () => {
+    if (!selected.size) { say(expMsg, 'Отметьте хотя бы один элемент', 'bad'); return null; }
+    return buildBundle(selected);
+  };
+  const fileName = () => 'srpski-materijali-' + today() + '.json';
+  if (totalOwn) {
+    document.getElementById('selAll').onclick = () => setAll(true);
+    document.getElementById('selNone').onclick = () => setAll(false);
+    document.getElementById('expFile').onclick = () => {
+      const b = bundleOrWarn(); if (!b) return;
+      downloadJson(b, fileName());
+      say(expMsg, '✅ Файл сохранён. Отправьте его другу любым способом.', 'ok');
+    };
+    document.getElementById('expCopy').onclick = async () => {
+      const b = bundleOrWarn(); if (!b) return;
+      try { await navigator.clipboard.writeText(JSON.stringify(b)); say(expMsg, '✅ Скопировано. Вставьте в сообщение другу.', 'ok'); }
+      catch (e) { say(expMsg, 'Не удалось скопировать — используйте «Скачать файл»', 'bad'); }
+    };
+    const shareBtn = document.getElementById('expShare');
+    if (!navigator.share) { shareBtn.classList.add('hide'); document.getElementById('expCopy').classList.add('wide'); }
+    shareBtn.onclick = async () => {
+      const b = bundleOrWarn(); if (!b) return;
+      const file = new File([JSON.stringify(b, null, 2)], fileName(), {type:'application/json'});
+      try {
+        if (navigator.canShare && navigator.canShare({files:[file]})) await navigator.share({files:[file], title:'Материалы для сербского'});
+        else await navigator.share({title:'Материалы для сербского', text:JSON.stringify(b)});
+      } catch (e) { if (e.name !== 'AbortError') say(expMsg, 'Не удалось поделиться — используйте «Скачать файл»', 'bad'); }
+    };
+  }
+  $app.querySelectorAll('[data-del]').forEach(btn => btn.onclick = () => {
+    const t = SHARE_TYPES.find(x => x.key === btn.dataset.del);
+    const arr = store.load(t.storeKey, []);
+    const item = arr.find(x => x.id === btn.dataset.id);
+    if (!item || !confirm('Удалить «' + (t.name(item)||'без названия') + '»? Это нельзя отменить.')) return;
+    store.save(t.storeKey, arr.filter(x => x.id !== item.id));
+    sharePage();
+  });
+
+  /* --- импорт --- */
+  const preview = document.getElementById('impPreview');
+  const ta = document.getElementById('impTA');
+  const handle = text => {
+    preview.innerHTML = '';
+    if (!text || !text.trim()) { say(impMsg, ''); return; }
+    let data;
+    try { data = JSON.parse(text); } catch (e) { say(impMsg, 'Ошибка JSON: ' + e.message, 'bad'); return; }
+    const parsed = parseShared(data);
+    if (typeof parsed === 'string') { say(impMsg, parsed, 'bad'); return; }
+    const rows = [];
+    SHARE_TYPES.forEach(t => {
+      const existing = new Set(store.load(t.storeKey, []).map(x => x.id));
+      parsed[t.key].forEach((x, i) => {
+        const err = t.validate(x);
+        rows.push({ t, x, err, dup: !err && x.id && existing.has(x.id), label: (x && (t.name(x))) || (t.label + ' #' + (i+1)) });
+      });
+    });
+    if (!rows.length) { say(impMsg, 'В файле нет материалов', 'bad'); return; }
+    const okRows = rows.filter(r => !r.err);
+    const hasDup = okRows.some(r => r.dup);
+    preview.innerHTML = `
+      <ul class="share-preview">${rows.map(r => `
+        <li class="${r.err?'bad':''}">${r.t.emoji} ${esc(r.label)}${r.err ? ' — ❌ ' + esc(r.err) : r.dup ? ' — <small>уже есть</small>' : ''}</li>`).join('')}
+      </ul>
+      ${hasDup ? '<label class="share-opt"><input type="checkbox" id="impReplace" checked> Заменить то, что уже есть (иначе — пропустить)</label>' : ''}
+      <div class="nav"><button class="wide" id="impGo" type="button" ${okRows.length?'':'disabled'}>📥 Загрузить ${okRows.length} ${plural(okRows.length,'элемент','элемента','элементов')}</button></div>`;
+    say(impMsg, okRows.length < rows.length ? 'Элементы с ошибками будут пропущены' : '');
+    document.getElementById('impGo').onclick = () => {
+      const replace = !!(document.getElementById('impReplace') || {}).checked;
+      let added = 0, replaced = 0, skipped = 0;
+      for (const t of SHARE_TYPES) {
+        const arr = store.load(t.storeKey, []);
+        const builtin = new Set(t.builtinIds());
+        okRows.filter(r => r.t === t).forEach(r => {
+          const item = stripImported(r.x);
+          item.imported = true;
+          if (!item.id || builtin.has(item.id)) item.id = t.key + '-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+          const at = arr.findIndex(x => x.id === item.id);
+          if (at < 0) { arr.push(item); added++; }
+          else if (replace) { arr[at] = item; replaced++; }
+          else skipped++;
+        });
+        if (!store.save(t.storeKey, arr)) { say(impMsg, 'Не удалось сохранить (память браузера переполнена)', 'bad'); return; }
+      }
+      sharePage();
+      say(document.getElementById('impMsg'),
+        '✅ Добавлено: ' + added + (replaced ? ', заменено: ' + replaced : '') + (skipped ? ', пропущено: ' + skipped : ''), 'ok');
+    };
+  };
+  let timer = null;
+  ta.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(() => handle(ta.value), 400); });
+  document.getElementById('impFile').onchange = e => {
+    const f = e.target.files[0]; if (!f) return;
+    const reader = new FileReader();
+    reader.onload = () => { ta.value = ''; handle(String(reader.result)); };
+    reader.onerror = () => say(impMsg, 'Ошибка чтения файла', 'bad');
+    reader.readAsText(f);
+  };
+}
+
 /* ==== ДИАЛОГИ ==== */
 function dialogsPage(){
   setTab('dialogs');
@@ -1169,7 +1404,13 @@ function settingsPage(){
     <div class="set">
       <button class="say" id="try">🔊 Проверить звук</button>
       <p class="note">Для лучшего качества используется онлайн-сервис (при наличии интернета), иначе — локальный синтез речи.</p>
+    </div>
+    <div class="set">
+      <label>Мои материалы</label>
+      <button class="add-btn" id="shareBtn" type="button" style="margin:0">📦 Импорт / экспорт своих слов, диалогов и уроков</button>
+      <p class="note">Сохраните свои материалы в файл, чтобы поделиться с другими или перенести на другое устройство.</p>
     </div>`;
+  document.getElementById('shareBtn').onclick = sharePage;
   const segS = document.getElementById('size');
   const markS = () => segS.querySelectorAll('button').forEach(b=>b.classList.toggle('on', b.dataset.s === settings.textSize));
   segS.querySelectorAll('button').forEach(b=>b.onclick = () => {
