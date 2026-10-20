@@ -1,0 +1,506 @@
+[
+  {
+    "id": "greetings",
+    "name": "Приветствия",
+    "emoji": "👋",
+    "words": [
+      {
+        "e": "👋",
+        "ru": "привет",
+        "sr": "zdravo",
+        "srStress": "zdrȁvo"
+      },
+      {
+        "e": "🙋",
+        "ru": "здравствуйте",
+        "sr": "dobar dan",
+        "srStress": "dȍbar dȃn"
+      },
+      {
+        "e": "🚪",
+        "ru": "пока",
+        "sr": "doviđenja",
+        "srStress": "dòviđēnja"
+      },
+      {
+        "e": "✅",
+        "ru": "да",
+        "sr": "da",
+        "srStress": "dȁ"
+      },
+      {
+        "e": "❌",
+        "ru": "нет",
+        "sr": "ne",
+        "srStress": "nȅ"
+      },
+      {
+        "e": "🙏",
+        "ru": "спасибо",
+        "sr": "hvala",
+        "srStress": "hvȁla"
+      },
+      {
+        "e": "🤲",
+        "ru": "пожалуйста",
+        "sr": "molim",
+        "srStress": "mȍlim"
+      },
+      {
+        "e": "😔",
+        "ru": "извините",
+        "sr": "izvinite",
+        "srStress": "izvínite"
+      },
+      {
+        "e": "🌅",
+        "ru": "доброе утро",
+        "sr": "dobro jutro",
+        "srStress": "dȍbro jȕtro"
+      },
+      {
+        "e": "🌙",
+        "ru": "спокойной ночи",
+        "sr": "laku noć",
+        "srStress": "lȁku nȏć"
+      },
+      {
+        "e": "🤔",
+        "ru": "как дела?",
+        "sr": "kako si",
+        "srStress": "kȁko si"
+      },
+      {
+        "e": "👍",
+        "ru": "хорошо",
+        "sr": "dobro",
+        "srStress": "dȍbro"
+      },
+      {
+        "e": "📛",
+        "ru": "меня зовут",
+        "sr": "zovem se",
+        "srStress": "zòvem se"
+      },
+      {
+        "e": "🤝",
+        "ru": "очень приятно",
+        "sr": "drago mi je",
+        "srStress": "drȃgo mi je"
+      }
+    ]
+  },
+  {
+    "id": "family",
+    "name": "Семья",
+    "emoji": "👨‍👩‍👧",
+    "words": [
+      {
+        "e": "👨‍👩‍👧",
+        "ru": "семья",
+        "sr": "porodica",
+        "srStress": "poròdica"
+      },
+      {
+        "e": "👩",
+        "ru": "мама",
+        "sr": "majka",
+        "srStress": "mȃjka"
+      },
+      {
+        "e": "👨",
+        "ru": "папа",
+        "sr": "otac",
+        "srStress": "òtac"
+      },
+      {
+        "e": "👫",
+        "ru": "родители",
+        "sr": "roditelji",
+        "srStress": "rodìtelji"
+      },
+      {
+        "e": "👦",
+        "ru": "сын",
+        "sr": "sin",
+        "srStress": "sȋn"
+      },
+      {
+        "e": "👧",
+        "ru": "дочь",
+        "sr": "ćerka",
+        "srStress": "ćȇrka"
+      },
+      {
+        "e": "🧑",
+        "ru": "брат",
+        "sr": "brat",
+        "srStress": "brȁt"
+      },
+      {
+        "e": "👩‍🦰",
+        "ru": "сестра",
+        "sr": "sestra",
+        "srStress": "sèstra"
+      },
+      {
+        "e": "👵",
+        "ru": "бабушка",
+        "sr": "baba",
+        "srStress": "bába"
+      },
+      {
+        "e": "👴",
+        "ru": "дедушка",
+        "sr": "deda",
+        "srStress": "déda"
+      },
+      {
+        "e": "🤵",
+        "ru": "муж",
+        "sr": "muž",
+        "srStress": "mȗž"
+      },
+      {
+        "e": "👰",
+        "ru": "жена",
+        "sr": "žena",
+        "srStress": "žèna"
+      },
+      {
+        "e": "🤝",
+        "ru": "друг",
+        "sr": "prijatelj",
+        "srStress": "prijátelj"
+      }
+    ]
+  },
+  {
+    "id": "food",
+    "name": "Еда",
+    "emoji": "🍎",
+    "words": [
+      {
+        "e": "🍞",
+        "ru": "хлеб",
+        "sr": "hleb",
+        "srStress": "hlȅb"
+      },
+      {
+        "e": "🧀",
+        "ru": "сыр",
+        "sr": "sir",
+        "srStress": "sȉr"
+      },
+      {
+        "e": "🥛",
+        "ru": "молоко",
+        "sr": "mleko",
+        "srStress": "mléko"
+      },
+      {
+        "e": "🥚",
+        "ru": "яйцо",
+        "sr": "jaje",
+        "srStress": "jȁje"
+      },
+      {
+        "e": "🥩",
+        "ru": "мясо",
+        "sr": "meso",
+        "srStress": "mȅso"
+      },
+      {
+        "e": "🍗",
+        "ru": "курица",
+        "sr": "piletina",
+        "srStress": "piletìna"
+      },
+      {
+        "e": "🐟",
+        "ru": "рыба",
+        "sr": "riba",
+        "srStress": "rȉba"
+      },
+      {
+        "e": "🍚",
+        "ru": "рис",
+        "sr": "pirinač",
+        "srStress": "pirìnač"
+      },
+      {
+        "e": "🍲",
+        "ru": "суп",
+        "sr": "supa",
+        "srStress": "súpa"
+      },
+      {
+        "e": "🥔",
+        "ru": "картофель",
+        "sr": "krompir",
+        "srStress": "kròmpīr"
+      },
+      {
+        "e": "🍅",
+        "ru": "помидор",
+        "sr": "paradajz",
+        "srStress": "paradȁjz"
+      },
+      {
+        "e": "🥒",
+        "ru": "огурец",
+        "sr": "krastavac",
+        "srStress": "kràstavac"
+      },
+      {
+        "e": "🥕",
+        "ru": "морковь",
+        "sr": "šargarepa",
+        "srStress": "šargarèpa"
+      },
+      {
+        "e": "🧅",
+        "ru": "лук",
+        "sr": "luk",
+        "srStress": "lȕk"
+      },
+      {
+        "e": "🧄",
+        "ru": "чеснок",
+        "sr": "beli luk",
+        "srStress": "bȇlī lȕk"
+      }
+    ]
+  },
+  {
+    "id": "drinks",
+    "name": "Напитки",
+    "emoji": "☕",
+    "words": [
+      {
+        "e": "☕",
+        "ru": "кофе",
+        "sr": "kafa",
+        "srStress": "kȁfa"
+      },
+      {
+        "e": "🍵",
+        "ru": "чай",
+        "sr": "čaj",
+        "srStress": "čȁj"
+      },
+      {
+        "e": "💧",
+        "ru": "вода",
+        "sr": "voda",
+        "srStress": "vòda"
+      },
+      {
+        "e": "🧃",
+        "ru": "сок",
+        "sr": "sok",
+        "srStress": "sȍk"
+      },
+      {
+        "e": "🍺",
+        "ru": "пиво",
+        "sr": "pivo",
+        "srStress": "pȉvo"
+      },
+      {
+        "e": "🍷",
+        "ru": "вино",
+        "sr": "vino",
+        "srStress": "víno"
+      },
+      {
+        "e": "🥂",
+        "ru": "шампанское",
+        "sr": "šampanjac",
+        "srStress": "šampánjac"
+      },
+      {
+        "e": "🥃",
+        "ru": "виски",
+        "sr": "viski",
+        "srStress": "vȉski"
+      },
+      {
+        "e": "🍸",
+        "ru": "коктейль",
+        "sr": "koktel",
+        "srStress": "kòktel"
+      }
+    ]
+  },
+  {
+    "id": "numbers",
+    "name": "Числа",
+    "emoji": "🔢",
+    "words": [
+      {
+        "e": "0️⃣",
+        "ru": "ноль",
+        "sr": "nula",
+        "srStress": "núla"
+      },
+      {
+        "e": "1️⃣",
+        "ru": "один",
+        "sr": "jedan",
+        "srStress": "jèdan"
+      },
+      {
+        "e": "2️⃣",
+        "ru": "два",
+        "sr": "dva",
+        "srStress": "dvȃ"
+      },
+      {
+        "e": "3️⃣",
+        "ru": "три",
+        "sr": "tri",
+        "srStress": "trȋ"
+      },
+      {
+        "e": "4️⃣",
+        "ru": "четыре",
+        "sr": "četiri",
+        "srStress": "čètiri"
+      },
+      {
+        "e": "5️⃣",
+        "ru": "пять",
+        "sr": "pet",
+        "srStress": "pȇt"
+      },
+      {
+        "e": "6️⃣",
+        "ru": "шесть",
+        "sr": "šest",
+        "srStress": "šȇst"
+      },
+      {
+        "e": "7️⃣",
+        "ru": "семь",
+        "sr": "sedam",
+        "srStress": "sèdam"
+      },
+      {
+        "e": "8️⃣",
+        "ru": "восемь",
+        "sr": "osam",
+        "srStress": "ȍsam"
+      },
+      {
+        "e": "9️⃣",
+        "ru": "девять",
+        "sr": "devet",
+        "srStress": "dèvēt"
+      },
+      {
+        "e": "🔟",
+        "ru": "десять",
+        "sr": "deset",
+        "srStress": "dȅsēt"
+      },
+      {
+        "e": "💯",
+        "ru": "сто",
+        "sr": "sto",
+        "srStress": "stȏ"
+      }
+    ]
+  },
+  {
+    "id": "verbs",
+    "name": "Глаголы",
+    "emoji": "🏃",
+    "words": [
+      {
+        "e": "🏃",
+        "ru": "бежать",
+        "sr": "trčati",
+        "srStress": "tȑčati"
+      },
+      {
+        "e": "🚶",
+        "ru": "идти",
+        "sr": "ići",
+        "srStress": "íći"
+      },
+      {
+        "e": "🧍",
+        "ru": "стоять",
+        "sr": "stajati",
+        "srStress": "stàjati"
+      },
+      {
+        "e": "🪑",
+        "ru": "сидеть",
+        "sr": "sedeti",
+        "srStress": "sèdēti"
+      },
+      {
+        "e": "🛏️",
+        "ru": "лежать",
+        "sr": "ležati",
+        "srStress": "ležati"
+      },
+      {
+        "e": "😴",
+        "ru": "спать",
+        "sr": "spavati",
+        "srStress": "spávati"
+      },
+      {
+        "e": "🍽️",
+        "ru": "есть",
+        "sr": "jesti",
+        "srStress": "jȅsti"
+      },
+      {
+        "e": "🥤",
+        "ru": "пить",
+        "sr": "piti",
+        "srStress": "pȉti"
+      },
+      {
+        "e": "🗣️",
+        "ru": "говорить",
+        "sr": "govoriti",
+        "srStress": "govòriti"
+      },
+      {
+        "e": "👂",
+        "ru": "слушать",
+        "sr": "slušati",
+        "srStress": "slȕšati"
+      },
+      {
+        "e": "👀",
+        "ru": "смотреть",
+        "sr": "gledati",
+        "srStress": "glȅdati"
+      },
+      {
+        "e": "✍️",
+        "ru": "писать",
+        "sr": "pisati",
+        "srStress": "písati"
+      },
+      {
+        "e": "📖",
+        "ru": "читать",
+        "sr": "čitati",
+        "srStress": "čìtati"
+      },
+      {
+        "e": "🤔",
+        "ru": "думать",
+        "sr": "misliti",
+        "srStress": "mȉsliti"
+      }
+    ]
+  }
+]

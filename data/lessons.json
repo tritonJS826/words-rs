@@ -1,0 +1,255 @@
+[
+  {
+    "id": "builtin-basics",
+    "emoji": "📖",
+    "title": "Сербский с нуля",
+    "description": "Базовый курс · 7 блоков",
+    "blocks": [
+      {
+        "id": "greetings",
+        "title": "Знакомство и первые фразы",
+        "description": "Приветствия, как представиться, спросить имя, попрощаться.",
+        "content": "<h2>Блок 1. Знакомство</h2><p><strong>Приветствия:</strong> Zdravo! (неформ.) / Dobar dan! (форм.)</p><p><strong>Представиться:</strong> Ja sam Marko. — Я Марко.</p><p><strong>Спросить имя:</strong> Kako se zoveš? (ты) / Kako se zovete? (Вы)</p><p><strong>Попрощаться:</strong> Doviđenja! / Ćao!</p><div class=\"example\">— Zdravo! Ja sam Ana. Kako se zoveš?<br>— Zdravo! Ja sam Marko.</div>",
+        "quiz": [
+          {
+            "q": "Как вежливо поздороваться?",
+            "opts": [
+              "Zdravo!",
+              "Dobar dan!",
+              "Ćao!"
+            ],
+            "a": 1
+          },
+          {
+            "q": "Как спросить имя (на «ты»)?",
+            "opts": [
+              "Kako se zovete?",
+              "Kako se zoveš?",
+              "Kako si?"
+            ],
+            "a": 1
+          },
+          {
+            "q": "Как представиться?",
+            "opts": [
+              "Ja sam...",
+              "Ti si...",
+              "On je..."
+            ],
+            "a": 0
+          }
+        ]
+      },
+      {
+        "id": "airport",
+        "title": "Диалог в аэропорту",
+        "description": "Как сообщить имя, откуда вы, вежливые выражения.",
+        "content": "<h2>Блок 2. В аэропорту</h2><div class=\"example\">— Dobar dan! Vaš pasoš i karta, molim.<br>— Izvolite.<br>— Kuda putujete?<br>— Letim za Moskvu.</div>",
+        "quiz": [
+          {
+            "q": "Что означает «Kuda putujete?»",
+            "opts": [
+              "Откуда вы?",
+              "Куда вы летите?",
+              "Как вас зовут?"
+            ],
+            "a": 1
+          },
+          {
+            "q": "Как вежливо подать документы?",
+            "opts": [
+              "Daj mi",
+              "Izvolite",
+              "Uzmi"
+            ],
+            "a": 1
+          },
+          {
+            "q": "Как попрощаться?",
+            "opts": [
+              "Dobar dan",
+              "Doviđenja",
+              "Zdravo"
+            ],
+            "a": 1
+          }
+        ]
+      },
+      {
+        "id": "institute",
+        "title": "Первый день в институте",
+        "description": "Знакомство с одногруппниками, рассказ о себе.",
+        "content": "<h2>Блок 3. В институте</h2><div class=\"example\">— Zdravo! Ja sam student. Kako se zoveš?<br>— Zdravo! Ja sam Ana. Drago mi je.<br>— Drago mi je. Odakle si?<br>— Ja sam iz Rusije.</div>",
+        "quiz": [
+          {
+            "q": "Как сказать «Я студент»?",
+            "opts": [
+              "Ja si student",
+              "Ja sam student",
+              "Ti si student"
+            ],
+            "a": 1
+          },
+          {
+            "q": "Как спросить «Откуда ты?»",
+            "opts": [
+              "Kuda ideš?",
+              "Odakle si?",
+              "Kako si?"
+            ],
+            "a": 1
+          },
+          {
+            "q": "Что значит «Drago mi je»?",
+            "opts": [
+              "Очень приятно",
+              "До свидания",
+              "Как дела"
+            ],
+            "a": 0
+          }
+        ]
+      },
+      {
+        "id": "jesam",
+        "title": "Глагол JESAM — «быть»",
+        "description": "Формы глагола biti в настоящем времени.",
+        "content": "<h2>Блок 4. Глагол JESAM</h2><table><tr><th>Сербский</th><th>Русский</th></tr><tr><td>Ja sam</td><td>Я есть</td></tr><tr><td>Ti si</td><td>Ты есть</td></tr><tr><td>On/Ona/Ono je</td><td>Он/Она/Оно есть</td></tr><tr><td>Mi smo</td><td>Мы есть</td></tr><tr><td>Vi ste</td><td>Вы есть</td></tr><tr><td>Oni/One/Ona su</td><td>Они есть</td></tr></table>",
+        "quiz": [
+          {
+            "q": "Ja ___ student.",
+            "opts": [
+              "si",
+              "sam",
+              "smo"
+            ],
+            "a": 1
+          },
+          {
+            "q": "Ti ___ student.",
+            "opts": [
+              "sam",
+              "si",
+              "je"
+            ],
+            "a": 1
+          },
+          {
+            "q": "Mi ___ studenti.",
+            "opts": [
+              "smo",
+              "ste",
+              "su"
+            ],
+            "a": 0
+          }
+        ]
+      },
+      {
+        "id": "rod",
+        "title": "Род и число существительных",
+        "description": "Мужской, женский, средний род; единственное и множественное число.",
+        "content": "<h2>Блок 5. Род и число</h2><p>Мужские часто на согласную, женские — на <strong>-a</strong>, средние — на <strong>-o</strong> или <strong>-e</strong>.</p><p>student → studenti, knjiga → knjige, mesto → mesta.</p>",
+        "quiz": [
+          {
+            "q": "Род слова «knjiga»?",
+            "opts": [
+              "Мужской",
+              "Женский",
+              "Средний"
+            ],
+            "a": 1
+          },
+          {
+            "q": "Род слова «mesto»?",
+            "opts": [
+              "Мужской",
+              "Женский",
+              "Средний"
+            ],
+            "a": 2
+          },
+          {
+            "q": "Множественное число от «student»:",
+            "opts": [
+              "studenta",
+              "studenti",
+              "studentje"
+            ],
+            "a": 1
+          }
+        ]
+      },
+      {
+        "id": "prisvojne",
+        "title": "Притяжательные местоимения",
+        "description": "moj, moja, moje; tvoj, tvoja, tvoje; njegov, njen.",
+        "content": "<h2>Блок 6. Притяжательные местоимения</h2><table><tr><th>Сербский</th><th>Русский</th><th>Пример</th></tr><tr><td>moj</td><td>мой</td><td>moj student</td></tr><tr><td>moja</td><td>моя</td><td>moja knjiga</td></tr><tr><td>moje</td><td>моё</td><td>moje mesto</td></tr><tr><td>tvoj/tvoja/tvoje</td><td>твой/твоя/твоё</td><td>tvoj brat</td></tr></table>",
+        "quiz": [
+          {
+            "q": "___ knjiga (моя книга)",
+            "opts": [
+              "moj",
+              "moja",
+              "moje"
+            ],
+            "a": 1
+          },
+          {
+            "q": "___ student (мой студент)",
+            "opts": [
+              "moj",
+              "moja",
+              "moje"
+            ],
+            "a": 0
+          },
+          {
+            "q": "___ mesto (моё место)",
+            "opts": [
+              "moj",
+              "moja",
+              "moje"
+            ],
+            "a": 2
+          }
+        ]
+      },
+      {
+        "id": "pismo",
+        "title": "Словарь и письменность",
+        "description": "Латиница и кириллица, буквы č, ć, š, ž, đ.",
+        "content": "<h2>Блок 7. Письменность</h2><p>Сербский использует и латиницу, и кириллицу. Основные: č (ч), ć (ч мягкое), š (ш), ž (ж), đ (дж).</p>",
+        "quiz": [
+          {
+            "q": "Какая буква = «ш»?",
+            "opts": [
+              "č",
+              "š",
+              "ž"
+            ],
+            "a": 1
+          },
+          {
+            "q": "Что означает «škola»?",
+            "opts": [
+              "Школа",
+              "Книга",
+              "Учитель"
+            ],
+            "a": 0
+          },
+          {
+            "q": "Буква «đ» читается как:",
+            "opts": [
+              "дж",
+              "дь",
+              "г"
+            ],
+            "a": 0
+          }
+        ]
+      }
+    ]
+  }
+]
