@@ -2,40 +2,69 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Обратная связь — Сербский для жизни</title>
+<meta name="theme-color" content="#F7F4EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1517" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+/* Та же тема оформления, что и в приложении */
+try { const t = (JSON.parse(localStorage.getItem('sr_settings')||'{}').theme)||'auto'; if (t !== 'auto') document.documentElement.dataset.theme = t; } catch(e) {}
+</script>
 <style>
-:root{--paper:#FFF8EC;--ink:#1d2a2e;--teal:#0F4C5C;--sun:#F2A900;--ok:#2E7D32;--bad:#B3261E;--line:#e3d6bb}
+:root{color-scheme:light;--bg:#F7F4EE;--surface:#FFFFFF;--surface-2:#FBF9F5;--surface-3:#F1ECE2;--ink:#17252A;--ink-soft:#46585E;--ink-mute:#7B8A8F;
+  --teal:#0F4C5C;--primary:#0F4C5C;--on-primary:#FFFFFF;--tint:#E7F0F2;--tint-line:#CDE0E5;--sun:#F2A900;--ok:#2E7D32;--ok-bg:#E8F4E9;--line:#E6DFD1;
+  --shadow-sm:0 1px 2px rgba(23,37,42,.04),0 2px 8px rgba(23,37,42,.06)}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0E1517;--surface:#162125;--surface-2:#1A272B;--surface-3:#22323A;--ink:#E8EEF0;--ink-soft:#B4C2C6;--ink-mute:#83959A;
+  --teal:#86D3E0;--primary:#3FA9BD;--on-primary:#04181D;--tint:#1B3036;--tint-line:#2A4750;--sun:#FFB81C;--ok:#74CF7A;--ok-bg:#17301B;--line:#27383E;--shadow-sm:0 1px 2px rgba(0,0,0,.3)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0E1517;--surface:#162125;--surface-2:#1A272B;--surface-3:#22323A;--ink:#E8EEF0;--ink-soft:#B4C2C6;--ink-mute:#83959A;
+  --teal:#86D3E0;--primary:#3FA9BD;--on-primary:#04181D;--tint:#1B3036;--tint-line:#2A4750;--sun:#FFB81C;--ok:#74CF7A;--ok-bg:#17301B;--line:#27383E;--shadow-sm:0 1px 2px rgba(0,0,0,.3)}}
 *{box-sizing:border-box;margin:0}
-html{font-size:18px;-webkit-text-size-adjust:100%}
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--paper);color:var(--ink);min-height:100dvh;line-height:1.35}
-main{max-width:640px;margin:0 auto;padding:calc(8px + env(safe-area-inset-top,0px)) 14px 32px}
-h1{font-size:1.5rem;color:var(--teal);margin:4px 0 12px}
-h2{font-size:1.1rem;color:var(--teal);margin:20px 0 10px}
-p{color:#5b6b6f;margin-bottom:12px}
+html{font-size:17px;-webkit-text-size-adjust:100%}
+@media (min-width:600px){html{font-size:18px}}
+body{font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100dvh;line-height:1.4;-webkit-font-smoothing:antialiased}
+main{max-width:640px;margin:0 auto;padding:calc(16px + env(safe-area-inset-top,0px)) 16px 40px}
+h1{font-size:1.7rem;color:var(--ink);margin:14px 0 6px;font-weight:800;letter-spacing:-.025em}
+h2{font-size:1.15rem;color:var(--ink);margin:0 0 10px;font-weight:800}
+p{color:var(--ink-soft);margin-bottom:16px}
 a{color:var(--teal)}
-form{background:#fff;border:2px solid var(--line);border-radius:24px;padding:18px 16px}
-.field{margin-bottom:16px}
-label{display:block;font-weight:700;color:var(--teal);margin-bottom:6px;font-size:.95rem}
-.help{color:#5b6b6f;font-size:.82rem;margin-bottom:4px}
-.checkgroup{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0}
-.checkgroup label{display:inline-flex;align-items:center;gap:6px;font-weight:400;color:var(--ink);font-size:.9rem;cursor:pointer}
-.checkgroup input[type=checkbox]{width:18px;height:18px;accent-color:var(--teal)}
-textarea,input[type=text],input[type=email]{width:100%;font:inherit;padding:10px 12px;border:2px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);resize:vertical}
-textarea{min-height:80px}
-input:focus,textarea:focus{outline:none;border-color:var(--teal)}
-button{font:inherit;cursor:pointer;border:0;border-radius:16px;padding:12px 24px;min-height:54px;background:var(--teal);color:#fff;font-weight:700;font-size:1rem;width:100%;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-button:focus-visible{outline:4px solid var(--sun);outline-offset:3px}
-.backlink{display:inline-block;margin-top:16px;color:var(--teal);font-weight:700;text-decoration:none}
-.backlink:hover{text-decoration:underline}
-.radio-group{display:flex;flex-direction:column;gap:8px}
-.radio-group label{display:flex;align-items:center;gap:8px;font-weight:400;color:var(--ink);font-size:.9rem;cursor:pointer}
-.radio-group input[type=checkbox]{width:18px;height:18px;accent-color:var(--teal)}
-.success{display:none;background:#e6f4e7;border:2px solid var(--ok);border-radius:24px;padding:30px 16px;text-align:center;margin-top:20px}
-.success h2{color:var(--ok)}</style>
+form{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:20px 18px;box-shadow:var(--shadow-sm)}
+.field{margin-bottom:20px}
+label{display:block;font-weight:800;color:var(--ink);margin-bottom:4px;font-size:.95rem}
+.help{display:block;color:var(--ink-mute);font-size:.82rem;margin-bottom:10px}
+.checkgroup{display:flex;flex-wrap:wrap;gap:8px}
+.checkgroup label{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--ink-soft);font-size:.88rem;cursor:pointer;margin:0;
+  padding:9px 14px;border:1.5px solid var(--line);border-radius:999px;background:var(--surface-2);transition:background .15s,border-color .15s,color .15s;-webkit-user-select:none;user-select:none}
+.checkgroup label:has(input:checked){background:var(--tint);border-color:var(--teal);color:var(--teal)}
+.checkgroup input[type=checkbox]{position:absolute;opacity:0;width:1px;height:1px}
+.checkgroup label:focus-within{outline:3px solid var(--sun);outline-offset:2px}
+.radio-group{display:grid;gap:8px}
+.radio-group label{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink);font-size:.9rem;cursor:pointer;margin:0;padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:var(--surface-2)}
+.radio-group label:has(input:checked){border-color:var(--teal);background:var(--tint)}
+.radio-group input[type=checkbox]{width:20px;height:20px;accent-color:var(--primary);flex-shrink:0}
+textarea,input[type=text],input[type=email]{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1.5px solid var(--line);border-radius:14px;background:var(--surface-2);color:var(--ink);resize:vertical;transition:border-color .15s,box-shadow .15s}
+textarea{min-height:110px}
+input:focus,textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px var(--tint)}
+::placeholder{color:var(--ink-mute)}
+button{font:inherit;cursor:pointer;border:0;border-radius:16px;padding:12px 24px;min-height:54px;background:var(--primary);color:var(--on-primary);font-weight:800;font-size:1rem;width:100%;-webkit-tap-highlight-color:transparent;touch-action:manipulation;box-shadow:var(--shadow-sm);transition:filter .15s,transform .1s}
+button:hover{filter:brightness(1.08)}
+button:active{transform:scale(.98)}
+button:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.backlink{display:inline-flex;align-items:center;gap:6px;margin-top:4px;color:var(--ink);font-weight:700;text-decoration:none;background:var(--surface);border:1px solid var(--line);padding:9px 16px;border-radius:999px;font-size:.9rem}
+.backlink:hover{border-color:var(--teal)}
+main>.backlink:last-child{margin-top:18px}
+.success{display:none;background:var(--ok-bg);border:1.5px solid var(--ok);border-radius:24px;padding:30px 16px;text-align:center;margin-top:20px}
+.success h2{color:var(--ok)}
+</style>
 </head>
 <body>
 <main>
+  <a class="backlink" href="./">← Назад в приложение</a>
   <h1>✉️ Обратная связь</h1>
   <p>Помогите сделать «Сербский для жизни» лучше. Все поля — по желанию.</p>
 
